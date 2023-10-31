@@ -4,16 +4,16 @@
 set -e
 
 # build cpp
-# cd src/cpp
-# rm -rf build
-# mkdir build
-# cd build
-# emcmake cmake ..
-# make
-# cd ..
-# rm -rf build
-# mkdir build
-# cd ../..
+cd src/cpp
+rm -rf build
+mkdir build
+cd build
+emcmake cmake ..
+make
+cd ..
+rm -rf build
+mkdir build
+cd ../..
 
 # build
 yarn build
@@ -35,5 +35,12 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:GregoryKogan/sorts.git main:gh-pages
+
+
+# return to cpp and reinit cmake
+cd ../src/cpp/build
+emcmake cmake ..
+make
+cd ../../../
 
 cd -

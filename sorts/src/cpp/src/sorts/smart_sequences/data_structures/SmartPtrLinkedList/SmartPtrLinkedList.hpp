@@ -2,6 +2,7 @@
 #define LAB1_SMART_PTR_LINKED_LIST_HPP
 
 #include "../../../../libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.hpp"
+#include "../../../../libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.hpp"
 #include "../../smart_pointers/SharedPtr/SharedPtr.hpp"
 #include "../../smart_pointers/WeakPtr/WeakPtr.hpp"
 

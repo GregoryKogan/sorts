@@ -70,6 +70,10 @@ else()
         src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.cpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.cpp
+        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.hpp
+        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.cpp
+        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.hpp
+        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.cpp
 
         src/libs/test_lib/test_lib.hpp
         src/libs/test_lib/test_lib.cpp
@@ -100,8 +104,18 @@ else()
         src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp
         src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hh
 
+        src/sorts/sorters/BaseSorter.hpp
+        src/sorts/sorters/BaseSorter.hh
+        src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
+        src/sorts/sorters/BubbleSorter/BubbleSorter.hh
+
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp
+        src/tests/UniquePtr_tests/UniquePtr_tests.hpp
+        src/tests/UniquePtr_tests/UniquePtr_tests.cpp
+        src/tests/WeakPtr_tests/WeakPtr_tests.hpp
+        src/tests/WeakPtr_tests/WeakPtr_tests.cpp
+
         src/tests/SmartPtrArraySequence_tests/SmartPtrArraySequence_tests.hpp
         src/tests/SmartPtrArraySequence_tests/SmartPtrArraySequence_tests.cpp
         src/tests/SmartPtrDynamicArray_tests/SmartPtrDynamicArray_tests.hpp
@@ -110,10 +124,9 @@ else()
         src/tests/SmartPtrLinkedList_tests/SmartPtrLinkedList_tests.cpp
         src/tests/SmartPtrLinkedListSequence_tests/SmartPtrLinkedListSequence_tests.hpp
         src/tests/SmartPtrLinkedListSequence_tests/SmartPtrLinkedListSequence_tests.cpp
-        src/tests/UniquePtr_tests/UniquePtr_tests.hpp
-        src/tests/UniquePtr_tests/UniquePtr_tests.cpp
-        src/tests/WeakPtr_tests/WeakPtr_tests.hpp
-        src/tests/WeakPtr_tests/WeakPtr_tests.cpp
+
+        src/tests/BubbleSorter_tests/BubbleSorter_tests.hpp
+        src/tests/BubbleSorter_tests/BubbleSorter_tests.cpp
     )
 
     set(extra_flags "")

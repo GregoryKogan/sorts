@@ -1,4 +1,5 @@
 #include "BubbleSorter_tests/BubbleSorter_tests.hpp"
+#include "SelectionSorter_tests/SelectionSorter_tests.hpp"
 #include "SharedPtr_tests/SharedPtr_tests.hpp"
 #include "SmartPtrArraySequence_tests/SmartPtrArraySequence_tests.hpp"
 #include "SmartPtrDynamicArray_tests/SmartPtrDynamicArray_tests.hpp"
@@ -18,7 +19,8 @@ int main() {
                                             get_smart_ptr_array_sequence_test_suite(),
                                             get_smart_ptr_linked_list_sequence_test_suite(),
 
-                                            get_bubble_sorter_test_suite()};
+                                            get_bubble_sorter_test_suite(),
+                                            get_selection_sorter_test_suite()};
 
     kogan::Tester tester(suites);
     tester.test();

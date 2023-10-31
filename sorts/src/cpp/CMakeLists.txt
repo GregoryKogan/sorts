@@ -108,6 +108,8 @@ else()
         src/sorts/sorters/BaseSorter.hh
         src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
         src/sorts/sorters/BubbleSorter/BubbleSorter.hh
+        src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
+        src/sorts/sorters/SelectionSorter/SelectionSorter.hh
 
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp
@@ -127,6 +129,8 @@ else()
 
         src/tests/BubbleSorter_tests/BubbleSorter_tests.hpp
         src/tests/BubbleSorter_tests/BubbleSorter_tests.cpp
+        src/tests/SelectionSorter_tests/SelectionSorter_tests.hpp
+        src/tests/SelectionSorter_tests/SelectionSorter_tests.cpp
     )
 
     set(extra_flags "")

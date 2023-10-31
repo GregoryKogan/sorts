@@ -1,5 +1,5 @@
-#ifndef LAB1_SHARED_PTR_TESTS_HPP
-#define LAB1_SHARED_PTR_TESTS_HPP
+#ifndef BUBBLE_SORTER_TESTS_HPP
+#define BUBBLE_SORTER_TESTS_HPP
 
 #include "../../libs/test_lib/test_lib.hpp"
 #include "../../sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp"

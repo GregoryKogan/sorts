@@ -1,0 +1,1 @@
+import{p as t,g as n}from"./index-92225df0.js";const s=t({class:[String,Array],style:{type:[String,Array,Object],default:null}},"component");function o(e){const r=n("useRender");r.render=e}const p=t({tag:{type:String,default:"div"}},"tag");export{p as a,s as m,o as u};

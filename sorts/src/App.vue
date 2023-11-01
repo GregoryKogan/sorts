@@ -32,6 +32,7 @@ export default defineComponent({
             to: "cpp",
             message: {
               action: "sort",
+              algorithm: this.store.sortAlgorithm,
               seq_len: this.store.sequenceLength,
               cmp_per_sec: this.store.comparisonsPerSecond,
             },

@@ -27,6 +27,7 @@ class Sketch {
     u_int32_t get_swaps() const noexcept;
 
     // Modifiers
+    void set_sort_algorithm(const std::string &algorithm) noexcept;
     void set_comparisons_per_second(const u_int32_t &comparisons_per_second) noexcept;
     void set_sequence_length(const std::size_t &seq_len) noexcept;
 
@@ -34,6 +35,9 @@ class Sketch {
     SDL_Renderer *renderer_;
     int window_width_ = 0;
     int window_height_ = 0;
+
+    std::string sort_algorithm_ = "bubble";
+    void init_sorter_() noexcept;
 
     bool is_setup_ = false;
 

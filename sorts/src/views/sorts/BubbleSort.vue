@@ -66,6 +66,7 @@ export default defineComponent({
   },
   methods: {
     setDefaults() {
+      this.store.setSortAlgorithm("bubble");
       this.store.setSequenceLength(100);
       this.store.setComparisonsPerSecond(100);
 

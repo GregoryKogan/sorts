@@ -4,8 +4,7 @@ Sketch::Sketch(SDL_Renderer* renderer) : renderer_(renderer) {}
 
 void Sketch::setup() {
     generate_sequence_();
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
-        new kogan::BubbleSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    init_sorter_();
     sorter_->make_limited_in_comparisons();
     is_setup_ = true;
 }
@@ -55,6 +54,8 @@ u_int32_t Sketch::get_comparisons() const noexcept { return sorter_->get_compari
 
 u_int32_t Sketch::get_swaps() const noexcept { return sorter_->get_swaps(); }
 
+void Sketch::set_sort_algorithm(const std::string& algorithm) noexcept { sort_algorithm_ = algorithm; }
+
 void Sketch::set_comparisons_per_second(const u_int32_t& comparisons_per_second) noexcept {
     comparisons_per_second_ = comparisons_per_second;
     min_comparisons_to_sort_ = std::max((u_int32_t)1, comparisons_per_second_ / 60);
@@ -64,6 +65,16 @@ void Sketch::set_sequence_length(const std::size_t& seq_len) noexcept {
     seq_len_ = seq_len;
     max_value_ = seq_len_;
     calculate_scales_();
+}
+
+void Sketch::init_sorter_() noexcept {
+    if (sort_algorithm_ == "bubble") {
+        sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+            new kogan::BubbleSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    } else if (sort_algorithm_ == "selection") {
+        sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+            new kogan::SelectionSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    }
 }
 
 void Sketch::calculate_scales_() noexcept {

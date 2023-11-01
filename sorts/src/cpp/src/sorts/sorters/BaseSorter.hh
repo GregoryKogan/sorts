@@ -6,7 +6,9 @@
 namespace kogan {
 
 template <class T>
-inline Sorter<T>::Sorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : cmp_(cmp), sequence_(sequence) {}
+inline Sorter<T>::Sorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : cmp_(cmp), sequence_(sequence) {
+    interesting_indexes_ = make_shared<SmartPtrLinkedListSequence<T>>();
+}
 
 template <class T>
 inline bool Sorter<T>::is_sorted() const noexcept {
@@ -14,6 +16,11 @@ inline bool Sorter<T>::is_sorted() const noexcept {
         if (cmp_(sequence_->get(i), sequence_->get(i + 1)) > 0) return false;
     }
     return true;
+}
+
+template <class T>
+inline SharedPtr<SmartPtrLinkedListSequence<T>> Sorter<T>::get_interesting_indexes() const noexcept {
+    return interesting_indexes_;
 }
 
 template <class T>
@@ -84,6 +91,7 @@ template <class T>
 inline void Sorter<T>::sort() {
     try {
         sort_();
+        set_interesting_indexes_();
     } catch (OutOfComparisonsException& e) {
         return;
     } catch (OutOfSwapsException& e) {
@@ -92,8 +100,8 @@ inline void Sorter<T>::sort() {
 }
 
 template <class T>
-inline int Sorter<T>::cmp_wrapper_(T a, T b) {
-    if (limited_in_comparisons_ && !available_comparisons_) throw OutOfComparisonsException();
+inline std::optional<int> Sorter<T>::cmp_wrapper_(T a, T b) {
+    if (limited_in_comparisons_ && !available_comparisons_) return {};
     if (limited_in_comparisons_) --available_comparisons_;
 
     ++comparisons_;
@@ -101,14 +109,15 @@ inline int Sorter<T>::cmp_wrapper_(T a, T b) {
 }
 
 template <class T>
-inline void Sorter<T>::swap_(int i, int j) {
-    if (limited_in_swaps_ && !available_swaps_) throw OutOfSwapsException();
+inline bool Sorter<T>::swap_(int i, int j) {
+    if (limited_in_swaps_ && !available_swaps_) return false;
     if (limited_in_swaps_) --available_swaps_;
 
     ++swaps_;
     T tmp = sequence_->get(i);
     sequence_->set(i, sequence_->get(j));
     sequence_->set(j, tmp);
+    return true;
 }
 
 }  // namespace kogan

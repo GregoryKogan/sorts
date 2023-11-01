@@ -3,6 +3,7 @@
 
 #include <algorithm>
 
+#include "../../../../libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.hpp"
 #include "../../smart_pointers/SharedPtr/SharedPtr.hpp"
 
 namespace kogan {

@@ -3,8 +3,8 @@
   <v-container
     style="
       height: 100%;
-      justify-content: end;
-      align-items: end;
+      justify-content: start;
+      align-items: start;
       display: flex;
       flex-direction: column;
     "

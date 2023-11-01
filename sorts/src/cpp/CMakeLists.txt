@@ -14,15 +14,65 @@ if (DEFINED EMSCRIPTEN)
 
     add_executable(
         sorts
-        src/main.cpp
+        src/sdl2_app/main.cpp
 
-        src/messaging/messaging.hpp
-        src/messaging/messaging.cpp
+        src/sdl2_app/messaging/messaging.hpp
+        src/sdl2_app/messaging/messaging.cpp
 
-        src/Application.hpp
-        src/Application.cpp
-        src/Sketch/Sketch.hpp
-        src/Sketch/Sketch.cpp
+        src/sdl2_app/Application.hpp
+        src/sdl2_app/Application.cpp
+        src/sdl2_app/Sketch/Sketch.hpp
+        src/sdl2_app/Sketch/Sketch.cpp
+
+        src/libs/exception_lib/exception_lib.hpp
+        src/libs/exception_lib/exception_lib.cpp
+        src/libs/exception_lib/IO/colored_logs.hpp
+        src/libs/exception_lib/IO/colored_logs.cpp
+        src/libs/exception_lib/exceptions/BaseException.hpp
+        src/libs/exception_lib/exceptions/BaseException.cpp
+        src/libs/exception_lib/exceptions/AssertionFailedException/AssertionFailedException.hpp
+        src/libs/exception_lib/exceptions/AssertionFailedException/AssertionFailedException.cpp
+        src/libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.hpp
+        src/libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.cpp
+        src/libs/exception_lib/exceptions/EmptyPointerException/EmptyPointerException.hpp
+        src/libs/exception_lib/exceptions/EmptyPointerException/EmptyPointerException.cpp
+        src/libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.hpp
+        src/libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.cpp
+        src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.hpp
+        src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.cpp
+        src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp
+        src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.cpp
+        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.hpp
+        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.cpp
+        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.hpp
+        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.cpp
+
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hpp
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hh
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hpp
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hh
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hpp
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hh
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hpp
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hh
+
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hpp
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hh
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hpp
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hh
+
+        src/sorts/smart_sequences/sequences/SmartPtrSequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hh
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hh
+
+        src/sorts/sorters/BaseSorter.hpp
+        src/sorts/sorters/BaseSorter.hh
+        src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
+        src/sorts/sorters/BubbleSorter/BubbleSorter.hh
+        src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
+        src/sorts/sorters/SelectionSorter/SelectionSorter.hh   
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

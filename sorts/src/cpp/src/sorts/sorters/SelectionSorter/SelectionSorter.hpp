@@ -16,6 +16,7 @@ class SelectionSorter : public Sorter<T> {
     SelectionSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
     void sort_() override;
+    void set_interesting_indexes_() noexcept override;
 };
 
 }  // namespace kogan

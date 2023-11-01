@@ -9,7 +9,7 @@ rm -rf build
 mkdir build
 cd build
 emcmake cmake ..
-make
+emmake make
 cd ..
 rm -rf build
 mkdir build

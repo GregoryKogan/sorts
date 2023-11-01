@@ -28,7 +28,7 @@ class Application {
     std::deque<Uint64> delta_time_records_;
     std::size_t max_delta_time_records_ = 50;
 
-    Uint64 data_sync_period_ = 1000;
+    Uint64 data_sync_period_ = 40;
     Uint64 last_data_sync_time_ = 0;
 
     void handle_window_events_();
@@ -38,4 +38,6 @@ class Application {
 
     void sync_data_();
     void send_data_();
+
+    void send_ready_();
 };

@@ -14,6 +14,8 @@ Application::Application() {
     sketch_ = std::make_unique<Sketch>(renderer_);
 
     last_time_ = SDL_GetTicks64();
+
+    send_ready_();
 }
 
 Application::~Application() { SDL_DestroyWindow(window_); }
@@ -59,7 +61,16 @@ void Application::handle_messages_() {
     message_doc.Parse(message.c_str());
 
     if (message_doc.HasMember("action")) {
-        if (message_doc["action"].GetString() == std::string("sort")) sketch_->setup();
+        if (message_doc["action"].GetString() == std::string("sort")) {
+            if (message_doc.HasMember("seq_len")) {
+                if (message_doc["seq_len"].IsUint()) sketch_->set_sequence_length(message_doc["seq_len"].GetUint());
+            }
+            if (message_doc.HasMember("cmp_per_sec")) {
+                if (message_doc["cmp_per_sec"].IsUint())
+                    sketch_->set_comparisons_per_second(message_doc["cmp_per_sec"].GetUint());
+            }
+            sketch_->setup();
+        }
         if (message_doc["action"].GetString() == std::string("quit")) keep_window_open_ = false;
     }
 }
@@ -94,6 +105,25 @@ void Application::send_data_() {
             message_obj.AddMember("comparisons", sketch_->get_comparisons(), allocator);
             message_obj.AddMember("swaps", sketch_->get_swaps(), allocator);
         }
+        message_doc.AddMember("message", message_obj, allocator);
+    }
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    message_doc.Accept(writer);
+    std::string json_string = buffer.GetString();
+
+    Messenger::instance().send_message(json_string);
+}
+
+void Application::send_ready_() {
+    rapidjson::Document message_doc;
+    message_doc.SetObject();
+    rapidjson::Document::AllocatorType& allocator = message_doc.GetAllocator();
+    {
+        message_doc.AddMember("to", "js", allocator);
+        rapidjson::Value message_obj;
+        message_obj.SetObject();
+        { message_obj.AddMember("app_is_ready", true, allocator); }
         message_doc.AddMember("message", message_obj, allocator);
     }
     rapidjson::StringBuffer buffer;

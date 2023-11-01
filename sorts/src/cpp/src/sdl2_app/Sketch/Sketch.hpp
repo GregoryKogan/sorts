@@ -15,28 +15,39 @@ class Sketch {
    public:
     Sketch(SDL_Renderer *renderer);
 
+    // Lifecycle
     void setup();
     void update(const double &delta_time);
     void draw() const noexcept;
+
     void set_window_size(const int &width, const int &height) noexcept;
 
+    // Observers
     u_int32_t get_comparisons() const noexcept;
     u_int32_t get_swaps() const noexcept;
+
+    // Modifiers
+    void set_comparisons_per_second(const u_int32_t &comparisons_per_second) noexcept;
+    void set_sequence_length(const std::size_t &seq_len) noexcept;
 
    private:
     SDL_Renderer *renderer_;
     int window_width_ = 0;
     int window_height_ = 0;
 
+    bool is_setup_ = false;
+
     float vertical_scale_ = 0.0f;
     float horizontal_scale_ = 0.0f;
+    int bottom_offset_ = 5;
+    void calculate_scales_() noexcept;
 
-    u_int32_t comparisons_per_second_ = 200000;
+    u_int32_t comparisons_per_second_ = 0;
     u_int32_t milliseconds_since_last_sort_ = 0;
-    u_int32_t min_comparisons_to_sort_ = std::min((u_int32_t)1, comparisons_per_second_ / 60);
+    u_int32_t min_comparisons_to_sort_ = 0;
 
-    std::size_t seq_len_ = 2000;
-    std::size_t max_value_ = 1000;
+    std::size_t seq_len_ = 0;
+    std::size_t max_value_ = 0;
     kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence_;
 
     kogan::UniquePtr<kogan::Sorter<int>> sorter_;

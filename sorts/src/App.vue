@@ -26,6 +26,19 @@ export default defineComponent({
       if (!data.to || data.to !== "js") return;
       if (!data.message) return;
 
+      if ("app_is_ready" in data.message) {
+        window.postMessage(
+          JSON.stringify({
+            to: "cpp",
+            message: {
+              action: "sort",
+              seq_len: this.store.sequenceLength,
+              cmp_per_sec: this.store.comparisonsPerSecond,
+            },
+          }),
+          "*"
+        );
+      }
       if ("frame_rate" in data.message)
         this.store.setFrameRate(data.message.frame_rate);
       if ("comparisons" in data.message)

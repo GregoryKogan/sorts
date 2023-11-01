@@ -50,7 +50,10 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
+body {
+  background-color: rgb(var(--v-theme-background));
+}
 * {
   margin: 0;
   padding: 0;

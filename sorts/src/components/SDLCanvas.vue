@@ -1,7 +1,7 @@
 <template>
   <canvas
     id="_sdl-canvas"
-    style="width: 100%; aspect-ratio: 16 / 9"
+    style="width: 100%; aspect-ratio: 16 / 9; pointer-events: none"
     oncontextmenu="event.preventDefault()"
     tabindex="-1"
   ></canvas>

@@ -1,41 +1,32 @@
 <template>
-  <div class="canvas-wrapper"><SDLCanvas /></div>
-  <v-container
-    style="
-      height: 100%;
-      justify-content: start;
-      align-items: start;
-      display: flex;
-      flex-direction: column;
-    "
-  >
-    <v-card color="transparent" flat>FPS: {{ store.frameRate }}</v-card>
+  <h1 style="text-align: center; margin: 1em">Sorts</h1>
+
+  <v-container>
+    <v-row justify="space-around">
+      <div v-for="sort in sorts" :key="sort.name" style="margin: 1em">
+        <v-btn @click="$router.push({ name: sort.route })" color="primary">{{
+          sort.name
+        }}</v-btn>
+      </div>
+    </v-row>
   </v-container>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SDLCanvas from "@/components/SDLCanvas.vue";
-import { useAppStore } from "@/store/app";
+
+interface Sort {
+  name: string;
+  route: string;
+}
 
 export default defineComponent({
   name: "Home",
-  components: {
-    SDLCanvas,
-  },
-  setup() {
-    const store = useAppStore();
-    return { store };
-  },
+  data: () => ({
+    sorts: [
+      { name: "bubble sort", route: "BubbleSort" },
+      { name: "selection sort", route: "SelectionSort" },
+    ] as Sort[],
+  }),
 });
 </script>
-
-<style scoped>
-.canvas-wrapper {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-</style>

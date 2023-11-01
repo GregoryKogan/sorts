@@ -26,11 +26,11 @@ export default defineComponent({
       if (!data.to || data.to !== "js") return;
       if (!data.message) return;
 
-      if ("frame_rate" in data.message) {
+      if ("frame_rate" in data.message)
         this.store.setFrameRate(data.message.frame_rate);
-      } else {
-        console.log("Message: ", data.message);
-      }
+      if ("comparisons" in data.message)
+        this.store.setComparisons(data.message.comparisons);
+      if ("swaps" in data.message) this.store.setSwaps(data.message.swaps);
     });
   },
 });

@@ -51,9 +51,16 @@ void Application::handle_window_events_() {
 }
 
 void Application::handle_messages_() {
-    if (Messenger::instance().has_message()) {
-        std::string message = Messenger::instance().get_message();
-        std::cout << "Message: " << message << "\n";
+    if (!Messenger::instance().has_message()) return;
+
+    std::string message = Messenger::instance().get_message();
+
+    rapidjson::Document message_doc;
+    message_doc.Parse(message.c_str());
+
+    if (message_doc.HasMember("action")) {
+        if (message_doc["action"].GetString() == std::string("sort")) sketch_->setup();
+        if (message_doc["action"].GetString() == std::string("quit")) keep_window_open_ = false;
     }
 }
 
@@ -71,10 +78,10 @@ void Application::sync_data_() {
     if (current_time - last_data_sync_time_ < data_sync_period_) return;
     last_data_sync_time_ = current_time;
 
-    send_frame_rate_();
+    send_data_();
 }
 
-void Application::send_frame_rate_() {
+void Application::send_data_() {
     rapidjson::Document message_doc;
     message_doc.SetObject();
     rapidjson::Document::AllocatorType& allocator = message_doc.GetAllocator();
@@ -82,7 +89,11 @@ void Application::send_frame_rate_() {
         message_doc.AddMember("to", "js", allocator);
         rapidjson::Value message_obj;
         message_obj.SetObject();
-        { message_obj.AddMember("frame_rate", get_frame_rate(), allocator); }
+        {
+            message_obj.AddMember("frame_rate", get_frame_rate(), allocator);
+            message_obj.AddMember("comparisons", sketch_->get_comparisons(), allocator);
+            message_obj.AddMember("swaps", sketch_->get_swaps(), allocator);
+        }
         message_doc.AddMember("message", message_obj, allocator);
     }
     rapidjson::StringBuffer buffer;

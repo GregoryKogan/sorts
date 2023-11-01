@@ -20,6 +20,9 @@ class Sketch {
     void draw() const noexcept;
     void set_window_size(const int &width, const int &height) noexcept;
 
+    u_int32_t get_comparisons() const noexcept;
+    u_int32_t get_swaps() const noexcept;
+
    private:
     SDL_Renderer *renderer_;
     int window_width_ = 0;

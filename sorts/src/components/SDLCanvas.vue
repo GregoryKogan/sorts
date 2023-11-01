@@ -13,17 +13,27 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "SDLCanvas",
   mounted() {
-    let oldScript = document.getElementById("attach-wasm-to-canvas");
-    if (oldScript) oldScript.remove();
+    let scriptText;
 
-    let script = document.createElement("script");
-    script.type = "text/javascript";
-    script.id = "attach-wasm-to-canvas";
-    script.text = `
+    let oldScript = document.getElementById("attach-wasm-to-canvas");
+    if (oldScript) {
+      scriptText = `
+        Main({
+          canvas: (() => document.getElementById("_sdl-canvas"))(),
+        }).then((m) => { Module = m; m.callMain(); });`;
+      oldScript.remove();
+    } else {
+      scriptText = `
         let Module;
         Main({
           canvas: (() => document.getElementById("_sdl-canvas"))(),
         }).then((m) => { Module = m; m.callMain(); });`;
+    }
+
+    let script = document.createElement("script");
+    script.type = "text/javascript";
+    script.id = "attach-wasm-to-canvas";
+    script.text = scriptText;
     document.body.appendChild(script);
   },
 });

@@ -37,5 +37,5 @@ class Application {
     double get_delta_time_();
 
     void sync_data_();
-    void send_frame_rate_();
+    void send_data_();
 };

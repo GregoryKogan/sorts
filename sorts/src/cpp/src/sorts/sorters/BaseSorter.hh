@@ -7,6 +7,8 @@ namespace kogan {
 
 template <class T>
 inline Sorter<T>::Sorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : cmp_(cmp), sequence_(sequence) {
+    comparisons_ = 0;
+    swaps_ = 0;
     interesting_indexes_ = make_shared<SmartPtrLinkedListSequence<T>>();
 }
 

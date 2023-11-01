@@ -4,9 +4,12 @@
   <v-container>
     <v-row justify="space-around">
       <div v-for="sort in sorts" :key="sort.name" style="margin: 1em">
-        <v-btn @click="$router.push({ name: sort.route })" color="primary">{{
-          sort.name
-        }}</v-btn>
+        <v-btn
+          @click="$router.push({ name: sort.route })"
+          color="primary"
+          variant="tonal"
+          >{{ sort.name }}</v-btn
+        >
       </div>
     </v-row>
   </v-container>
@@ -28,5 +31,16 @@ export default defineComponent({
       { name: "selection sort", route: "SelectionSort" },
     ] as Sort[],
   }),
+  mounted() {
+    window.postMessage(
+      JSON.stringify({
+        to: "cpp",
+        message: {
+          action: "quit",
+        },
+      }),
+      "*"
+    );
+  },
 });
 </script>

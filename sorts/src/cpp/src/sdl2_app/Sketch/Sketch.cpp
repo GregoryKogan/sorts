@@ -46,6 +46,10 @@ void Sketch::set_window_size(const int& width, const int& height) noexcept {
     vertical_scale_ = (float)window_height_ / (float)max_value_;
 }
 
+u_int32_t Sketch::get_comparisons() const noexcept { return sorter_->get_comparisons(); }
+
+u_int32_t Sketch::get_swaps() const noexcept { return sorter_->get_swaps(); }
+
 void Sketch::generate_sequence_() noexcept {
     sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(new kogan::SmartPtrArraySequence<int>());
     for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_);

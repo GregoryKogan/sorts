@@ -17,6 +17,7 @@ export default createVuetify({
     defaultTheme: "dark",
     themes: {
       dark: { // tokyo night storm theme
+        dark: true,
         colors: {
           background: "#24283b",
           primary: "#7aa2f7",

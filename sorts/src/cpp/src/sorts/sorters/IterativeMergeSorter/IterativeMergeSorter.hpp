@@ -19,11 +19,12 @@ class IterativeMergeSorter : public Sorter<T> {
     SmartPtrLinkedListSequence<int> left_part_;
     SmartPtrLinkedListSequence<int> right_part_;
 
+    bool merge_();
+
    public:
     IterativeMergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
     void sort_() override;
-    bool merge_();
 
     void set_interesting_indexes_() noexcept override;
 };

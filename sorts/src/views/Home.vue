@@ -30,6 +30,7 @@ export default defineComponent({
       { name: "bubble sort", route: "BubbleSort" },
       { name: "selection sort", route: "SelectionSort" },
       { name: "insertion sort", route: "InsertionSort" },
+      { name: "merge sort", route: "MergeSort" },
       { name: "iterative merge sort", route: "IterativeMergeSort" },
     ] as Sort[],
   }),

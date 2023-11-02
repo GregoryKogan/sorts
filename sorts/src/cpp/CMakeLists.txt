@@ -75,6 +75,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/SelectionSorter/SelectionSorter.hh   
         src/sorts/sorters/InsertionSorter/InsertionSorter.hpp
         src/sorts/sorters/InsertionSorter/InsertionSorter.hh
+        src/sorts/sorters/MergeSorter/MergeSorter.hpp
+        src/sorts/sorters/MergeSorter/MergeSorter.hh
         src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp
         src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hh
     )

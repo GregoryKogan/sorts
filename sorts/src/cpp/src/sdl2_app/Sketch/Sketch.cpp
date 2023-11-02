@@ -77,6 +77,9 @@ void Sketch::init_sorter_() noexcept {
     } else if (sort_algorithm_ == "insertion") {
         sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
             new kogan::InsertionSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    } else if (sort_algorithm_ == "merge") {
+        sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+            new kogan::MergeSorter<int>([](int a, int b) { return a - b; }, sequence_));
     } else if (sort_algorithm_ == "iter_merge") {
         sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
             new kogan::IterativeMergeSorter<int>([](int a, int b) { return a - b; }, sequence_));

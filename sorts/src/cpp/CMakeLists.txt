@@ -73,6 +73,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/BubbleSorter/BubbleSorter.hh
         src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
         src/sorts/sorters/SelectionSorter/SelectionSorter.hh   
+        src/sorts/sorters/InsertionSorter/InsertionSorter.hpp
+        src/sorts/sorters/InsertionSorter/InsertionSorter.hh
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

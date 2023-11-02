@@ -8,8 +8,8 @@
     <h3>Space complexity O(1)</h3>
     <br />
     <p>
-      comparisons: {{ store.comparisons }} <br />
-      swaps: {{ store.swaps }} <br />
+      {{ formatter.format(store.comparisons) }} comparisons <br />
+      {{ formatter.format(store.swaps) }} swaps
     </p>
     <SDLCanvas />
     <p>FPS: {{ store.frameRate }}</p>
@@ -17,14 +17,17 @@
     <v-row justify="center"><SortButton /></v-row>
     <br />
     <v-col>
-      <p>Number of elements: {{ store.sequenceLength }}</p>
+      <p>Number of elements: {{ formatter.format(store.sequenceLength) }}</p>
       <v-slider
         v-model="mappedSequenceLength"
         min="0"
         max="1"
         color="secondary"
       ></v-slider>
-      <p>Comparisons per second: {{ store.comparisonsPerSecond }}</p>
+      <p>
+        Comparisons per second:
+        {{ formatter.format(store.comparisonsPerSecond) }}
+      </p>
       <v-slider
         v-model="mappedComparisonsPerSecond"
         min="0"
@@ -60,6 +63,10 @@ export default defineComponent({
     sequenceLengthMax: 10000,
     comparisonsPerSecondMin: 1,
     comparisonsPerSecondMax: 10000000,
+    formatter: Intl.NumberFormat("en-US", {
+      notation: "compact",
+      compactDisplay: "short",
+    }),
   }),
   created() {
     this.setDefaults();

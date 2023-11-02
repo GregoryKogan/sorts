@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <SortHeader
-      name="Selection Sort"
-      link="https://www.geeksforgeeks.org/selection-sort/"
+      name="Insertion Sort"
+      link="https://www.geeksforgeeks.org/insertion-sort/"
     />
     <h3>Time complexity O(n²)</h3>
     <h3>Space complexity O(1)</h3>
@@ -46,7 +46,7 @@ import SDLCanvas from "@/components/SDLCanvas.vue";
 import SortButton from "@/components/SortButton.vue";
 
 export default defineComponent({
-  name: "SelectionSort",
+  name: "InsertionSort",
   components: {
     SortHeader,
     SDLCanvas,
@@ -73,7 +73,7 @@ export default defineComponent({
   },
   methods: {
     setDefaults() {
-      this.store.setSortAlgorithm("selection");
+      this.store.setSortAlgorithm("insertion");
       this.store.setSequenceLength(100);
       this.store.setComparisonsPerSecond(100);
 

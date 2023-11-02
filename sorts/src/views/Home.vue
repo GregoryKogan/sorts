@@ -29,6 +29,7 @@ export default defineComponent({
     sorts: [
       { name: "bubble sort", route: "BubbleSort" },
       { name: "selection sort", route: "SelectionSort" },
+      { name: "insertion sort", route: "InsertionSort" },
     ] as Sort[],
   }),
   mounted() {

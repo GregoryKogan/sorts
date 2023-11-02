@@ -72,7 +72,7 @@ export default defineComponent({
     setDefaults() {
       this.store.setSortAlgorithm("iter_merge");
       this.store.setSequenceLength(100);
-      this.store.setComparisonsPerSecond(100);
+      this.store.setComparisonsPerSecond(50);
 
       this.sequenceLengthMappingParameter = this.reverseExponentialMap(
         this.sequenceLengthMin,

@@ -11,6 +11,7 @@
 #include "../../sorts/sorters/BubbleSorter/BubbleSorter.hpp"
 #include "../../sorts/sorters/InsertionSorter/InsertionSorter.hpp"
 #include "../../sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp"
+#include "../../sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp"
 #include "../../sorts/sorters/MergeSorter/MergeSorter.hpp"
 #include "../../sorts/sorters/SelectionSorter/SelectionSorter.hpp"
 

@@ -79,6 +79,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/MergeSorter/MergeSorter.hh
         src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp
         src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hh
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hh
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

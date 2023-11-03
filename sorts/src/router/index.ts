@@ -36,6 +36,11 @@ const routes = [
         name: 'IterativeMergeSort',
         component: () => import('@/views/sorts/IterativeMergeSort.vue'),
       },
+      {
+        path: '/iterative-quick-sort',
+        name: 'IterativeQuickSort',
+        component: () => import('@/views/sorts/IterativeQuickSort.vue'),
+      }
     ],
   },
 ];

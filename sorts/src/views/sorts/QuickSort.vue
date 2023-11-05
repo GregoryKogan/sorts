@@ -5,7 +5,7 @@
       link="https://www.geeksforgeeks.org/quick-sort/"
     />
     <h3>Time complexity θ(n log(n))</h3>
-    <h3>Space complexity O(1)</h3>
+    <h3>Space complexity O(n)</h3>
     <br />
     <p>
       {{ formatter.format(store.comparisons) }} comparisons <br />

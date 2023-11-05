@@ -89,6 +89,9 @@ void Sketch::init_sorter_() noexcept {
     } else if (sort_algorithm_ == "iter_quick") {
         sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
             new kogan::IterativeQuickSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    } else if (sort_algorithm_ == "heap") {
+        sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+            new kogan::HeapSorter<int>([](int a, int b) { return a - b; }, sequence_));
     }
 }
 

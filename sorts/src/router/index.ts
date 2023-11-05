@@ -45,7 +45,12 @@ const routes = [
         path: '/iterative-quick-sort',
         name: 'IterativeQuickSort',
         component: () => import('@/views/sorts/IterativeQuickSort.vue'),
-      }
+      },
+      {
+        path: '/heap-sort',
+        name: 'HeapSort',
+        component: () => import('@/views/sorts/HeapSort.vue'),
+      },
     ],
   },
 ];

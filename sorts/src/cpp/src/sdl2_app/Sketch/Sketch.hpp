@@ -9,6 +9,7 @@
 #include "../../sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp"
 #include "../../sorts/sorters/BaseSorter.hpp"
 #include "../../sorts/sorters/BubbleSorter/BubbleSorter.hpp"
+#include "../../sorts/sorters/HeapSorter/HeapSorter.hpp"
 #include "../../sorts/sorters/InsertionSorter/InsertionSorter.hpp"
 #include "../../sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp"
 #include "../../sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp"

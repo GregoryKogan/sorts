@@ -34,6 +34,7 @@ export default defineComponent({
       { name: "iterative merge sort", route: "IterativeMergeSort" },
       { name: "quick sort", route: "QuickSort" },
       { name: "iterative quick sort", route: "IterativeQuickSort" },
+      { name: "heap sort", route: "HeapSort" },
     ] as Sort[],
   }),
   mounted() {

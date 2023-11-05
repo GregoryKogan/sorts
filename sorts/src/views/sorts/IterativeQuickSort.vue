@@ -4,7 +4,7 @@
       name="Iterative Quick Sort"
       link="https://www.geeksforgeeks.org/iterative-quick-sort/"
     />
-    <h3>Time complexity O(n log(n))</h3>
+    <h3>Time complexity θ(n log(n))</h3>
     <h3>Space complexity O(n)</h3>
     <br />
     <p>

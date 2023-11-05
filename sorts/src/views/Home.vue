@@ -32,6 +32,7 @@ export default defineComponent({
       { name: "insertion sort", route: "InsertionSort" },
       { name: "merge sort", route: "MergeSort" },
       { name: "iterative merge sort", route: "IterativeMergeSort" },
+      { name: "quick sort", route: "QuickSort" },
       { name: "iterative quick sort", route: "IterativeQuickSort" },
     ] as Sort[],
   }),

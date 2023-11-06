@@ -56,6 +56,11 @@ const routes = [
         name: 'CountingSort',
         component: () => import('@/views/sorts/CountingSort.vue'),
       },
+      {
+        path: '/cocktail-sort',
+        name: 'CocktailSort',
+        component: () => import('@/views/sorts/CocktailSort.vue'),
+      },
     ],
   },
 ];

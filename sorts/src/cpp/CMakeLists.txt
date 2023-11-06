@@ -87,6 +87,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/HeapSorter/HeapSorter.hh
         src/sorts/sorters/CountingSorter/CountingSorter.hpp
         src/sorts/sorters/CountingSorter/CountingSorter.hh
+        src/sorts/sorters/CocktailSorter/CocktailSorter.hpp
+        src/sorts/sorters/CocktailSorter/CocktailSorter.hh
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

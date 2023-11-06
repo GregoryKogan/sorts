@@ -95,6 +95,9 @@ void Sketch::init_sorter_() noexcept {
     } else if (sort_algorithm_ == "count") {
         sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
             new kogan::CountingSorter<int>([](int a, int b) { return a - b; }, sequence_));
+    } else if (sort_algorithm_ == "cocktail") {
+        sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+            new kogan::CocktailSorter<int>([](int a, int b) { return a - b; }, sequence_));
     }
 }
 

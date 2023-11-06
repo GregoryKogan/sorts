@@ -85,6 +85,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hh
         src/sorts/sorters/HeapSorter/HeapSorter.hpp
         src/sorts/sorters/HeapSorter/HeapSorter.hh
+        src/sorts/sorters/CountingSorter/CountingSorter.hpp
+        src/sorts/sorters/CountingSorter/CountingSorter.hh
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

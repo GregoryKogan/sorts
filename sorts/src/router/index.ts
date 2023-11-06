@@ -51,6 +51,11 @@ const routes = [
         name: 'HeapSort',
         component: () => import('@/views/sorts/HeapSort.vue'),
       },
+      {
+        path: '/counting-sort',
+        name: 'CountingSort',
+        component: () => import('@/views/sorts/CountingSort.vue'),
+      },
     ],
   },
 ];

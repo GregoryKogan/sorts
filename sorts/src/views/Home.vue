@@ -35,6 +35,7 @@ export default defineComponent({
       { name: "quick sort", route: "QuickSort" },
       { name: "iterative quick sort", route: "IterativeQuickSort" },
       { name: "heap sort", route: "HeapSort" },
+      { name: "counting sort", route: "CountingSort" },
     ] as Sort[],
   }),
   mounted() {

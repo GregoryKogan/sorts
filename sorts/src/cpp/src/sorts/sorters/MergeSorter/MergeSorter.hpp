@@ -36,6 +36,6 @@ class MergeSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "MergeSorter.hh"
+#include "MergeSorter.tpp"
 
 #endif

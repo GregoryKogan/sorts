@@ -1,6 +1,3 @@
-#ifndef HEAP_SORTER_HH
-#define HEAP_SORTER_HH
-
 #include "HeapSorter.hpp"
 
 namespace kogan {
@@ -131,5 +128,3 @@ inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

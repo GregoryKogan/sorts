@@ -23,6 +23,6 @@ class CountingSorter : public Sorter<int> {
 
 }  // namespace kogan
 
-#include "CountingSorter.hh"
+#include "CountingSorter.tpp"
 
 #endif

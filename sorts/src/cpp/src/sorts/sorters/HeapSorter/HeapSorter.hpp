@@ -57,6 +57,6 @@ class Heapifier {
 
 }  // namespace kogan
 
-#include "HeapSorter.hh"
+#include "HeapSorter.tpp"
 
 #endif

@@ -1,6 +1,3 @@
-#ifndef SELECTION_SORTER_HH
-#define SELECTION_SORTER_HH
-
 #include "SelectionSorter.hpp"
 
 namespace kogan {
@@ -32,5 +29,3 @@ inline void SelectionSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

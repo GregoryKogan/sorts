@@ -1,6 +1,3 @@
-#ifndef ITERATIVE_QUICK_SORTER_HH
-#define ITERATIVE_QUICK_SORTER_HH
-
 #include "IterativeQuickSorter.hpp"
 
 namespace kogan {
@@ -76,5 +73,3 @@ inline void IterativeQuickSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

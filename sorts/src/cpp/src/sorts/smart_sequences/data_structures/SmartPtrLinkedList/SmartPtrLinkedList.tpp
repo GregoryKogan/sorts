@@ -1,6 +1,3 @@
-#ifndef LAB1_SMART_PTR_LINKED_LIST_HH
-#define LAB1_SMART_PTR_LINKED_LIST_HH
-
 #include "SmartPtrLinkedList.hpp"
 
 namespace kogan {
@@ -187,5 +184,3 @@ inline SharedPtr<typename SmartPtrLinkedList<T>::Node> SmartPtrLinkedList<T>::ge
 }
 
 }  // namespace kogan
-
-#endif

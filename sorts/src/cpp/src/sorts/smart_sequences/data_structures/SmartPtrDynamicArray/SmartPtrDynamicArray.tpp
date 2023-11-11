@@ -1,6 +1,3 @@
-#ifndef LAB1_SMART_PTR_DYNAMIC_ARRAY_HH
-#define LAB1_SMART_PTR_DYNAMIC_ARRAY_HH
-
 #include "SmartPtrDynamicArray.hpp"
 
 namespace kogan {
@@ -71,5 +68,3 @@ inline T& SmartPtrDynamicArray<T>::operator[](int index) {
 }
 
 }  // namespace kogan
-
-#endif

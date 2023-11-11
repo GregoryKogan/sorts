@@ -1,6 +1,3 @@
-#ifndef QUICK_SORTER_HH
-#define QUICK_SORTER_HH
-
 #include "QuickSorter.hpp"
 
 namespace kogan {
@@ -111,5 +108,3 @@ inline void QuickSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

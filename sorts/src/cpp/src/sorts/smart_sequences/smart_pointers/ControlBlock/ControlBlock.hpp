@@ -48,6 +48,6 @@ class ControlBlock<T[]> {  // specialization for arrays
 
 }  // namespace kogan
 
-#include "ControlBlock.hh"
+#include "ControlBlock.tpp"
 
 #endif

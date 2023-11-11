@@ -34,6 +34,6 @@ class SmartPtrArraySequence : public SmartPtrSequence<T> {
 
 }  // namespace kogan
 
-#include "SmartPtrArraySequence.hh"
+#include "SmartPtrArraySequence.tpp"
 
 #endif

@@ -88,6 +88,6 @@ typename std::enable_if<std::is_array<T>::value, UniquePtr<T>>::type make_unique
 
 }  // namespace kogan
 
-#include "UniquePtr.hh"
+#include "UniquePtr.tpp"
 
 #endif

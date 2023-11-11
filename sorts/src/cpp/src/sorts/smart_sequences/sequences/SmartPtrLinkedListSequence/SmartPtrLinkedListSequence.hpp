@@ -34,6 +34,6 @@ class SmartPtrLinkedListSequence : public SmartPtrSequence<T> {
 
 }  // namespace kogan
 
-#include "SmartPtrLinkedListSequence.hh"
+#include "SmartPtrLinkedListSequence.tpp"
 
 #endif

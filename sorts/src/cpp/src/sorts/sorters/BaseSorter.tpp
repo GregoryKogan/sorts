@@ -1,6 +1,3 @@
-#ifndef BASE_SORTER_HH
-#define BASE_SORTER_HH
-
 #include "BaseSorter.hpp"
 
 namespace kogan {
@@ -124,5 +121,3 @@ inline bool Sorter<T>::swap_(int i, int j) {
 }
 
 }  // namespace kogan
-
-#endif

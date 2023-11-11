@@ -1,6 +1,3 @@
-#ifndef ITERATIVE_MERGE_SORTER_HH
-#define ITERATIVE_MERGE_SORTER_HH
-
 #include "IterativeMergeSorter.hpp"
 
 namespace kogan {
@@ -79,5 +76,3 @@ inline void IterativeMergeSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

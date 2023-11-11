@@ -1,6 +1,3 @@
-#ifndef LAB1_CONTROL_BLOCK_HH
-#define LAB1_CONTROL_BLOCK_HH
-
 #include "ControlBlock.hpp"
 
 namespace kogan {
@@ -114,5 +111,3 @@ inline unsigned int ControlBlock<T[]>::get_weak_ptr_reference_counter() const no
 }
 
 }  // namespace kogan
-
-#endif

@@ -100,6 +100,6 @@ typename std::enable_if<std::is_array<T>::value, SharedPtr<T>>::type make_shared
 
 }  // namespace kogan
 
-#include "SharedPtr.hh"
+#include "SharedPtr.tpp"
 
 #endif

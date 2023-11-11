@@ -20,6 +20,6 @@ class BubbleSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "BubbleSorter.hh"
+#include "BubbleSorter.tpp"
 
 #endif

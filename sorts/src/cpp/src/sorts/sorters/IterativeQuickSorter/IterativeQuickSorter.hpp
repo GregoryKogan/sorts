@@ -29,6 +29,6 @@ class IterativeQuickSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "IterativeQuickSorter.hh"
+#include "IterativeQuickSorter.tpp"
 
 #endif

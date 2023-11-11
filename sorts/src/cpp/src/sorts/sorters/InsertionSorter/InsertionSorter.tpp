@@ -1,6 +1,3 @@
-#ifndef INSERTION_SORTER_HH
-#define INSERTION_SORTER_HH
-
 #include "InsertionSorter.hpp"
 
 namespace kogan {
@@ -37,5 +34,3 @@ inline void InsertionSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

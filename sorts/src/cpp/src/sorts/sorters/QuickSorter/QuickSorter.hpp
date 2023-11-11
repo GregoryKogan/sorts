@@ -38,6 +38,6 @@ class QuickSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "QuickSorter.hh"
+#include "QuickSorter.tpp"
 
 #endif

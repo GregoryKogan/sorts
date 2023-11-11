@@ -1,6 +1,3 @@
-#ifndef LAB1_UNIQUE_PTR_HH
-#define LAB1_UNIQUE_PTR_HH
-
 #include "UniquePtr.hpp"
 
 namespace kogan {
@@ -146,5 +143,3 @@ inline T& UniquePtr<T[]>::operator[](std::size_t index) const {
 }
 
 }  // namespace kogan
-
-#endif

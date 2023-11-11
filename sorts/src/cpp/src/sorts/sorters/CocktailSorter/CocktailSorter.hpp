@@ -26,6 +26,6 @@ class CocktailSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "CocktailSorter.hh"
+#include "CocktailSorter.tpp"
 
 #endif

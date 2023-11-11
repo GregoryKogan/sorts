@@ -1,6 +1,3 @@
-#ifndef COUNTING_SORTER_HH
-#define COUNTING_SORTER_HH
-
 #include "CountingSorter.hpp"
 
 namespace kogan {
@@ -45,5 +42,3 @@ inline void CountingSorter::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

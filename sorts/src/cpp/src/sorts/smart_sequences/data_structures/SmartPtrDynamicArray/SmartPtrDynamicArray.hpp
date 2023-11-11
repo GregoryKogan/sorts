@@ -40,6 +40,6 @@ class SmartPtrDynamicArray {
 
 }  // namespace kogan
 
-#include "SmartPtrDynamicArray.hh"
+#include "SmartPtrDynamicArray.tpp"
 
 #endif

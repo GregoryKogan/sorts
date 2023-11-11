@@ -60,6 +60,6 @@ class Sorter {
 
 }  // namespace kogan
 
-#include "BaseSorter.hh"
+#include "BaseSorter.tpp"
 
 #endif

@@ -63,6 +63,6 @@ class SmartPtrLinkedList {
 
 }  // namespace kogan
 
-#include "SmartPtrLinkedList.hh"
+#include "SmartPtrLinkedList.tpp"
 
 #endif

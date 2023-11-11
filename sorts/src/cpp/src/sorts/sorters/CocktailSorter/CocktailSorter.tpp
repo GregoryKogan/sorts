@@ -1,6 +1,3 @@
-#ifndef COCKTAIL_SORTER_HH
-#define COCKTAIL_SORTER_HH
-
 #include "CocktailSorter.hpp"
 
 namespace kogan {
@@ -75,5 +72,3 @@ inline void CocktailSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

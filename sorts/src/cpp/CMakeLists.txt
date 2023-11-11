@@ -48,47 +48,47 @@ if (DEFINED EMSCRIPTEN)
         src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.cpp
 
         src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hpp
-        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hh
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.tpp
         src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hpp
-        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hh
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.tpp
         src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hpp
-        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hh
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.tpp
         src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hpp
-        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hh
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.tpp
 
         src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hpp
-        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hh
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.tpp
         src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hpp
-        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hh
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.tpp
 
         src/sorts/smart_sequences/sequences/SmartPtrSequence.hpp
         src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp
-        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hh
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.tpp
         src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp
-        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hh
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.tpp
 
         src/sorts/sorters/BaseSorter.hpp
-        src/sorts/sorters/BaseSorter.hh
+        src/sorts/sorters/BaseSorter.tpp
         src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
-        src/sorts/sorters/BubbleSorter/BubbleSorter.hh
+        src/sorts/sorters/BubbleSorter/BubbleSorter.tpp
         src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
-        src/sorts/sorters/SelectionSorter/SelectionSorter.hh   
+        src/sorts/sorters/SelectionSorter/SelectionSorter.tpp   
         src/sorts/sorters/InsertionSorter/InsertionSorter.hpp
-        src/sorts/sorters/InsertionSorter/InsertionSorter.hh
+        src/sorts/sorters/InsertionSorter/InsertionSorter.tpp
         src/sorts/sorters/MergeSorter/MergeSorter.hpp
-        src/sorts/sorters/MergeSorter/MergeSorter.hh
+        src/sorts/sorters/MergeSorter/MergeSorter.tpp
         src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp
-        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hh
+        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.tpp
         src/sorts/sorters/QuickSorter/QuickSorter.hpp
-        src/sorts/sorters/QuickSorter/QuickSorter.hh
+        src/sorts/sorters/QuickSorter/QuickSorter.tpp
         src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp
-        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hh
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.tpp
         src/sorts/sorters/HeapSorter/HeapSorter.hpp
-        src/sorts/sorters/HeapSorter/HeapSorter.hh
+        src/sorts/sorters/HeapSorter/HeapSorter.tpp
         src/sorts/sorters/CountingSorter/CountingSorter.hpp
-        src/sorts/sorters/CountingSorter/CountingSorter.hh
+        src/sorts/sorters/CountingSorter/CountingSorter.tpp
         src/sorts/sorters/CocktailSorter/CocktailSorter.hpp
-        src/sorts/sorters/CocktailSorter/CocktailSorter.hh
+        src/sorts/sorters/CocktailSorter/CocktailSorter.tpp
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
@@ -151,31 +151,31 @@ else()
         src/libs/test_lib/tests/TestSuite.cpp
 
         src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hpp
-        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hh
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.tpp
         src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hpp
-        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hh
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.tpp
         src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hpp
-        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hh
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.tpp
         src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hpp
-        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hh
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.tpp
 
         src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hpp
-        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hh
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.tpp
         src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hpp
-        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hh
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.tpp
 
         src/sorts/smart_sequences/sequences/SmartPtrSequence.hpp
         src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp
-        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hh
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.tpp
         src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp
-        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hh
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.tpp
 
         src/sorts/sorters/BaseSorter.hpp
-        src/sorts/sorters/BaseSorter.hh
+        src/sorts/sorters/BaseSorter.tpp
         src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
-        src/sorts/sorters/BubbleSorter/BubbleSorter.hh
+        src/sorts/sorters/BubbleSorter/BubbleSorter.tpp
         src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
-        src/sorts/sorters/SelectionSorter/SelectionSorter.hh
+        src/sorts/sorters/SelectionSorter/SelectionSorter.tpp
 
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp

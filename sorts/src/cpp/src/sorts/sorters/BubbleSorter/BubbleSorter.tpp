@@ -1,6 +1,3 @@
-#ifndef BUBBLE_SORTER_HH
-#define BUBBLE_SORTER_HH
-
 #include "BubbleSorter.hpp"
 
 namespace kogan {
@@ -29,5 +26,3 @@ inline void BubbleSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

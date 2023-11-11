@@ -20,6 +20,6 @@ class InsertionSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "InsertionSorter.hh"
+#include "InsertionSorter.tpp"
 
 #endif

@@ -1,6 +1,3 @@
-#ifndef LAB1_SMART_PTR_ARRAY_SEQUENCE_HH
-#define LAB1_SMART_PTR_ARRAY_SEQUENCE_HH
-
 #include "SmartPtrArraySequence.hpp"
 
 namespace kogan {
@@ -111,5 +108,3 @@ T &SmartPtrArraySequence<T>::operator[](int index) {
 }
 
 }  // namespace kogan
-
-#endif

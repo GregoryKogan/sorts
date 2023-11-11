@@ -21,6 +21,6 @@ class SelectionSorter : public Sorter<T> {
 
 }  // namespace kogan
 
-#include "SelectionSorter.hh"
+#include "SelectionSorter.tpp"
 
 #endif

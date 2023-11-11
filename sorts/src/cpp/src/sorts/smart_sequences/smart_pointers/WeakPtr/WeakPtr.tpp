@@ -1,6 +1,3 @@
-#ifndef LAB1_WEAK_PTR_HH
-#define LAB1_WEAK_PTR_HH
-
 #include "WeakPtr.hpp"
 
 namespace kogan {
@@ -182,5 +179,3 @@ inline SharedPtr<T[]> WeakPtr<T[]>::lock() const noexcept {
 }
 
 }  // namespace kogan
-
-#endif

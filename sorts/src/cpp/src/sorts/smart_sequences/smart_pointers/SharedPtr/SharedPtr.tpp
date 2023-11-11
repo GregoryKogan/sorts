@@ -1,6 +1,3 @@
-#ifndef LAB1_SHARED_PTR_HH
-#define LAB1_SHARED_PTR_HH
-
 #include "SharedPtr.hpp"
 
 namespace kogan {
@@ -235,5 +232,3 @@ inline unsigned int SharedPtr<T[]>::use_count() const noexcept {
 }
 
 }  // namespace kogan
-
-#endif

@@ -1,6 +1,3 @@
-#ifndef MERGE_SORTER_HH
-#define MERGE_SORTER_HH
-
 #include "MergeSorter.hpp"
 
 namespace kogan {
@@ -120,5 +117,3 @@ inline void MergeSorter<T>::set_interesting_indexes_() noexcept {
 }
 
 }  // namespace kogan
-
-#endif

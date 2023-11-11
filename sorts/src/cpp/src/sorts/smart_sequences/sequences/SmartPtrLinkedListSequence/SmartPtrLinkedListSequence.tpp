@@ -1,6 +1,3 @@
-#ifndef LAB1_SMART_PTR_LINKED_LIST_SEQUENCE_HH
-#define LAB1_SMART_PTR_LINKED_LIST_SEQUENCE_HH
-
 #include "SmartPtrLinkedListSequence.hpp"
 
 namespace kogan {
@@ -92,5 +89,3 @@ T &SmartPtrLinkedListSequence<T>::operator[](int index) {
 }
 
 }  // namespace kogan
-
-#endif

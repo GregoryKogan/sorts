@@ -39,6 +39,7 @@ export default defineComponent({
       { name: "cocktail sort", route: "CocktailSort" },
       { name: "radix sort", route: "RadixSort" },
       { name: "shell sort", route: "ShellSort" },
+      { name: "gnome sort", route: "GnomeSort" },
     ] as Sort[],
   }),
   mounted() {

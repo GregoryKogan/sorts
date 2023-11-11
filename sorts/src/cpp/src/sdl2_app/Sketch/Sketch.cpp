@@ -118,6 +118,9 @@ void Sketch::init_sorter_() noexcept {
   } else if (sort_algorithm_ == "shell") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::ShellSorter<int>(
         [](int a, int b) { return a - b; }, sequence_));
+  } else if (sort_algorithm_ == "gnome") {
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::GnomeSorter<int>(
+        [](int a, int b) { return a - b; }, sequence_));
   }
 }
 

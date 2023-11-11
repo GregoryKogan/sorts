@@ -71,6 +71,11 @@ const routes = [
         name: "ShellSort",
         component: () => import('@/views/sorts/ShellSort.vue'),
       },
+      {
+        path: '/gnome-sort',
+        name: "GnomeSort",
+        component: () => import('@/views/sorts/GnomeSort.vue'),
+      },
     ],
   },
 ];

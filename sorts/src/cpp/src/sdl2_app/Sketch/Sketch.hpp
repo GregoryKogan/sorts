@@ -10,6 +10,7 @@
 #include "../../sorts/sorters/BubbleSorter/BubbleSorter.hpp"
 #include "../../sorts/sorters/CocktailSorter/CocktailSorter.hpp"
 #include "../../sorts/sorters/CountingSorter/CountingSorter.hpp"
+#include "../../sorts/sorters/GnomeSorter/GnomeSorter.hpp"
 #include "../../sorts/sorters/HeapSorter/HeapSorter.hpp"
 #include "../../sorts/sorters/InsertionSorter/InsertionSorter.hpp"
 #include "../../sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp"

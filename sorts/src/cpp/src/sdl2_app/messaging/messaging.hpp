@@ -1,5 +1,4 @@
-#ifndef MESSAGING_HPP
-#define MESSAGING_HPP
+#pragma once
 
 #include <emscripten.h>
 #include <rapidjson/document.h>
@@ -36,5 +35,3 @@ extern "C" {
 EMSCRIPTEN_KEEPALIVE
 void handleMessage(const char* message);
 }
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef COUNTING_SORTER_HPP
-#define COUNTING_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -24,5 +23,3 @@ class CountingSorter : public Sorter<int> {
 }  // namespace kogan
 
 #include "CountingSorter.tpp"
-
-#endif

@@ -1,9 +1,4 @@
-//
-// Created by Gregory Kogan on 07.05.2023.
-//
-
-#ifndef SEQUENCE_LIB_ASSERTIONFAILEDEXCEPTION_HPP
-#define SEQUENCE_LIB_ASSERTIONFAILEDEXCEPTION_HPP
+#pragma once
 
 #include "../BaseException.hpp"
 
@@ -22,5 +17,3 @@ class AssertionFailedException : public BaseException {
 };
 
 }  // namespace kogan
-
-#endif  // SEQUENCE_LIB_ASSERTIONFAILEDEXCEPTION_HPP

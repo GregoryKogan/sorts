@@ -1,5 +1,4 @@
-#ifndef LAB1_SMART_PTR_DYNAMIC_ARRAY_HPP
-#define LAB1_SMART_PTR_DYNAMIC_ARRAY_HPP
+#pragma once
 
 #include <algorithm>
 
@@ -41,5 +40,3 @@ class SmartPtrDynamicArray {
 }  // namespace kogan
 
 #include "SmartPtrDynamicArray.tpp"
-
-#endif

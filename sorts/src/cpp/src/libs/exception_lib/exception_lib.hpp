@@ -1,5 +1,4 @@
-#ifndef EXCEPTION_LIB_HPP
-#define EXCEPTION_LIB_HPP
+#pragma once
 
 #include <iostream>
 
@@ -10,5 +9,3 @@
 #include "exceptions/InvalidArgumentException/InvalidArgumentException.hpp"
 
 void exception_lib_is_working();
-
-#endif

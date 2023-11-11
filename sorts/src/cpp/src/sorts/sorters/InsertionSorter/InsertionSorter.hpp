@@ -1,5 +1,4 @@
-#ifndef INSERTION_SORTER_HPP
-#define INSERTION_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -21,5 +20,3 @@ class InsertionSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "InsertionSorter.tpp"
-
-#endif

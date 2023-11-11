@@ -1,5 +1,4 @@
-#ifndef LAB1_WEAK_PTR_DECLARATION_HPP
-#define LAB1_WEAK_PTR_DECLARATION_HPP
+#pragma once
 
 #include "../ControlBlock/ControlBlock.hpp"
 
@@ -74,5 +73,3 @@ class WeakPtr<T[]> {  // specialization for arrays
 }  // namespace kogan
 
 #include "WeakPtr.tpp"
-
-#endif

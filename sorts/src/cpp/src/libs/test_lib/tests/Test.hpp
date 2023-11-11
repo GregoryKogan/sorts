@@ -1,9 +1,4 @@
-//
-// Created by Gregory Kogan on 06.05.2023.
-//
-
-#ifndef SEQUENCE_LIB_TEST_HPP
-#define SEQUENCE_LIB_TEST_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -22,5 +17,3 @@ class Test {
 };
 
 }  // namespace kogan
-
-#endif  // SEQUENCE_LIB_TEST_HPP

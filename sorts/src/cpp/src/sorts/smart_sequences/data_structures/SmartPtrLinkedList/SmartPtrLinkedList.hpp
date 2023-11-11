@@ -1,5 +1,4 @@
-#ifndef LAB1_SMART_PTR_LINKED_LIST_HPP
-#define LAB1_SMART_PTR_LINKED_LIST_HPP
+#pragma once
 
 #include "../../../../libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.hpp"
 #include "../../../../libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.hpp"
@@ -64,5 +63,3 @@ class SmartPtrLinkedList {
 }  // namespace kogan
 
 #include "SmartPtrLinkedList.tpp"
-
-#endif

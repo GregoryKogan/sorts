@@ -1,5 +1,4 @@
-#ifndef BASE_SORTER_HPP
-#define BASE_SORTER_HPP
+#pragma once
 
 #include <optional>
 
@@ -61,5 +60,3 @@ class Sorter {
 }  // namespace kogan
 
 #include "BaseSorter.tpp"
-
-#endif

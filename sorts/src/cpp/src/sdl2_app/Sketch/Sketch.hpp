@@ -1,5 +1,4 @@
-#ifndef SKETCH_HPP
-#define SKETCH_HPP
+#pragma once
 
 #include <SDL2/SDL.h>
 
@@ -68,5 +67,3 @@ class Sketch {
 
     void draw_value_(int index, bool sorted = false, bool interesting = false) const noexcept;
 };
-
-#endif

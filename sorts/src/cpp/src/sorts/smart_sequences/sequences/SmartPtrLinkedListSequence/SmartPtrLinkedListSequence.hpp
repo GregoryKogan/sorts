@@ -1,5 +1,4 @@
-#ifndef LAB1_LINKED_LIST_SEQUENCE_HPP
-#define LAB1_LINKED_LIST_SEQUENCE_HPP
+#pragma once
 
 #include "../../data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hpp"
 #include "../SmartPtrSequence.hpp"
@@ -35,5 +34,3 @@ class SmartPtrLinkedListSequence : public SmartPtrSequence<T> {
 }  // namespace kogan
 
 #include "SmartPtrLinkedListSequence.tpp"
-
-#endif

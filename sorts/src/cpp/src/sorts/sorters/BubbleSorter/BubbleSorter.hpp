@@ -1,5 +1,4 @@
-#ifndef BUBBLE_SORTER_HPP
-#define BUBBLE_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -21,5 +20,3 @@ class BubbleSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "BubbleSorter.tpp"
-
-#endif

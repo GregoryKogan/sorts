@@ -1,5 +1,4 @@
-#ifndef LAB1_CONTROL_BLOCK_HPP
-#define LAB1_CONTROL_BLOCK_HPP
+#pragma once
 
 #include "../../../../libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.hpp"
 #include "../../../../libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp"
@@ -49,5 +48,3 @@ class ControlBlock<T[]> {  // specialization for arrays
 }  // namespace kogan
 
 #include "ControlBlock.tpp"
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef LAB1_UNIQUE_PTR_HPP
-#define LAB1_UNIQUE_PTR_HPP
+#pragma once
 
 #include <utility>
 
@@ -89,5 +88,3 @@ typename std::enable_if<std::is_array<T>::value, UniquePtr<T>>::type make_unique
 }  // namespace kogan
 
 #include "UniquePtr.tpp"
-
-#endif

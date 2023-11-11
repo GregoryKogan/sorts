@@ -1,5 +1,4 @@
-#ifndef LAB1_ARRAY_SEQUENCE_HPP
-#define LAB1_ARRAY_SEQUENCE_HPP
+#pragma once
 
 #include "../../data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hpp"
 #include "../SmartPtrSequence.hpp"
@@ -35,5 +34,3 @@ class SmartPtrArraySequence : public SmartPtrSequence<T> {
 }  // namespace kogan
 
 #include "SmartPtrArraySequence.tpp"
-
-#endif

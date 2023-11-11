@@ -1,5 +1,4 @@
-#ifndef ITERATIVE_MERGE_SORTER_HPP
-#define ITERATIVE_MERGE_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -32,5 +31,3 @@ class IterativeMergeSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "IterativeMergeSorter.tpp"
-
-#endif

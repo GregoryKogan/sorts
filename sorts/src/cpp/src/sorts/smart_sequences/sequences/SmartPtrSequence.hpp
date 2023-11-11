@@ -1,5 +1,4 @@
-#ifndef LAB1_SMART_PTR_SEQUENCE_HPP
-#define LAB1_SMART_PTR_SEQUENCE_HPP
+#pragma once
 
 #include <sstream>
 #include <string>
@@ -54,5 +53,3 @@ std::string SmartPtrSequence<T>::to_string() const {
 }
 
 }  // namespace kogan
-
-#endif

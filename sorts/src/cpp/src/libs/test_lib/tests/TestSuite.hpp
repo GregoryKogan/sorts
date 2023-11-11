@@ -1,9 +1,4 @@
-//
-// Created by Gregory Kogan on 06.05.2023.
-//
-
-#ifndef SEQUENCE_LIB_TESTSUITE_HPP
-#define SEQUENCE_LIB_TESTSUITE_HPP
+#pragma once
 
 #include <vector>
 
@@ -32,5 +27,3 @@ class TestSuite {
     if (!(expression)) throw kogan::AssertionFailedException(#expression, __FILE__, __FUNCTION__, __LINE__)
 
 }  // namespace kogan
-
-#endif  // SEQUENCE_LIB_TESTSUITE_HPP

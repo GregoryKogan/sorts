@@ -1,5 +1,4 @@
-#ifndef OUT_OF_SWAPS_EXCEPTION_HPP
-#define OUT_OF_SWAPS_EXCEPTION_HPP
+#pragma once
 
 #include "../BaseException.hpp"
 
@@ -13,5 +12,3 @@ class OutOfSwapsException : public BaseException {
 };
 
 }  // namespace kogan
-
-#endif

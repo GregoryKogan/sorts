@@ -1,5 +1,4 @@
-#ifndef LAB1_SHARED_PTR_HPP
-#define LAB1_SHARED_PTR_HPP
+#pragma once
 
 #include <utility>
 
@@ -101,5 +100,3 @@ typename std::enable_if<std::is_array<T>::value, SharedPtr<T>>::type make_shared
 }  // namespace kogan
 
 #include "SharedPtr.tpp"
-
-#endif

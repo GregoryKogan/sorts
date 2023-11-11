@@ -1,5 +1,4 @@
-#ifndef OUT_OF_COMPARISONS_EXCEPTION_HPP
-#define OUT_OF_COMPARISONS_EXCEPTION_HPP
+#pragma once
 
 #include "../BaseException.hpp"
 
@@ -13,5 +12,3 @@ class OutOfComparisonsException : public BaseException {
 };
 
 }  // namespace kogan
-
-#endif

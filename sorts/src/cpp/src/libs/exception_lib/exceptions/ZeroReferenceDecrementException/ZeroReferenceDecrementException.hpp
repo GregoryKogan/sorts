@@ -1,5 +1,4 @@
-#ifndef LAB1_ZERO_REFERENCE_DECREMENT_EXCEPTION_HPP
-#define LAB1_ZERO_REFERENCE_DECREMENT_EXCEPTION_HPP
+#pragma once
 
 #include "../BaseException.hpp"
 
@@ -10,5 +9,3 @@ class ZeroReferenceDecrementException : public BaseException {
 };
 
 }  // namespace kogan
-
-#endif

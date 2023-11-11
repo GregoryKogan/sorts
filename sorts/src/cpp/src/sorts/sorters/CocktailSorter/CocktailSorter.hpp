@@ -1,5 +1,4 @@
-#ifndef COCKTAIL_SORTER_HPP
-#define COCKTAIL_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -27,5 +26,3 @@ class CocktailSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "CocktailSorter.tpp"
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef SELECTION_SORTER_HPP
-#define SELECTION_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -22,5 +21,3 @@ class SelectionSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "SelectionSorter.tpp"
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef LAB1_EMPTY_POINTER_EXCEPTION_HPP
-#define LAB1_EMPTY_POINTER_EXCEPTION_HPP
+#pragma once
 
 #include "../BaseException.hpp"
 
@@ -10,5 +9,3 @@ class EmptyPointerException : public BaseException {
 };
 
 }  // namespace kogan
-
-#endif

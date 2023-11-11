@@ -1,5 +1,4 @@
-#ifndef HEAP_SORTER_HPP
-#define HEAP_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -58,5 +57,3 @@ class Heapifier {
 }  // namespace kogan
 
 #include "HeapSorter.tpp"
-
-#endif

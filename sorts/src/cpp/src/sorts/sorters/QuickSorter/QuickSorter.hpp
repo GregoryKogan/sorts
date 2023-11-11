@@ -1,5 +1,4 @@
-#ifndef QUICK_SORTER_HPP
-#define QUICK_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -39,5 +38,3 @@ class QuickSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "QuickSorter.tpp"
-
-#endif

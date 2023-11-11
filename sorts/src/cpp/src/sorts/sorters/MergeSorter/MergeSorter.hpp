@@ -1,5 +1,4 @@
-#ifndef MERGE_SORTER_HPP
-#define MERGE_SORTER_HPP
+#pragma once
 
 #include "../BaseSorter.hpp"
 
@@ -37,5 +36,3 @@ class MergeSorter : public Sorter<T> {
 }  // namespace kogan
 
 #include "MergeSorter.tpp"
-
-#endif

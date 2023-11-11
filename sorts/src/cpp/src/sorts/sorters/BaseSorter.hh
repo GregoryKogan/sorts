@@ -91,6 +91,7 @@ inline void Sorter<T>::make_unlimited_in_swaps() noexcept {
 
 template <class T>
 inline void Sorter<T>::sort() {
+    if (sequence_->get_length() < 2) return;
     try {
         sort_();
         set_interesting_indexes_();

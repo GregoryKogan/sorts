@@ -5,8 +5,7 @@
 
 namespace kogan {
 
-template <class T>
-inline void CountingSorter<T>::sort_() {
+inline void CountingSorter::sort_() {
     std::size_t n = this->sequence_->get_length();
 
     while (i_ < n) {
@@ -21,17 +20,17 @@ inline void CountingSorter<T>::sort_() {
     for (int i = 0; i <= max_value_; ++i) counting_array_.append(0);
 
     output_array_.clear();
-    for (std::size_t i = 0; i < n; ++i) output_array_.append(T());
+    for (std::size_t i = 0; i < n; ++i) output_array_.append(0);
 
     for (std::size_t i = 0; i < n; ++i) {
-        T value = this->sequence_->get(i);
+        int value = this->sequence_->get(i);
         counting_array_[value]++;
     }
 
     for (int i = 1; i <= max_value_; ++i) counting_array_[i] += counting_array_[i - 1];
 
     for (int i = n - 1; i >= 0; --i) {
-        T value = this->sequence_->get(i);
+        int value = this->sequence_->get(i);
         int index = counting_array_[value] - 1;
         output_array_[index] = value;
         counting_array_[value]--;
@@ -40,8 +39,7 @@ inline void CountingSorter<T>::sort_() {
     for (std::size_t i = 0; i < n; ++i) this->sequence_->set(i, output_array_[i]);
 }
 
-template <class T>
-inline void CountingSorter<T>::set_interesting_indexes_() noexcept {
+inline void CountingSorter::set_interesting_indexes_() noexcept {
     this->interesting_indexes_->clear();
     if (!max_value_found_) this->interesting_indexes_->append(i_);
 }

@@ -5,18 +5,17 @@
 
 namespace kogan {
 
-template <class T>
-class CountingSorter : public Sorter<T> {
+class CountingSorter : public Sorter<int> {
    private:
-    T max_value_ = 0;
+    int max_value_ = 0;
     SmartPtrArraySequence<int> counting_array_;
-    SmartPtrArraySequence<T> output_array_;
+    SmartPtrArraySequence<int> output_array_;
 
     bool max_value_found_ = false;
     int i_ = 0;
 
    public:
-    CountingSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
+    CountingSorter(int (*cmp)(int, int), SharedPtr<SmartPtrSequence<int>> sequence) : Sorter<int>(cmp, sequence) {}
 
     void sort_() override;
     void set_interesting_indexes_() noexcept override;

@@ -9,21 +9,22 @@
 #include "WeakPtr_tests/WeakPtr_tests.hpp"
 
 int main() {
-    std::vector<kogan::TestSuite> suites = {get_unique_ptr_test_suite(),
-                                            get_shared_ptr_test_suite(),
-                                            get_weak_ptr_test_suite(),
+  std::vector<kogan::TestSuite> suites = {
+      get_unique_ptr_test_suite(),
+      get_shared_ptr_test_suite(),
+      get_weak_ptr_test_suite(),
 
-                                            get_smart_ptr_dynamic_array_test_suite(),
-                                            get_smart_ptr_linked_list_test_suite(),
+      get_smart_ptr_dynamic_array_test_suite(),
+      get_smart_ptr_linked_list_test_suite(),
 
-                                            get_smart_ptr_array_sequence_test_suite(),
-                                            get_smart_ptr_linked_list_sequence_test_suite(),
+      get_smart_ptr_array_sequence_test_suite(),
+      get_smart_ptr_linked_list_sequence_test_suite(),
 
-                                            get_bubble_sorter_test_suite(),
-                                            get_selection_sorter_test_suite()};
+      get_bubble_sorter_test_suite(),
+      get_selection_sorter_test_suite()};
 
-    kogan::Tester tester(suites);
-    tester.test();
+  kogan::Tester tester(suites);
+  tester.test();
 
-    return 0;
+  return 0;
 }

@@ -6,17 +6,17 @@
 namespace kogan {
 
 class BaseException : public std::exception {
-   protected:
-    char *message;
-    const size_t MESSAGE_MAX_LENGTH = 1024;
+protected:
+  char *message;
+  const size_t MESSAGE_MAX_LENGTH = 1024;
 
-    virtual void build_message() const = 0;
+  virtual void build_message() const = 0;
 
-   public:
-    BaseException();
-    ~BaseException() override;
+public:
+  BaseException();
+  ~BaseException() override;
 
-    [[nodiscard]] const char *what() const noexcept override;
+  [[nodiscard]] const char *what() const noexcept override;
 };
 
-}  // namespace kogan
+} // namespace kogan

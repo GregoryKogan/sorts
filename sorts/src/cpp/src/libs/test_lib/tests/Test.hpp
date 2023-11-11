@@ -8,12 +8,12 @@
 namespace kogan {
 
 class Test {
-    std::string name;
-    void (*testFunction)();
+  std::string name;
+  void (*testFunction)();
 
-   public:
-    Test(std::string name, void (*testFunction)());
-    [[nodiscard]] bool run() const;
+public:
+  Test(std::string name, void (*testFunction)());
+  [[nodiscard]] bool run() const;
 };
 
-}  // namespace kogan
+} // namespace kogan

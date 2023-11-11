@@ -5,10 +5,10 @@
 namespace kogan {
 
 class OutOfComparisonsException : public BaseException {
-    void build_message() const override;
+  void build_message() const override;
 
-   public:
-    explicit OutOfComparisonsException() = default;
+public:
+  explicit OutOfComparisonsException() = default;
 };
 
-}  // namespace kogan
+} // namespace kogan

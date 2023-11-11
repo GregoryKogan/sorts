@@ -10,28 +10,28 @@
 #include <string>
 
 class Messenger {
-   private:
-    Messenger() {}
-    Messenger(const Messenger&) = delete;
-    Messenger& operator=(const Messenger&) = delete;
+private:
+  Messenger() {}
+  Messenger(const Messenger &) = delete;
+  Messenger &operator=(const Messenger &) = delete;
 
-    std::queue<std::string> messages_;
+  std::queue<std::string> messages_;
 
-   public:
-    static Messenger& instance() {
-        static Messenger instance;
-        return instance;
-    }
+public:
+  static Messenger &instance() {
+    static Messenger instance;
+    return instance;
+  }
 
-    void start_listening() const noexcept;
-    void send_message(const std::string& message) const noexcept;
-    void add_message(const std::string& message) noexcept;
+  void start_listening() const noexcept;
+  void send_message(const std::string &message) const noexcept;
+  void add_message(const std::string &message) noexcept;
 
-    bool has_message() const noexcept;
-    std::string get_message();
+  bool has_message() const noexcept;
+  std::string get_message();
 };
 
 extern "C" {
 EMSCRIPTEN_KEEPALIVE
-void handleMessage(const char* message);
+void handleMessage(const char *message);
 }

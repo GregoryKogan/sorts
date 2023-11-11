@@ -4,13 +4,13 @@
 #include "messaging/messaging.hpp"
 
 int main() {
-    srand(time(NULL));
+  srand(time(NULL));
 
-    Messenger::instance().start_listening();
+  Messenger::instance().start_listening();
 
-    Application app;
+  Application app;
 
-    app.loop();
+  app.loop();
 
-    return 0;
+  return 0;
 }

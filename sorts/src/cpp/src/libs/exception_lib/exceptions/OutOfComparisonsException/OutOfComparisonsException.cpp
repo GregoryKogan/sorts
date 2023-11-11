@@ -5,7 +5,8 @@
 namespace kogan {
 
 void OutOfComparisonsException::build_message() const {
-    snprintf(message, MESSAGE_MAX_LENGTH, "(OutOfComparisons): no more comparisons available");
+  snprintf(message, MESSAGE_MAX_LENGTH,
+           "(OutOfComparisons): no more comparisons available");
 }
 
-}  // namespace kogan
+} // namespace kogan

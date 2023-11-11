@@ -1,7 +1,3 @@
-//
-// Created by Gregory Kogan on 07.05.2023.
-//
-
 #include "colored_logs.hpp"
 
 #define RED "\x1b[31m"

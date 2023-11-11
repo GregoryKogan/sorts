@@ -7,13 +7,13 @@
 namespace kogan {
 
 class Tester {
-    std::vector<kogan::TestSuite> test_suites;
-    int total;
-    int passed;
+  std::vector<kogan::TestSuite> test_suites;
+  int total;
+  int passed;
 
-   public:
-    explicit Tester(std::vector<kogan::TestSuite> &suites);
-    void test();
+public:
+  explicit Tester(std::vector<kogan::TestSuite> &suites);
+  void test();
 };
 
-}  // namespace kogan
+} // namespace kogan

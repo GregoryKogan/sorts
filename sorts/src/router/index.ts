@@ -61,6 +61,11 @@ const routes = [
         name: 'CocktailSort',
         component: () => import('@/views/sorts/CocktailSort.vue'),
       },
+      {
+        path: '/radix-sort',
+        name: "RadixSort",
+        component: () => import('@/views/sorts/RadixSort.vue'),
+      },
     ],
   },
 ];

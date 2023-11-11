@@ -114,6 +114,9 @@ void Sketch::init_sorter_() noexcept {
     sorter_ =
         kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CocktailSorter<int>(
             [](int a, int b) { return a - b; }, sequence_));
+  } else if (sort_algorithm_ == "radix") {
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::RadixSorter([](int a, int b) { return a - b; }, sequence_));
   }
 }
 

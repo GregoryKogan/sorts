@@ -13,6 +13,8 @@ private:
 
   bool count_sorting_ = false;
   int exp_ = 1;
+  bool output_array_filled_ = false;
+  int i_ = 0;
   SmartPtrArraySequence<int> output_array_;
   SmartPtrArraySequence<int> counting_array_;
 

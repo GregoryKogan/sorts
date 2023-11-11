@@ -7,16 +7,15 @@ template <class T> inline void SelectionSorter<T>::sort_() {
 
   while (i_ < length - 1) {
     while (j_ < length) {
-      std::optional<int> cmp = this->cmp_wrapper_(
-          this->sequence_->get(min_index_), this->sequence_->get(j_));
-      if (!cmp)
+      if (!this->step_())
         return;
-      if (cmp.value() > 0)
+
+      if (this->cmp_wrapper_(this->sequence_->get(min_index_),
+                             this->sequence_->get(j_)) > 0)
         min_index_ = j_;
       ++j_;
     }
-    if (!this->swap_(i_, min_index_))
-      return;
+    this->swap_(i_, min_index_);
     ++i_;
     j_ = i_ + 1;
     min_index_ = i_;

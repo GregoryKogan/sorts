@@ -72,16 +72,16 @@ void Application::handle_messages_() {
     if (message_doc["action"].GetString() == std::string("sort")) {
       if (!message_doc.HasMember("algorithm") ||
           !message_doc.HasMember("seq_len") ||
-          !message_doc.HasMember("cmp_per_sec"))
+          !message_doc.HasMember("steps_per_sec"))
         return;
       if (!message_doc["algorithm"].IsString() ||
           !message_doc["seq_len"].IsUint() ||
-          !message_doc["cmp_per_sec"].IsUint())
+          !message_doc["steps_per_sec"].IsUint())
         return;
 
       sketch_->set_sort_algorithm(message_doc["algorithm"].GetString());
       sketch_->set_sequence_length(message_doc["seq_len"].GetUint());
-      sketch_->set_comparisons_per_second(message_doc["cmp_per_sec"].GetUint());
+      sketch_->set_steps_per_second(message_doc["steps_per_sec"].GetUint());
 
       sketch_->setup();
     }

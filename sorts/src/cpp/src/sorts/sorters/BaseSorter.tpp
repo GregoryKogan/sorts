@@ -35,91 +35,58 @@ template <class T> inline u_int32_t Sorter<T>::get_swaps() const noexcept {
 }
 
 template <class T>
-inline u_int32_t Sorter<T>::get_available_comparisons() const noexcept {
-  return available_comparisons_;
+u_int32_t kogan::Sorter<T>::get_available_steps() const noexcept {
+  return available_steps_;
 }
 
-template <class T>
-inline u_int32_t Sorter<T>::get_available_swaps() const noexcept {
-  return available_swaps_;
-}
-
-template <class T>
-inline bool Sorter<T>::is_limited_in_comparisons() const noexcept {
-  return limited_in_comparisons_;
-}
-
-template <class T> inline bool Sorter<T>::is_limited_in_swaps() const noexcept {
-  return limited_in_swaps_;
+template <class T> inline bool kogan::Sorter<T>::is_limited() const noexcept {
+  return limited_;
 }
 
 template <class T>
 inline void
-Sorter<T>::add_available_comparisons(u_int32_t available_comparisons) noexcept {
-  available_comparisons_ += available_comparisons;
+kogan::Sorter<T>::add_available_steps(u_int32_t available_steps) noexcept {
+  available_steps_ += available_steps;
 }
 
-template <class T>
-inline void Sorter<T>::add_available_swaps(u_int32_t available_swaps) noexcept {
-  available_swaps_ += available_swaps;
+template <class T> inline void kogan::Sorter<T>::make_limited() noexcept {
+  limited_ = true;
+  available_steps_ = 0;
 }
 
-template <class T>
-inline void Sorter<T>::make_limited_in_comparisons() noexcept {
-  limited_in_comparisons_ = true;
-  available_comparisons_ = 0;
-}
-
-template <class T> inline void Sorter<T>::make_limited_in_swaps() noexcept {
-  limited_in_swaps_ = true;
-  available_swaps_ = 0;
-}
-
-template <class T>
-inline void Sorter<T>::make_unlimited_in_comparisons() noexcept {
-  limited_in_comparisons_ = false;
-  available_comparisons_ = 0;
-}
-
-template <class T> inline void Sorter<T>::make_unlimited_in_swaps() noexcept {
-  limited_in_swaps_ = false;
-  available_swaps_ = 0;
+template <class T> inline void kogan::Sorter<T>::make_unlimited() noexcept {
+  limited_ = false;
+  available_steps_ = 0;
 }
 
 template <class T> inline void Sorter<T>::sort() {
   if (sequence_->get_length() < 2)
     return;
-  try {
-    sort_();
-    set_interesting_indexes_();
-  } catch (OutOfComparisonsException &e) {
-    return;
-  } catch (OutOfSwapsException &e) {
-    return;
-  }
+  sort_();
+  set_interesting_indexes_();
 }
 
-template <class T> inline std::optional<int> Sorter<T>::cmp_wrapper_(T a, T b) {
-  if (limited_in_comparisons_ && !available_comparisons_)
-    return {};
-  if (limited_in_comparisons_)
-    --available_comparisons_;
+template <class T> inline bool kogan::Sorter<T>::step_() noexcept {
+  if (!limited_)
+    return true;
 
+  if (!available_steps_)
+    return false;
+
+  --available_steps_;
+  return true;
+}
+
+template <class T> inline int Sorter<T>::cmp_wrapper_(T a, T b) {
   ++comparisons_;
   return cmp_(a, b);
 }
 
-template <class T> inline bool Sorter<T>::swap_(int i, int j) {
-  if (limited_in_swaps_ && !available_swaps_)
-    return false;
-  if (limited_in_swaps_)
-    --available_swaps_;
-
+template <class T> inline void Sorter<T>::swap_(int i, int j) {
   ++swaps_;
   T tmp = sequence_->get(i);
   sequence_->set(i, sequence_->get(j));
   sequence_->set(j, tmp);
-  return true;
 }
 
 } // namespace kogan

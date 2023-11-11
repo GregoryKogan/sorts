@@ -40,11 +40,10 @@ template <class T> inline bool IterativeMergeSorter<T>::merge_() {
   is_merging_ = true;
 
   while (i_ < left_length && j_ < right_length) {
-    std::optional<int> cmp =
-        this->cmp_wrapper_(left_part_[i_], right_part_[j_]);
-    if (!cmp)
+    if (!this->step_())
       return false;
-    if (cmp.value() <= 0) {
+
+    if (this->cmp_wrapper_(left_part_[i_], right_part_[j_]) <= 0) {
       this->sequence_->set(k_, left_part_[i_]);
       ++i_;
     } else {

@@ -34,7 +34,7 @@ export default defineComponent({
               action: "sort",
               algorithm: this.store.sortAlgorithm,
               seq_len: this.store.sequenceLength,
-              cmp_per_sec: this.store.comparisonsPerSecond,
+              steps_per_sec: this.store.stepsPerSecond,
             },
           }),
           "*"

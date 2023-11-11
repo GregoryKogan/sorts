@@ -7,10 +7,7 @@
     <h3>Time complexity O(d · (n + b))</h3>
     <h3>Space complexity O(n + b)</h3>
     <br />
-    <p>
-      {{ formatter.format(store.comparisons) }} comparisons <br />
-      {{ formatter.format(store.swaps) }} swaps
-    </p>
+    <p>{{ formatter.format(store.comparisons) }} comparisons</p>
     <SDLCanvas />
     <p>FPS: {{ store.frameRate }}</p>
     <br />
@@ -25,8 +22,8 @@
         color="secondary"
       ></v-slider>
       <p>
-        Comparisons per second:
-        {{ formatter.format(store.comparisonsPerSecond) }}
+        Steps per second:
+        {{ formatter.format(store.stepsPerSecond) }}
       </p>
       <v-slider
         v-model="mappedComparisonsPerSecond"
@@ -74,8 +71,8 @@ export default defineComponent({
   methods: {
     setDefaults() {
       this.store.setSortAlgorithm("radix");
-      this.store.setSequenceLength(100);
-      this.store.setComparisonsPerSecond(50);
+      this.store.setSequenceLength(1000);
+      this.store.setStepsPerSecond(500);
 
       this.sequenceLengthMappingParameter = this.reverseExponentialMap(
         this.sequenceLengthMin,
@@ -85,7 +82,7 @@ export default defineComponent({
       this.comparisonsPerSecondMappingParameter = this.reverseExponentialMap(
         this.comparisonsPerSecondMin,
         this.comparisonsPerSecondMax,
-        this.store.comparisonsPerSecond
+        this.store.stepsPerSecond
       );
     },
     exponentialMap(min: number, max: number, t: number) {
@@ -123,7 +120,7 @@ export default defineComponent({
       },
       set(value: number) {
         this.comparisonsPerSecondMappingParameter = value;
-        this.store.setComparisonsPerSecond(
+        this.store.setStepsPerSecond(
           Math.round(
             this.exponentialMap(
               this.comparisonsPerSecondMin,

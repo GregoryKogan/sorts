@@ -16,11 +16,11 @@ inline void MergeSorter<T>::set_range_(std::size_t left,
 
   left_sorter_ = make_unique<MergeSorter<T>>(this->cmp_, this->sequence_);
   left_sorter_->set_range_(left_, middle_);
-  left_sorter_->make_limited_in_comparisons();
+  left_sorter_->make_limited();
 
   right_sorter_ = make_unique<MergeSorter<T>>(this->cmp_, this->sequence_);
   right_sorter_->set_range_(middle_ + 1, right_);
-  right_sorter_->make_limited_in_comparisons();
+  right_sorter_->make_limited();
 }
 
 template <class T> inline void MergeSorter<T>::sort_() {
@@ -28,17 +28,17 @@ template <class T> inline void MergeSorter<T>::sort_() {
     set_range_(0, this->sequence_->get_length() - 1);
 
   if (!left_sorter_->merged_) {
-    left_sorter_->add_available_comparisons(this->get_available_comparisons());
+    left_sorter_->add_available_steps(this->get_available_steps());
     left_sorter_->sort_();
-    this->available_comparisons_ = left_sorter_->get_available_comparisons();
+    this->available_steps_ = left_sorter_->get_available_steps();
   }
   if (!right_sorter_->merged_) {
-    right_sorter_->add_available_comparisons(this->get_available_comparisons());
+    right_sorter_->add_available_steps(this->get_available_steps());
     right_sorter_->sort_();
-    this->available_comparisons_ = right_sorter_->get_available_comparisons();
+    this->available_steps_ = right_sorter_->get_available_steps();
   }
 
-  if (!this->get_available_comparisons())
+  if (!this->get_available_steps())
     return;
 
   if (merge_()) {
@@ -68,11 +68,10 @@ template <class T> inline bool MergeSorter<T>::merge_() {
   is_merging_ = true;
 
   while (i_ < left_length && j_ < right_length) {
-    std::optional<int> cmp =
-        this->cmp_wrapper_(left_part_[i_], right_part_[j_]);
-    if (!cmp)
+    if (!this->step_())
       return false;
-    if (cmp.value() <= 0) {
+
+    if (this->cmp_wrapper_(left_part_[i_], right_part_[j_]) <= 0) {
       this->sequence_->set(k_, left_part_[i_]);
       ++i_;
     } else {

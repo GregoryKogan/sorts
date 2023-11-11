@@ -18,13 +18,12 @@ template <class T> inline void CocktailSorter<T>::sort_() {
   while (true) {
     if (!forward_pass_done_) {
       while (i_ < end_) {
-        std::optional<int> cmp = this->cmp_wrapper_(
-            this->sequence_->get(i_), this->sequence_->get(i_ + 1));
-        if (!cmp)
+        if (!this->step_())
           return;
-        if (cmp.value() > 0) {
-          if (!this->swap_(i_, i_ + 1))
-            return;
+
+        if (this->cmp_wrapper_(this->sequence_->get(i_),
+                               this->sequence_->get(i_ + 1)) > 0) {
+          this->swap_(i_, i_ + 1);
           swapped_ = true;
         }
         i_++;
@@ -40,13 +39,12 @@ template <class T> inline void CocktailSorter<T>::sort_() {
 
     if (!backward_pass_done_) {
       while (j_ >= start_) {
-        std::optional<int> cmp = this->cmp_wrapper_(
-            this->sequence_->get(j_), this->sequence_->get(j_ + 1));
-        if (!cmp)
+        if (!this->step_())
           return;
-        if (cmp.value() > 0) {
-          if (!this->swap_(j_, j_ + 1))
-            return;
+
+        if (this->cmp_wrapper_(this->sequence_->get(j_),
+                               this->sequence_->get(j_ + 1)) > 0) {
+          this->swap_(j_, j_ + 1);
           swapped_ = true;
         }
         j_--;

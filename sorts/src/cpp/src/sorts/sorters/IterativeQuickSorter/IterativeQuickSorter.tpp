@@ -46,20 +46,18 @@ template <class T> inline bool IterativeQuickSorter<T>::partition_() {
   auto x = this->sequence_->get(h_);
 
   while (j_ <= h_ - 1) {
-    std::optional<int> cmp = this->cmp_wrapper_(this->sequence_->get(j_), x);
-    if (!cmp)
+    if (!this->step_())
       return false;
-    if (cmp.value() <= 0) {
+
+    if (this->cmp_wrapper_(this->sequence_->get(j_), x) <= 0) {
       ++i_;
-      if (!this->swap_(i_, j_))
-        return false;
+      this->swap_(i_, j_);
     }
 
     ++j_;
   }
 
-  if (!this->swap_(i_ + 1, h_))
-    return false;
+  this->swap_(i_ + 1, h_);
   p_ = i_ + 1;
 
   return true;

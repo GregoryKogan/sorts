@@ -8,7 +8,7 @@ export const useAppStore = defineStore('app', {
     comparisons: 0 as number,
     swaps: 0 as number,
     sequenceLength: 0 as number,
-    comparisonsPerSecond: 0 as number,
+    stepsPerSecond: 0 as number,
   }),
   actions: {
     setFrameRate(frameRate: number) {
@@ -26,8 +26,8 @@ export const useAppStore = defineStore('app', {
     setSequenceLength(sequenceLength: number) {
       this.sequenceLength = sequenceLength;
     },
-    setComparisonsPerSecond(comparisonsPerSecond: number) {
-      this.comparisonsPerSecond = comparisonsPerSecond;
+    setStepsPerSecond(stepsPerSecond: number) {
+      this.stepsPerSecond = stepsPerSecond;
     },
   },
 });

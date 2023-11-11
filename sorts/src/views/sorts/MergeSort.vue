@@ -22,8 +22,8 @@
         color="secondary"
       ></v-slider>
       <p>
-        Comparisons per second:
-        {{ formatter.format(store.comparisonsPerSecond) }}
+        Steps per second:
+        {{ formatter.format(store.stepsPerSecond) }}
       </p>
       <v-slider
         v-model="mappedComparisonsPerSecond"
@@ -72,7 +72,7 @@ export default defineComponent({
     setDefaults() {
       this.store.setSortAlgorithm("merge");
       this.store.setSequenceLength(100);
-      this.store.setComparisonsPerSecond(50);
+      this.store.setStepsPerSecond(50);
 
       this.sequenceLengthMappingParameter = this.reverseExponentialMap(
         this.sequenceLengthMin,
@@ -82,7 +82,7 @@ export default defineComponent({
       this.comparisonsPerSecondMappingParameter = this.reverseExponentialMap(
         this.comparisonsPerSecondMin,
         this.comparisonsPerSecondMax,
-        this.store.comparisonsPerSecond
+        this.store.stepsPerSecond
       );
     },
     exponentialMap(min: number, max: number, t: number) {
@@ -120,7 +120,7 @@ export default defineComponent({
       },
       set(value: number) {
         this.comparisonsPerSecondMappingParameter = value;
-        this.store.setComparisonsPerSecond(
+        this.store.setStepsPerSecond(
           Math.round(
             this.exponentialMap(
               this.comparisonsPerSecondMin,

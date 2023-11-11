@@ -20,25 +20,25 @@ template <class T> inline void QuickSorter<T>::sort_() {
 
     left_sorter_ = make_unique<QuickSorter<T>>(this->cmp_, this->sequence_);
     left_sorter_->set_range_(l_, p_ - 1);
-    left_sorter_->make_limited_in_comparisons();
+    left_sorter_->make_limited();
 
     right_sorter_ = make_unique<QuickSorter<T>>(this->cmp_, this->sequence_);
     right_sorter_->set_range_(p_ + 1, h_);
-    right_sorter_->make_limited_in_comparisons();
+    right_sorter_->make_limited();
 
     child_sorters_initialized_ = true;
   }
 
   if (!left_sorter_->is_done_) {
-    left_sorter_->add_available_comparisons(this->get_available_comparisons());
+    left_sorter_->add_available_steps(this->get_available_steps());
     left_sorter_->sort_();
-    this->available_comparisons_ = left_sorter_->get_available_comparisons();
+    this->available_steps_ = left_sorter_->get_available_steps();
   }
 
   if (!right_sorter_->is_done_) {
-    right_sorter_->add_available_comparisons(this->get_available_comparisons());
+    right_sorter_->add_available_steps(this->get_available_steps());
     right_sorter_->sort_();
-    this->available_comparisons_ = right_sorter_->get_available_comparisons();
+    this->available_steps_ = right_sorter_->get_available_steps();
   }
 
   this->comparisons_ = partition_comparisons_ +
@@ -69,20 +69,18 @@ template <class T> inline bool QuickSorter<T>::partition_() {
   auto x = this->sequence_->get(h_);
 
   while (j_ <= h_ - 1) {
-    std::optional<int> cmp = this->cmp_wrapper_(this->sequence_->get(j_), x);
-    if (!cmp)
+    if (!this->step_())
       return false;
-    if (cmp.value() <= 0) {
+
+    if (this->cmp_wrapper_(this->sequence_->get(j_), x) <= 0) {
       ++i_;
-      if (!this->swap_(i_, j_))
-        return false;
+      this->swap_(i_, j_);
     }
 
     ++j_;
   }
 
-  if (!this->swap_(i_ + 1, h_))
-    return false;
+  this->swap_(i_ + 1, h_);
   p_ = i_ + 1;
 
   return true;

@@ -11,6 +11,8 @@ private:
   SmartPtrArraySequence<int> output_array_;
 
   bool max_value_found_ = false;
+  bool counting_array_filled_ = false;
+  bool output_written_ = false;
   int i_ = 0;
 
 public:

@@ -33,9 +33,7 @@ template <class T> inline void HeapSorter<T>::sort_() {
 
   while (j_ > 0) {
     if (!extracting_swap_done_) {
-      if (!this->swap_(0, j_))
-        return;
-
+      this->swap_(0, j_);
       extracting_swap_done_ = true;
     }
 
@@ -60,11 +58,10 @@ template <class T> inline void Heapifier<T>::heapify() {
 
   if (!left_checked_) {
     if (l_ < heap_size_) {
-      std::optional<int> cmp = sorter_->cmp_wrapper_(
-          sorter_->sequence_->get(l_), sorter_->sequence_->get(largest_));
-      if (!cmp)
+      if (!this->sorter_->step_())
         return;
-      if (cmp.value() > 0)
+      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(l_),
+                                sorter_->sequence_->get(largest_)) > 0)
         largest_ = l_;
     }
 
@@ -73,11 +70,10 @@ template <class T> inline void Heapifier<T>::heapify() {
 
   if (!right_checked_) {
     if (r_ < heap_size_) {
-      std::optional<int> cmp = sorter_->cmp_wrapper_(
-          sorter_->sequence_->get(r_), sorter_->sequence_->get(largest_));
-      if (!cmp)
+      if (!this->sorter_->step_())
         return;
-      if (cmp.value() > 0)
+      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(r_),
+                                sorter_->sequence_->get(largest_)) > 0)
         largest_ = r_;
     }
 
@@ -86,9 +82,7 @@ template <class T> inline void Heapifier<T>::heapify() {
 
   if (largest_ != index_) {
     if (!largest_swap_done_) {
-      if (!sorter_->swap_(index_, largest_))
-        return;
-
+      sorter_->swap_(index_, largest_);
       largest_swap_done_ = true;
     }
 

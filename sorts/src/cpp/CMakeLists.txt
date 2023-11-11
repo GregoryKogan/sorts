@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 project(sorts)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if (WIN32)
     # Forcing MSVC to use utf-8 encoding
@@ -42,10 +43,6 @@ if (DEFINED EMSCRIPTEN)
         src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.cpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.cpp
-        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.hpp
-        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.cpp
-        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.hpp
-        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.cpp
 
         src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hpp
         src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.tpp
@@ -138,10 +135,6 @@ else()
         src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.cpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp
         src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.cpp
-        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.hpp
-        src/libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.cpp
-        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.hpp
-        src/libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.cpp
 
         src/libs/test_lib/test_lib.hpp
         src/libs/test_lib/test_lib.cpp

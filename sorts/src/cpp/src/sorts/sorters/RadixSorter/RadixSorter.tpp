@@ -34,11 +34,11 @@ inline void RadixSorter::sort_() {
 
 inline bool kogan::RadixSorter::find_max_value_() {
   while (max_val_search_index_ < this->sequence_->get_length()) {
-    std::optional<int> cmp = this->cmp_wrapper_(
-        max_val_, this->sequence_->get(max_val_search_index_));
-    if (!cmp)
+    if (!this->step_())
       return false;
-    if (cmp.value() < 0)
+
+    if (this->cmp_wrapper_(max_val_,
+                           this->sequence_->get(max_val_search_index_)) < 0)
       max_val_ = this->sequence_->get(max_val_search_index_);
 
     ++max_val_search_index_;
@@ -49,25 +49,44 @@ inline bool kogan::RadixSorter::find_max_value_() {
 inline bool kogan::RadixSorter::count_sort_() {
   count_sorting_ = true;
 
-  int i;
-  for (i = 0; i < this->sequence_->get_length(); i++)
-    counting_array_[(this->sequence_->get(i) / exp_) % 10]++;
+  if (!output_array_filled_) {
+    int i;
+    for (i = 0; i < this->sequence_->get_length(); i++)
+      counting_array_[(this->sequence_->get(i) / exp_) % 10]++;
 
-  for (i = 1; i < 10; i++)
-    counting_array_[i] += counting_array_[i - 1];
+    for (i = 1; i < 10; i++)
+      counting_array_[i] += counting_array_[i - 1];
 
-  for (i = this->sequence_->get_length() - 1; i >= 0; i--) {
-    output_array_[counting_array_[(this->sequence_->get(i) / exp_) % 10] - 1] =
-        this->sequence_->get(i);
-    counting_array_[(this->sequence_->get(i) / exp_) % 10]--;
+    for (i = this->sequence_->get_length() - 1; i >= 0; i--) {
+      output_array_[counting_array_[(this->sequence_->get(i) / exp_) % 10] -
+                    1] = this->sequence_->get(i);
+      counting_array_[(this->sequence_->get(i) / exp_) % 10]--;
+    }
+
+    output_array_filled_ = true;
   }
 
-  for (i = 0; i < this->sequence_->get_length(); i++)
-    this->sequence_->set(i, output_array_[i]);
+  while (i_ < this->sequence_->get_length()) {
+    if (!this->step_())
+      return false;
 
+    this->sequence_->set(i_, output_array_[i_]);
+    ++i_;
+  }
+
+  i_ = 0;
+  output_array_filled_ = false;
   return true;
 }
 
-inline void RadixSorter::set_interesting_indexes_() noexcept {}
+inline void RadixSorter::set_interesting_indexes_() noexcept {
+  this->interesting_indexes_->clear();
+
+  if (!max_val_found_ && max_val_search_index_ < this->sequence_->get_length())
+    this->interesting_indexes_->append(max_val_search_index_);
+
+  if (count_sorting_)
+    this->interesting_indexes_->append(i_);
+}
 
 } // namespace kogan

@@ -5,7 +5,7 @@ Sketch::Sketch(SDL_Renderer *renderer) : renderer_(renderer) {}
 void Sketch::setup() {
   generate_sequence_();
   init_sorter_();
-  sorter_->make_limited_in_comparisons();
+  sorter_->make_limited();
   is_setup_ = true;
 }
 
@@ -16,13 +16,13 @@ void Sketch::update(const double &delta_time) {
     return;
 
   milliseconds_since_last_sort_ += delta_time;
-  uint32_t available_cmp =
-      milliseconds_since_last_sort_ * comparisons_per_second_ / 1000;
-  if (available_cmp < min_comparisons_to_sort_)
+  uint32_t available_steps =
+      milliseconds_since_last_sort_ * steps_per_second_ / 1000;
+  if (available_steps < min_steps_to_sort_)
     return;
 
   milliseconds_since_last_sort_ = 0;
-  sorter_->add_available_comparisons(available_cmp);
+  sorter_->add_available_steps(available_steps);
   sorter_->sort();
 }
 
@@ -65,11 +65,9 @@ void Sketch::set_sort_algorithm(const std::string &algorithm) noexcept {
   sort_algorithm_ = algorithm;
 }
 
-void Sketch::set_comparisons_per_second(
-    const u_int32_t &comparisons_per_second) noexcept {
-  comparisons_per_second_ = comparisons_per_second;
-  min_comparisons_to_sort_ =
-      std::max((u_int32_t)1, comparisons_per_second_ / 60);
+void Sketch::set_steps_per_second(const u_int32_t &steps_per_second) noexcept {
+  steps_per_second_ = steps_per_second;
+  min_steps_to_sort_ = std::max((u_int32_t)1, steps_per_second_ / 60);
 }
 
 void Sketch::set_sequence_length(const std::size_t &seq_len) noexcept {

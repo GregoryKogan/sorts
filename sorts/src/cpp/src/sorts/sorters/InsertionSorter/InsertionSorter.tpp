@@ -11,13 +11,13 @@ template <class T> inline void InsertionSorter<T>::sort_() {
       j_ = i_;
       continue;
     }
-    std::optional<int> cmp = this->cmp_wrapper_(this->sequence_->get(j_),
-                                                this->sequence_->get(j_ - 1));
-    if (!cmp)
+
+    if (!this->step_())
       return;
-    if (cmp.value() < 0) {
-      if (!this->swap_(j_, j_ - 1))
-        return;
+
+    if (this->cmp_wrapper_(this->sequence_->get(j_),
+                           this->sequence_->get(j_ - 1)) < 0) {
+      this->swap_(j_, j_ - 1);
       --j_;
     } else {
       ++i_;

@@ -66,6 +66,11 @@ const routes = [
         name: "RadixSort",
         component: () => import('@/views/sorts/RadixSort.vue'),
       },
+      {
+        path: '/shell-sort',
+        name: "ShellSort",
+        component: () => import('@/views/sorts/ShellSort.vue'),
+      },
     ],
   },
 ];

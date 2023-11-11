@@ -88,6 +88,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/CocktailSorter/CocktailSorter.tpp
         src/sorts/sorters/RadixSorter/RadixSorter.hpp
         src/sorts/sorters/RadixSorter/RadixSorter.tpp
+        src/sorts/sorters/ShellSorter/ShellSorter.hpp
+        src/sorts/sorters/ShellSorter/ShellSorter.tpp
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

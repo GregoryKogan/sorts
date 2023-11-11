@@ -38,6 +38,7 @@ export default defineComponent({
       { name: "counting sort", route: "CountingSort" },
       { name: "cocktail sort", route: "CocktailSort" },
       { name: "radix sort", route: "RadixSort" },
+      { name: "shell sort", route: "ShellSort" },
     ] as Sort[],
   }),
   mounted() {

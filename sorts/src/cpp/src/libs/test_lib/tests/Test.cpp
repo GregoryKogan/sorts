@@ -14,6 +14,12 @@ bool Test::run() const {
     log_red(e.what());
     std::cout << std::endl;
     return false;
+  } catch (...) {
+    log_red("FAILED");
+    std::cout << ": " << name << std::endl;
+    log_red("Unknown exception");
+    std::cout << std::endl;
+    return false;
   }
   log_green("PASSED");
   std::cout << ": " << name << std::endl;

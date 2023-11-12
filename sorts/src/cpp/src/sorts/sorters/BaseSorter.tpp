@@ -12,6 +12,8 @@ inline Sorter<T>::Sorter(int (*cmp)(T, T),
 }
 
 template <class T> inline bool Sorter<T>::is_sorted() const noexcept {
+  if (sequence_->get_length() < 2)
+    return true;
   for (std::size_t i = 0; i < sequence_->get_length() - 1; ++i) {
     if (cmp_(sequence_->get(i), sequence_->get(i + 1)) > 0)
       return false;

@@ -22,8 +22,6 @@ private:
   SDL_Renderer *renderer_;
   SDL_Event window_event_;
 
-  bool keep_window_open_ = true;
-
   Uint64 last_time_ = 0;
   std::deque<Uint64> delta_time_records_;
   std::size_t max_delta_time_records_ = 50;

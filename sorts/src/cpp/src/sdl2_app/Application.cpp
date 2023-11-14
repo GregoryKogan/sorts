@@ -23,27 +23,19 @@ Application::Application() {
 Application::~Application() { SDL_DestroyWindow(window_); }
 
 void Application::loop() {
-  while (keep_window_open_) {
-    handle_window_events_();
-    handle_messages_();
+  handle_window_events_();
+  handle_messages_();
 
-    sync_data_();
+  sync_data_();
 
-    double delta_time = get_delta_time_();
-    if (delta_time < 16)
-      SDL_Delay(16 - delta_time);
-
-    sketch_->update(delta_time);
-    sketch_->draw();
-  }
+  double delta_time = get_delta_time_();
+  sketch_->update(delta_time);
+  sketch_->draw();
 }
 
 void Application::handle_window_events_() {
   while (SDL_PollEvent(&window_event_) > 0) {
     switch (window_event_.type) {
-    case SDL_QUIT:
-      keep_window_open_ = false;
-      break;
     case SDL_WINDOWEVENT:
       switch (window_event_.window.event) {
       case SDL_WINDOWEVENT_RESIZED:
@@ -67,7 +59,7 @@ void Application::handle_messages_() {
 
   if (message_doc.HasMember("action")) {
     if (message_doc["action"].GetString() == std::string("quit"))
-      keep_window_open_ = false;
+      emscripten_cancel_main_loop();
 
     if (message_doc["action"].GetString() == std::string("sort")) {
       if (!message_doc.HasMember("algorithm") ||

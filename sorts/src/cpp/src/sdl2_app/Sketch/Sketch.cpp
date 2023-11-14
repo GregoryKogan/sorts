@@ -7,6 +7,7 @@ void Sketch::setup() {
   init_sorter_();
   sorter_->make_limited();
   is_sorted_ = false;
+  sorted_drawn_ = false;
   is_setup_ = true;
 }
 
@@ -25,12 +26,20 @@ void Sketch::update(const double &delta_time) {
   milliseconds_since_last_sort_ = 0;
   sorter_->add_available_steps(available_steps);
   auto available_steps_before_sort = sorter_->get_available_steps();
+
   sorter_->sort();
-  if (available_steps_before_sort == sorter_->get_available_steps())
+
+  if (available_steps_before_sort == sorter_->get_available_steps()) {
     is_sorted_ = true;
+    draw();
+    sorted_drawn_ = true;
+  }
 }
 
 void Sketch::draw() const noexcept {
+  if (is_sorted_ && sorted_drawn_)
+    return;
+
   SDL_SetRenderDrawColor(renderer_, 36, 40, 59, 255);
   SDL_RenderClear(renderer_);
 

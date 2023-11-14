@@ -23,6 +23,8 @@ protected:
   bool limited_ = false;
   u_int32_t available_steps_ = 0;
 
+  bool is_sorted_ = false;
+
 public:
   Sorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence);
 

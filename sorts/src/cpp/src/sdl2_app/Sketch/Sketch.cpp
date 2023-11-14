@@ -6,7 +6,6 @@ void Sketch::setup() {
   generate_sequence_();
   init_sorter_();
   sorter_->make_limited();
-  is_sorted_ = false;
   sorted_drawn_ = false;
   is_setup_ = true;
 }
@@ -14,7 +13,7 @@ void Sketch::setup() {
 void Sketch::update(const double &delta_time) {
   if (!is_setup_)
     return;
-  if (is_sorted_)
+  if (sorter_->is_sorted())
     return;
 
   milliseconds_since_last_sort_ += delta_time;
@@ -25,19 +24,17 @@ void Sketch::update(const double &delta_time) {
 
   milliseconds_since_last_sort_ = 0;
   sorter_->add_available_steps(available_steps);
-  auto available_steps_before_sort = sorter_->get_available_steps();
 
   sorter_->sort();
 
-  if (available_steps_before_sort == sorter_->get_available_steps()) {
-    is_sorted_ = true;
+  if (sorter_->is_sorted()) {
     draw();
     sorted_drawn_ = true;
   }
 }
 
 void Sketch::draw() const noexcept {
-  if (is_sorted_ && sorted_drawn_)
+  if (sorted_drawn_)
     return;
 
   SDL_SetRenderDrawColor(renderer_, 36, 40, 59, 255);
@@ -49,9 +46,9 @@ void Sketch::draw() const noexcept {
   }
 
   for (std::size_t i = 0; i < sequence_->get_length(); ++i)
-    draw_value_(i, is_sorted_);
+    draw_value_(i, sorter_->is_sorted());
 
-  if (!is_sorted_) {
+  if (!sorter_->is_sorted()) {
     auto interesting_indexes = sorter_->get_interesting_indexes();
     for (std::size_t i = 0; i < interesting_indexes->get_length(); ++i) {
       draw_value_(interesting_indexes->get(i), false, true);

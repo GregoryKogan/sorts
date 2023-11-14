@@ -12,13 +12,7 @@ inline Sorter<T>::Sorter(int (*cmp)(T, T),
 }
 
 template <class T> inline bool Sorter<T>::is_sorted() const noexcept {
-  if (sequence_->get_length() < 2)
-    return true;
-  for (std::size_t i = 0; i < sequence_->get_length() - 1; ++i) {
-    if (cmp_(sequence_->get(i), sequence_->get(i + 1)) > 0)
-      return false;
-  }
-  return true;
+  return is_sorted_;
 }
 
 template <class T>
@@ -64,7 +58,12 @@ template <class T> inline void kogan::Sorter<T>::make_unlimited() noexcept {
 template <class T> inline void Sorter<T>::sort() {
   if (sequence_->get_length() < 2)
     return;
+
+  auto available_steps_before_sort = get_available_steps();
   sort_();
+  if (available_steps_before_sort == get_available_steps())
+    is_sorted_ = true;
+
   set_interesting_indexes_();
 }
 

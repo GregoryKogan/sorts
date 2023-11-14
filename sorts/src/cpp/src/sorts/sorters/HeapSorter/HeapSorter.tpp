@@ -16,8 +16,7 @@ template <class T> inline void HeapSorter<T>::sort_() {
   if (!initial_heapify_done_) {
     while (i_ >= 0) {
       heapifier_->heapify();
-      if (!heapifier_->is_done())
-        return;
+      if (!heapifier_->is_done()) return;
       i_--;
       heapifier_ =
           make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
@@ -38,8 +37,7 @@ template <class T> inline void HeapSorter<T>::sort_() {
     }
 
     heapifier_->heapify();
-    if (!heapifier_->is_done())
-      return;
+    if (!heapifier_->is_done()) return;
 
     j_--;
     extracting_swap_done_ = false;
@@ -58,8 +56,7 @@ template <class T> inline void Heapifier<T>::heapify() {
 
   if (!left_checked_) {
     if (l_ < heap_size_) {
-      if (!this->sorter_->step_())
-        return;
+      if (!this->sorter_->step_()) return;
       if (sorter_->cmp_wrapper_(sorter_->sequence_->get(l_),
                                 sorter_->sequence_->get(largest_)) > 0)
         largest_ = l_;
@@ -70,8 +67,7 @@ template <class T> inline void Heapifier<T>::heapify() {
 
   if (!right_checked_) {
     if (r_ < heap_size_) {
-      if (!this->sorter_->step_())
-        return;
+      if (!this->sorter_->step_()) return;
       if (sorter_->cmp_wrapper_(sorter_->sequence_->get(r_),
                                 sorter_->sequence_->get(largest_)) > 0)
         largest_ = r_;
@@ -93,8 +89,7 @@ template <class T> inline void Heapifier<T>::heapify() {
     }
 
     child_heapifier_->heapify();
-    if (!child_heapifier_->is_done())
-      return;
+    if (!child_heapifier_->is_done()) return;
   }
 
   is_done_ = true;
@@ -126,10 +121,8 @@ inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
     for (std::size_t i = 0; i < heapifier_interesting_indexes.get_length(); i++)
       this->interesting_indexes_->append(heapifier_interesting_indexes[i]);
   }
-  if (!extracting_started_)
-    this->interesting_indexes_->append(i_);
-  else
-    this->interesting_indexes_->append(j_);
+  if (!extracting_started_) this->interesting_indexes_->append(i_);
+  else this->interesting_indexes_->append(j_);
 }
 
 } // namespace kogan

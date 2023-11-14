@@ -4,11 +4,9 @@ namespace kogan {
 
 template <class T> inline void GnomeSorter<T>::sort_() {
   while (index_ < this->sequence_->get_length()) {
-    if (!this->step_())
-      return;
+    if (!this->step_()) return;
 
-    if (index_ == 0)
-      ++index_;
+    if (index_ == 0) ++index_;
     if (this->cmp_wrapper_(this->sequence_->get(index_ - 1),
                            this->sequence_->get(index_)) <= 0)
       ++index_;

@@ -43,8 +43,7 @@ SmartPtrArraySequence<T>::get_subsequence(int start_index,
         "end_index must be greater than start_index");
 
   auto sub_seq = UniquePtr<SmartPtrSequence<T>>(new SmartPtrArraySequence<T>());
-  for (int i = start_index; i <= end_index; ++i)
-    sub_seq->append(get(i));
+  for (int i = start_index; i <= end_index; ++i) sub_seq->append(get(i));
   return sub_seq;
 }
 
@@ -63,8 +62,7 @@ template <class T> void SmartPtrArraySequence<T>::append(T item) {
 
 template <class T> void SmartPtrArraySequence<T>::prepend(T item) {
   array->resize(get_length() + 1);
-  for (int i = get_length() - 1; i > 0; --i)
-    set(i, get(i - 1));
+  for (int i = get_length() - 1; i > 0; --i) set(i, get(i - 1));
   set(0, item);
 }
 
@@ -72,14 +70,11 @@ template <class T> void SmartPtrArraySequence<T>::insert(int index, T item) {
   if (index < 0 || index > get_length())
     throw IndexOutOfRangeException(index, 0, get_length());
 
-  if (index == 0)
-    prepend(item);
-  else if (index == get_length())
-    append(item);
+  if (index == 0) prepend(item);
+  else if (index == get_length()) append(item);
   else {
     array->resize(get_length() + 1);
-    for (int i = get_length() - 1; i > index; --i)
-      set(i, get(i - 1));
+    for (int i = get_length() - 1; i > index; --i) set(i, get(i - 1));
     set(index, item);
   }
 }
@@ -100,8 +95,7 @@ template <class T> void SmartPtrArraySequence<T>::remove(int index) {
   if (index < 0 || index >= get_length())
     throw IndexOutOfRangeException(index, 0, get_length() - 1);
 
-  for (int i = index; i < get_length() - 1; ++i)
-    set(i, get(i + 1));
+  for (int i = index; i < get_length() - 1; ++i) set(i, get(i + 1));
   array->resize(get_length() - 1);
 }
 

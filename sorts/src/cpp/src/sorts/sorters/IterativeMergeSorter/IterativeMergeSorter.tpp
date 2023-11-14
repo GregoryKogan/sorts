@@ -10,8 +10,7 @@ template <class T> inline void IterativeMergeSorter<T>::sort_() {
       middle_ = std::min(left_ + curr_size_ - 1, n - 1);
       right_ = std::min(left_ + 2 * curr_size_ - 1, n - 1);
 
-      if (!merge_())
-        return;
+      if (!merge_()) return;
       is_merging_ = false;
 
       left_ += 2 * curr_size_;
@@ -40,8 +39,7 @@ template <class T> inline bool IterativeMergeSorter<T>::merge_() {
   is_merging_ = true;
 
   while (i_ < left_length && j_ < right_length) {
-    if (!this->step_())
-      return false;
+    if (!this->step_()) return false;
 
     if (this->cmp_wrapper_(left_part_[i_], right_part_[j_]) <= 0) {
       this->sequence_->set(k_, left_part_[i_]);

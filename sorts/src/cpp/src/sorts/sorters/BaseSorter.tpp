@@ -56,23 +56,19 @@ template <class T> inline void kogan::Sorter<T>::make_unlimited() noexcept {
 }
 
 template <class T> inline void Sorter<T>::sort() {
-  if (sequence_->get_length() < 2)
-    return;
+  if (sequence_->get_length() < 2) return;
 
   auto available_steps_before_sort = get_available_steps();
   sort_();
-  if (available_steps_before_sort == get_available_steps())
-    is_sorted_ = true;
+  if (available_steps_before_sort == get_available_steps()) is_sorted_ = true;
 
   set_interesting_indexes_();
 }
 
 template <class T> inline bool kogan::Sorter<T>::step_() noexcept {
-  if (!limited_)
-    return true;
+  if (!limited_) return true;
 
-  if (!available_steps_)
-    return false;
+  if (!available_steps_) return false;
 
   --available_steps_;
   return true;

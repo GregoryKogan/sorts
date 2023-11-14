@@ -9,20 +9,17 @@ template <class T> inline SmartPtrLinkedList<T>::SmartPtrLinkedList() {
 template <class T>
 inline SmartPtrLinkedList<T>::SmartPtrLinkedList(SharedPtr<T[]> data,
                                                  int length) {
-  if (length < 0)
-    throw InvalidArgumentException("length must be positive");
+  if (length < 0) throw InvalidArgumentException("length must be positive");
 
   init_();
-  for (std::size_t i = 0; i < length; ++i)
-    append(data[i]);
+  for (std::size_t i = 0; i < length; ++i) append(data[i]);
 }
 
 template <class T>
 inline SmartPtrLinkedList<T>::SmartPtrLinkedList(
     const SmartPtrLinkedList<T> &other) {
   init_();
-  for (std::size_t i = 0; i < other.length_; ++i)
-    append(other.get(i));
+  for (std::size_t i = 0; i < other.length_; ++i) append(other.get(i));
 }
 
 template <class T> inline T SmartPtrLinkedList<T>::get(int index) const {
@@ -32,14 +29,12 @@ template <class T> inline T SmartPtrLinkedList<T>::get(int index) const {
 }
 
 template <class T> inline T SmartPtrLinkedList<T>::get_first() const {
-  if (length_ == 0)
-    throw EmptyContainerException();
+  if (length_ == 0) throw EmptyContainerException();
   return root_->head->data;
 }
 
 template <class T> inline T SmartPtrLinkedList<T>::get_last() const {
-  if (length_ == 0)
-    throw EmptyContainerException();
+  if (length_ == 0) throw EmptyContainerException();
   return root_->tail->data;
 }
 
@@ -116,15 +111,13 @@ template <class T> inline void SmartPtrLinkedList<T>::remove(int index) {
   if (index == 0) {
     auto new_head = root_->head->next;
     root_->head = new_head;
-    if (root_->head != nullptr)
-      root_->head->prev = nullptr;
+    if (root_->head != nullptr) root_->head->prev = nullptr;
     --length_;
     return;
   }
   if (index == length_ - 1) {
     root_->tail = root_->tail->prev.lock();
-    if (root_->tail != nullptr)
-      root_->tail->next = nullptr;
+    if (root_->tail != nullptr) root_->tail->next = nullptr;
     --length_;
     return;
   }
@@ -162,8 +155,7 @@ template <class T>
 inline SmartPtrLinkedList<T> SmartPtrLinkedList<T>::concat(
     const SmartPtrLinkedList<T> &other) const noexcept {
   auto new_list = SmartPtrLinkedList<T>(*this);
-  for (std::size_t i = 0; i < other.length_; ++i)
-    new_list.append(other.get(i));
+  for (std::size_t i = 0; i < other.length_; ++i) new_list.append(other.get(i));
   return new_list;
 }
 
@@ -188,13 +180,11 @@ SmartPtrLinkedList<T>::get_node_(int index) const {
 
   if (index < length_ / 2) { // search from head
     auto cur_node = root_->head;
-    for (std::size_t i = 0; i < index; ++i)
-      cur_node = cur_node->next;
+    for (std::size_t i = 0; i < index; ++i) cur_node = cur_node->next;
     return cur_node;
   } else { // search from tail
     auto cur_node = root_->tail;
-    for (std::size_t i = length_ - 1; i > index; --i)
-      cur_node = cur_node->prev;
+    for (std::size_t i = length_ - 1; i > index; --i) cur_node = cur_node->prev;
     return cur_node;
   }
 }

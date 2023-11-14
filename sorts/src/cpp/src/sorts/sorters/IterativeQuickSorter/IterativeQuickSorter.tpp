@@ -7,8 +7,7 @@ template <class T> inline void IterativeQuickSorter<T>::sort_() {
 
   if (stack_.get_length() < n) {
     stack_.clear();
-    for (std::size_t i = 0; i < n; ++i)
-      stack_.append(0);
+    for (std::size_t i = 0; i < n; ++i) stack_.append(0);
     top_ = -1;
     stack_[++top_] = 0;
     stack_[++top_] = n - 1;
@@ -20,8 +19,7 @@ template <class T> inline void IterativeQuickSorter<T>::sort_() {
       l_ = stack_[top_--];
     }
 
-    if (!partition_())
-      return;
+    if (!partition_()) return;
     is_partitioning_ = false;
 
     if (p_ - 1 > l_) {
@@ -46,8 +44,7 @@ template <class T> inline bool IterativeQuickSorter<T>::partition_() {
   auto x = this->sequence_->get(h_);
 
   while (j_ <= h_ - 1) {
-    if (!this->step_())
-      return false;
+    if (!this->step_()) return false;
 
     if (this->cmp_wrapper_(this->sequence_->get(j_), x) <= 0) {
       ++i_;

@@ -5,8 +5,7 @@ kogan::TestSuite bubble_sorter_test_suite("BubbleSorter");
 TEST(random, bubble_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::BubbleSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
@@ -64,15 +63,13 @@ TEST(two_elements, bubble_sorter_test_suite) {
 TEST(sorted, bubble_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(i + 1);
+  for (int i = 0; i < 10; ++i) sequence->append(i + 1);
 
   auto sorter = kogan::make_unique<kogan::BubbleSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
   sorter->sort();
 
-  for (int i = 0; i < 10; ++i)
-    ASSERT(sequence->get(i) == i + 1);
+  for (int i = 0; i < 10; ++i) ASSERT(sequence->get(i) == i + 1);
   ASSERT(sorter->get_comparisons() == 45);
   ASSERT(sorter->get_swaps() == 0);
 }
@@ -80,15 +77,13 @@ TEST(sorted, bubble_sorter_test_suite) {
 TEST(reverse_sorted, bubble_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(10 - i);
+  for (int i = 0; i < 10; ++i) sequence->append(10 - i);
 
   auto sorter = kogan::make_unique<kogan::BubbleSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
   sorter->sort();
 
-  for (int i = 0; i < 10; ++i)
-    ASSERT(sequence->get(i) == i + 1);
+  for (int i = 0; i < 10; ++i) ASSERT(sequence->get(i) == i + 1);
   ASSERT(sorter->get_comparisons() == 45);
   ASSERT(sorter->get_swaps() == 45);
 }
@@ -96,8 +91,7 @@ TEST(reverse_sorted, bubble_sorter_test_suite) {
 TEST(comparison_limited, bubble_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::BubbleSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
@@ -114,8 +108,7 @@ TEST(comparison_limited, bubble_sorter_test_suite) {
 TEST(swap_limited, bubble_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::BubbleSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);

@@ -16,8 +16,7 @@ int TestSuite::run() {
   std::cout << " test suite is running" << std::endl;
 
   int tests_passed_counter = 0;
-  for (const auto &test : tests)
-    tests_passed_counter += test.run();
+  for (const auto &test : tests) tests_passed_counter += test.run();
 
   if (tests_passed_counter == get_tests_count()) {
     log_green("All tests in ");

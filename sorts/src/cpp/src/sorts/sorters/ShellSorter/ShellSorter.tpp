@@ -18,8 +18,7 @@ template <class T> inline void ShellSorter<T>::sort_() {
       }
       while (j_ >= gap_ &&
              this->cmp_wrapper_(this->sequence_->get(j_ - gap_), temp_) > 0) {
-        if (!this->step_())
-          return;
+        if (!this->step_()) return;
 
         this->sequence_->set(j_, this->sequence_->get(j_ - gap_));
         j_ -= gap_;

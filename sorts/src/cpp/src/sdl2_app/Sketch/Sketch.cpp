@@ -11,16 +11,13 @@ void Sketch::setup() {
 }
 
 void Sketch::update(const double &delta_time) {
-  if (!is_setup_)
-    return;
-  if (sorter_->is_sorted())
-    return;
+  if (!is_setup_) return;
+  if (sorter_->is_sorted()) return;
 
   milliseconds_since_last_sort_ += delta_time;
   uint32_t available_steps =
       milliseconds_since_last_sort_ * steps_per_second_ / 1000;
-  if (available_steps < min_steps_to_sort_)
-    return;
+  if (available_steps < min_steps_to_sort_) return;
 
   milliseconds_since_last_sort_ = 0;
   sorter_->add_available_steps(available_steps);
@@ -34,8 +31,7 @@ void Sketch::update(const double &delta_time) {
 }
 
 void Sketch::draw() const noexcept {
-  if (sorted_drawn_)
-    return;
+  if (sorted_drawn_) return;
 
   SDL_SetRenderDrawColor(renderer_, 36, 40, 59, 255);
   SDL_RenderClear(renderer_);
@@ -142,14 +138,12 @@ void Sketch::calculate_scales_() noexcept {
 void Sketch::generate_sequence_() noexcept {
   sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrArraySequence<int>());
-  for (int i = 0; i < seq_len_; ++i)
-    sequence_->append(rand() % max_value_);
+  for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_);
 }
 
 void Sketch::draw_value_(int index, bool sorted,
                          bool interesting) const noexcept {
-  if (index < 0 || index >= sequence_->get_length())
-    return;
+  if (index < 0 || index >= sequence_->get_length()) return;
 
   SDL_Rect rect;
   rect.x = index * horizontal_scale_;

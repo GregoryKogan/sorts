@@ -24,8 +24,7 @@ inline void MergeSorter<T>::set_range_(std::size_t left,
 }
 
 template <class T> inline void MergeSorter<T>::sort_() {
-  if (merged_)
-    return;
+  if (merged_) return;
 
   if (left_ == -1 && right_ == -1)
     set_range_(0, this->sequence_->get_length() - 1);
@@ -41,8 +40,7 @@ template <class T> inline void MergeSorter<T>::sort_() {
     this->available_steps_ = right_sorter_->get_available_steps();
   }
 
-  if (!this->get_available_steps())
-    return;
+  if (!this->get_available_steps()) return;
 
   if (merge_()) {
     merged_ = true;
@@ -71,8 +69,7 @@ template <class T> inline bool MergeSorter<T>::merge_() {
   is_merging_ = true;
 
   while (i_ < left_length && j_ < right_length) {
-    if (!this->step_())
-      return false;
+    if (!this->step_()) return false;
 
     if (this->cmp_wrapper_(left_part_[i_], right_part_[j_]) <= 0) {
       this->sequence_->set(k_, left_part_[i_]);
@@ -110,8 +107,7 @@ MergeSorter<T>::generate_interesting_indexes_() const noexcept {
     for (std::size_t i = 0; i < right_indexes.get_length(); ++i)
       interesting_indexes.append(right_indexes[i]);
   }
-  if (!is_merging_)
-    return interesting_indexes;
+  if (!is_merging_) return interesting_indexes;
 
   interesting_indexes.append(left_);
   interesting_indexes.append(right_);

@@ -5,8 +5,7 @@ kogan::TestSuite selection_sorter_test_suite("SelectionSorter");
 TEST(random, selection_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::SelectionSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
@@ -18,8 +17,7 @@ TEST(random, selection_sorter_test_suite) {
 TEST(limited_in_comparisons, selection_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::SelectionSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);
@@ -35,8 +33,7 @@ TEST(limited_in_comparisons, selection_sorter_test_suite) {
 TEST(limited_in_swaps, selection_sorter_test_suite) {
   auto sequence = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    sequence->append(rand() % 100);
+  for (int i = 0; i < 10; ++i) sequence->append(rand() % 100);
 
   auto sorter = kogan::make_unique<kogan::SelectionSorter<int>>(
       [](int a, int b) { return a - b; }, sequence);

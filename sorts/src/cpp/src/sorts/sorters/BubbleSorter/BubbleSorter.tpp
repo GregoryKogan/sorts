@@ -5,8 +5,7 @@ namespace kogan {
 template <class T> inline void BubbleSorter<T>::sort_() {
   while (i_ < this->sequence_->get_length() - 1) {
     while (j_ < this->sequence_->get_length() - i_ - 1) {
-      if (!this->step_())
-        return;
+      if (!this->step_()) return;
 
       if (this->cmp_wrapper_(this->sequence_->get(j_),
                              this->sequence_->get(j_ + 1)) > 0)

@@ -4,8 +4,7 @@ kogan::TestSuite array_sequence_test_suite("SmartPtrArraySequence");
 
 TEST(array_constructor, array_sequence_test_suite) {
   kogan::SharedPtr<int[]> values = kogan::make_shared<int[]>(10);
-  for (int i = 0; i < 10; ++i)
-    values[i] = i + 1;
+  for (int i = 0; i < 10; ++i) values[i] = i + 1;
 
   kogan::SmartPtrArraySequence<int> seq(values, 10);
 
@@ -23,8 +22,7 @@ TEST(empty_constructor, array_sequence_test_suite) {
 
 TEST(sequence_constructor, array_sequence_test_suite) {
   kogan::SharedPtr<int[]> values = kogan::make_shared<int[]>(10);
-  for (int i = 0; i < 10; ++i)
-    values[i] = i + 1;
+  for (int i = 0; i < 10; ++i) values[i] = i + 1;
 
   kogan::SmartPtrArraySequence<int> init_seq(values, 10);
   kogan::SmartPtrArraySequence<int> seq(init_seq);
@@ -41,8 +39,7 @@ TEST(sequence_constructor, array_sequence_test_suite) {
 
 TEST(get_first, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_first() == seq[0]);
   ASSERT(seq.get_first() == 1);
@@ -58,8 +55,7 @@ TEST(get_first_single_item, array_sequence_test_suite) {
 
 TEST(get_last, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_last() == seq[seq.get_length() - 1]);
   ASSERT(seq.get_last() == 10);
@@ -75,8 +71,7 @@ TEST(get_last_single_item, array_sequence_test_suite) {
 
 TEST(get, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get(0) == 1);
   ASSERT(seq.get(0) == seq[0]);
@@ -98,8 +93,7 @@ TEST(get_single_item, array_sequence_test_suite) {
 
 TEST(get_negative_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -112,8 +106,7 @@ TEST(get_negative_index_IndexOutOfRangeException, array_sequence_test_suite) {
 
 TEST(get_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -126,8 +119,7 @@ TEST(get_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
 
 TEST(get_subsequence, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   kogan::UniquePtr<kogan::SmartPtrSequence<int>> sub_seq_35 =
       seq.get_subsequence(3, 5);
@@ -138,8 +130,7 @@ TEST(get_subsequence, array_sequence_test_suite) {
 
 TEST(get_subsequence_max_bounds, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   kogan::UniquePtr<kogan::SmartPtrSequence<int>> sub_seq_09 =
       seq.get_subsequence(0, 9);
@@ -150,8 +141,7 @@ TEST(get_subsequence_max_bounds, array_sequence_test_suite) {
 
 TEST(get_subsequence_InvalidArgumentException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool invalidArgumentExceptionThrown = false;
   try {
@@ -165,8 +155,7 @@ TEST(get_subsequence_InvalidArgumentException, array_sequence_test_suite) {
 TEST(get_subsequence_negative_index_IndexOutOfRangeException,
      array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -180,8 +169,7 @@ TEST(get_subsequence_negative_index_IndexOutOfRangeException,
 TEST(get_subsequence_big_index_IndexOutOfRangeException,
      array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -194,8 +182,7 @@ TEST(get_subsequence_big_index_IndexOutOfRangeException,
 
 TEST(get_length, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_length() == 10);
 
@@ -205,11 +192,9 @@ TEST(get_length, array_sequence_test_suite) {
 
 TEST(set, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
-  for (int i = 0; i < 10; ++i)
-    seq.set(i, 10 - i);
+  for (int i = 0; i < 10; ++i) seq.set(i, 10 - i);
 
   ASSERT(seq[0] == 10);
   ASSERT(seq[9] == 1);
@@ -220,8 +205,7 @@ TEST(set, array_sequence_test_suite) {
 
 TEST(set_negative_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -234,8 +218,7 @@ TEST(set_negative_index_IndexOutOfRangeException, array_sequence_test_suite) {
 
 TEST(set_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -248,8 +231,7 @@ TEST(set_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
 
 TEST(append, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_length() == 10);
   ASSERT(seq[0] == 1);
@@ -266,8 +248,7 @@ TEST(append, array_sequence_test_suite) {
 
 TEST(prepend, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.prepend(i + 1);
+  for (int i = 0; i < 10; ++i) seq.prepend(i + 1);
 
   ASSERT(seq.get_length() == 10);
   ASSERT(seq[0] == 10);
@@ -284,8 +265,7 @@ TEST(prepend, array_sequence_test_suite) {
 
 TEST(insert, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.insert(0, 0);
   ASSERT(seq[0] == 0);
@@ -302,8 +282,7 @@ TEST(insert, array_sequence_test_suite) {
 TEST(insert_negative_index_IndexOutOfRangeException,
      array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -316,8 +295,7 @@ TEST(insert_negative_index_IndexOutOfRangeException,
 
 TEST(insert_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -390,8 +368,7 @@ TEST(concat_empty_head, array_sequence_test_suite) {
 
 TEST(clear, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.clear();
   ASSERT(seq.get_length() == 0);
@@ -406,8 +383,7 @@ TEST(clear_empty, array_sequence_test_suite) {
 
 TEST(remove, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(5);
   ASSERT(seq.get_length() == 9);
@@ -419,8 +395,7 @@ TEST(remove, array_sequence_test_suite) {
 
 TEST(remove_first, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(0);
   ASSERT(seq.get_length() == 9);
@@ -430,8 +405,7 @@ TEST(remove_first, array_sequence_test_suite) {
 
 TEST(remove_last, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(9);
   ASSERT(seq.get_length() == 9);
@@ -449,8 +423,7 @@ TEST(remove_single_item, array_sequence_test_suite) {
 
 TEST(remove_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -464,8 +437,7 @@ TEST(remove_big_index_IndexOutOfRangeException, array_sequence_test_suite) {
 TEST(remove_negative_index_IndexOutOfRangeException,
      array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -490,8 +462,7 @@ TEST(remove_empty_IndexOutOfRangeException, array_sequence_test_suite) {
 
 TEST(operator_square_brackets, array_sequence_test_suite) {
   kogan::SmartPtrArraySequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq[0] == 1);
   ASSERT(seq[9] == 10);

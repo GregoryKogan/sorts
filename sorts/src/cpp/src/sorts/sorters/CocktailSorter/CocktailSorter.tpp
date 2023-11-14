@@ -18,8 +18,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
   while (true) {
     if (!forward_pass_done_) {
       while (i_ < end_) {
-        if (!this->step_())
-          return;
+        if (!this->step_()) return;
 
         if (this->cmp_wrapper_(this->sequence_->get(i_),
                                this->sequence_->get(i_ + 1)) > 0) {
@@ -29,8 +28,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
         i_++;
       }
 
-      if (!swapped_)
-        break;
+      if (!swapped_) break;
       end_--;
       swapped_ = false;
 
@@ -39,8 +37,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
 
     if (!backward_pass_done_) {
       while (j_ >= start_) {
-        if (!this->step_())
-          return;
+        if (!this->step_()) return;
 
         if (this->cmp_wrapper_(this->sequence_->get(j_),
                                this->sequence_->get(j_ + 1)) > 0) {
@@ -49,8 +46,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
         }
         j_--;
       }
-      if (!swapped_)
-        break;
+      if (!swapped_) break;
       start_++;
       swapped_ = false;
 
@@ -70,10 +66,8 @@ inline void CocktailSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->clear();
   this->interesting_indexes_->append(start_);
   this->interesting_indexes_->append(end_);
-  if (!forward_pass_done_)
-    this->interesting_indexes_->append(i_);
-  else
-    this->interesting_indexes_->append(j_);
+  if (!forward_pass_done_) this->interesting_indexes_->append(i_);
+  else this->interesting_indexes_->append(j_);
 }
 
 } // namespace kogan

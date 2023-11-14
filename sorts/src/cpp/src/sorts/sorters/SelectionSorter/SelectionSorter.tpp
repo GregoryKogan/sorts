@@ -7,8 +7,7 @@ template <class T> inline void SelectionSorter<T>::sort_() {
 
   while (i_ < length - 1) {
     while (j_ < length) {
-      if (!this->step_())
-        return;
+      if (!this->step_()) return;
 
       if (this->cmp_wrapper_(this->sequence_->get(min_index_),
                              this->sequence_->get(j_)) > 0)

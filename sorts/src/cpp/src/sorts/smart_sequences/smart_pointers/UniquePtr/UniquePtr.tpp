@@ -47,16 +47,14 @@ template <class T> inline UniquePtr<T[]>::~UniquePtr() { delete[] ptr_; }
 template <class T>
 inline UniquePtr<T> &
 UniquePtr<T>::operator=(UniquePtr<T> &&other) noexcept { // move assignment
-  if (this != &other)
-    reset(other.release());
+  if (this != &other) reset(other.release());
   return *this;
 }
 
 template <class T>
 inline UniquePtr<T[]> &UniquePtr<T[]>::operator=(
     UniquePtr<T[]> &&other) noexcept { // move assignment for arrays
-  if (this != &other)
-    reset(other.release());
+  if (this != &other) reset(other.release());
   return *this;
 }
 

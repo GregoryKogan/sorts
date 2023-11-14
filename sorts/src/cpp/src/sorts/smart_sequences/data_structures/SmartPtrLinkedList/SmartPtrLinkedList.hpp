@@ -50,8 +50,7 @@ public:
     if (this != &other) {
       clear();
       init_();
-      for (std::size_t i = 0; i < other.length_; ++i)
-        append(other.get(i));
+      for (std::size_t i = 0; i < other.length_; ++i) append(other.get(i));
     }
     return *this;
   }

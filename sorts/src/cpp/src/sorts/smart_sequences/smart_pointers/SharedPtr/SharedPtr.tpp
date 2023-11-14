@@ -74,8 +74,7 @@ inline SharedPtr<T[]>::SharedPtr(const SharedPtr &other) noexcept
 template <class T>
 inline SharedPtr<T>::SharedPtr(
     const WeakPtr<T> &other) { // constructor from WeakPtr
-  if (other.expired())
-    throw EmptyPointerException();
+  if (other.expired()) throw EmptyPointerException();
   control_block_ = other.control_block_;
   if (control_block_ && control_block_->get() != nullptr)
     control_block_->increment_reference_counter();
@@ -84,8 +83,7 @@ inline SharedPtr<T>::SharedPtr(
 template <class T>
 inline SharedPtr<T[]>::SharedPtr(
     const WeakPtr<T[]> &other) { // constructor from WeakPtr for arrays
-  if (other.expired())
-    throw EmptyPointerException();
+  if (other.expired()) throw EmptyPointerException();
   control_block_ = other.control_block_;
   if (control_block_ && control_block_->get() != nullptr)
     control_block_->increment_reference_counter();
@@ -168,17 +166,13 @@ inline SharedPtr<T[]> &SharedPtr<T[]>::operator=(
 }
 
 template <class T> inline void SharedPtr<T>::reset(T *ptr) noexcept {
-  if (ptr != nullptr)
-    update_reference(new ControlBlock<T>(ptr));
-  else
-    update_reference(nullptr);
+  if (ptr != nullptr) update_reference(new ControlBlock<T>(ptr));
+  else update_reference(nullptr);
 }
 
 template <class T> inline void SharedPtr<T[]>::reset(T *ptr) noexcept {
-  if (ptr != nullptr)
-    update_reference(new ControlBlock<T[]>(ptr));
-  else
-    update_reference(nullptr);
+  if (ptr != nullptr) update_reference(new ControlBlock<T[]>(ptr));
+  else update_reference(nullptr);
 }
 
 template <class T>
@@ -208,14 +202,12 @@ template <class T> inline SharedPtr<T[]>::operator bool() const noexcept {
 }
 
 template <class T> inline T *SharedPtr<T>::get() const noexcept {
-  if (control_block_ == nullptr)
-    return nullptr;
+  if (control_block_ == nullptr) return nullptr;
   return control_block_->get();
 }
 
 template <class T> inline T *SharedPtr<T[]>::get() const noexcept {
-  if (control_block_ == nullptr)
-    return nullptr;
+  if (control_block_ == nullptr) return nullptr;
   return control_block_->get();
 }
 
@@ -234,15 +226,13 @@ inline T &SharedPtr<T[]>::operator[](std::size_t index) const {
 
 template <class T>
 inline unsigned int SharedPtr<T>::use_count() const noexcept {
-  if (control_block_ == nullptr)
-    return 0;
+  if (control_block_ == nullptr) return 0;
   return control_block_->get_reference_counter();
 }
 
 template <class T>
 inline unsigned int SharedPtr<T[]>::use_count() const noexcept {
-  if (control_block_ == nullptr)
-    return 0;
+  if (control_block_ == nullptr) return 0;
   return control_block_->get_reference_counter();
 }
 

@@ -3,8 +3,7 @@
 namespace kogan {
 
 template <class T> inline void QuickSorter<T>::sort_() {
-  if (l_ == -1 && h_ == -1)
-    set_range_(0, this->sequence_->get_length() - 1);
+  if (l_ == -1 && h_ == -1) set_range_(0, this->sequence_->get_length() - 1);
 
   if (l_ >= h_) {
     is_done_ = true;
@@ -12,8 +11,7 @@ template <class T> inline void QuickSorter<T>::sort_() {
   }
 
   if (!child_sorters_initialized_) {
-    if (!partition_())
-      return;
+    if (!partition_()) return;
     partition_comparisons_ = this->get_comparisons();
     partition_swaps_ = this->get_swaps();
     is_partitioning_ = false;
@@ -69,8 +67,7 @@ template <class T> inline bool QuickSorter<T>::partition_() {
   auto x = this->sequence_->get(h_);
 
   while (j_ <= h_ - 1) {
-    if (!this->step_())
-      return false;
+    if (!this->step_()) return false;
 
     if (this->cmp_wrapper_(this->sequence_->get(j_), x) <= 0) {
       ++i_;
@@ -100,8 +97,7 @@ QuickSorter<T>::generate_interesting_indexes_() const noexcept {
       interesting_indexes.append(right_indexes[i]);
   }
 
-  if (!is_partitioning_)
-    return interesting_indexes;
+  if (!is_partitioning_) return interesting_indexes;
 
   interesting_indexes.append(i_);
   interesting_indexes.append(j_);

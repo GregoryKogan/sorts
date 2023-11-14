@@ -30,8 +30,7 @@ public:
     if (this != &other) {
       length_ = other.length_;
       data_ = make_shared<T[]>(length_);
-      for (std::size_t i = 0; i < length_; ++i)
-        set(i, other.get(i));
+      for (std::size_t i = 0; i < length_; ++i) set(i, other.get(i));
     }
     return *this;
   }

@@ -14,8 +14,7 @@ TEST(length_constructor, smart_ptr_dynamic_array_test_suite) {
 
 TEST(array_constructor, smart_ptr_dynamic_array_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrDynamicArray<int> arr(data, 5);
   ASSERT(arr.get_length() == 5);
   ASSERT(arr[0] == 1);
@@ -27,8 +26,7 @@ TEST(array_constructor, smart_ptr_dynamic_array_test_suite) {
 
 TEST(copy_constructor, smart_ptr_dynamic_array_test_suite) {
   kogan::SmartPtrDynamicArray<int> arr1(5);
-  for (int i = 0; i < 5; ++i)
-    arr1[i] = i + 1;
+  for (int i = 0; i < 5; ++i) arr1[i] = i + 1;
   kogan::SmartPtrDynamicArray<int> arr2(arr1);
   ASSERT(arr2.get_length() == 5);
   ASSERT(arr1.get_length() == 5);
@@ -45,8 +43,7 @@ TEST(copy_constructor, smart_ptr_dynamic_array_test_suite) {
 
 TEST(get, smart_ptr_dynamic_array_test_suite) {
   kogan::SmartPtrDynamicArray<int> arr(5);
-  for (int i = 0; i < 5; ++i)
-    arr[i] = i + 1;
+  for (int i = 0; i < 5; ++i) arr[i] = i + 1;
   ASSERT(arr.get(0) == 1);
   ASSERT(arr.get(1) == 2);
   ASSERT(arr.get(2) == 3);
@@ -98,8 +95,7 @@ TEST(get_length, smart_ptr_dynamic_array_test_suite) {
 
 TEST(set, smart_ptr_dynamic_array_test_suite) {
   kogan::SmartPtrDynamicArray<int> arr(5);
-  for (int i = 0; i < 5; ++i)
-    arr[i] = i + 1;
+  for (int i = 0; i < 5; ++i) arr[i] = i + 1;
   arr.set(0, 42);
   ASSERT(arr.get(0) == 42);
   ASSERT(arr.get(1) == 2);
@@ -140,8 +136,7 @@ TEST(set_big_index, smart_ptr_dynamic_array_test_suite) {
 
 TEST(resize, smart_ptr_dynamic_array_test_suite) {
   kogan::SmartPtrDynamicArray<int> arr(5);
-  for (int i = 0; i < 5; ++i)
-    arr[i] = i + 1;
+  for (int i = 0; i < 5; ++i) arr[i] = i + 1;
 
   ASSERT(arr.get_length() == 5);
 
@@ -186,8 +181,7 @@ TEST(resize_negative_length, smart_ptr_dynamic_array_test_suite) {
 
 TEST(operator_brackets, smart_ptr_dynamic_array_test_suite) {
   kogan::SmartPtrDynamicArray<int> arr(5);
-  for (int i = 0; i < 5; ++i)
-    arr[i] = i + 1;
+  for (int i = 0; i < 5; ++i) arr[i] = i + 1;
   ASSERT(arr[0] == 1);
   ASSERT(arr[1] == 2);
   ASSERT(arr[2] == 3);
@@ -203,8 +197,7 @@ TEST(operator_brackets, smart_ptr_dynamic_array_test_suite) {
 
 TEST(copy_assignment, smart_ptr_dynamic_array_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrDynamicArray<int> arr1(data, 5);
 
   auto arr2 = arr1;

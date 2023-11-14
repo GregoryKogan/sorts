@@ -5,8 +5,7 @@ kogan::TestSuite
 
 TEST(array_constructor, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SharedPtr<int[]> values = kogan::make_shared<int[]>(10);
-  for (int i = 0; i < 10; ++i)
-    values[i] = i + 1;
+  for (int i = 0; i < 10; ++i) values[i] = i + 1;
 
   kogan::SmartPtrLinkedListSequence<int> seq(values, 10);
 
@@ -24,8 +23,7 @@ TEST(empty_constructor, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(sequence_constructor, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SharedPtr<int[]> values = kogan::make_shared<int[]>(10);
-  for (int i = 0; i < 10; ++i)
-    values[i] = i + 1;
+  for (int i = 0; i < 10; ++i) values[i] = i + 1;
 
   kogan::SmartPtrLinkedListSequence<int> init_seq(values, 10);
   kogan::SmartPtrLinkedListSequence<int> seq(init_seq);
@@ -42,8 +40,7 @@ TEST(sequence_constructor, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(get_first, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_first() == seq[0]);
   ASSERT(seq.get_first() == 1);
@@ -59,8 +56,7 @@ TEST(get_first_single_item, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(get_last, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_last() == seq[seq.get_length() - 1]);
   ASSERT(seq.get_last() == 10);
@@ -76,8 +72,7 @@ TEST(get_last_single_item, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(get, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get(0) == 1);
   ASSERT(seq.get(0) == seq[0]);
@@ -100,8 +95,7 @@ TEST(get_single_item, smart_ptr_linked_list_sequence_test_suite) {
 TEST(get_negative_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -115,8 +109,7 @@ TEST(get_negative_index_IndexOutOfRangeException,
 TEST(get_big_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -129,8 +122,7 @@ TEST(get_big_index_IndexOutOfRangeException,
 
 TEST(get_subsequence, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   kogan::UniquePtr<kogan::SmartPtrSequence<int>> sub_seq_35 =
       seq.get_subsequence(3, 5);
@@ -141,8 +133,7 @@ TEST(get_subsequence, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(get_subsequence_max_bounds, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   kogan::UniquePtr<kogan::SmartPtrSequence<int>> sub_seq_09 =
       seq.get_subsequence(0, 9);
@@ -154,8 +145,7 @@ TEST(get_subsequence_max_bounds, smart_ptr_linked_list_sequence_test_suite) {
 TEST(get_subsequence_InvalidArgumentException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool invalidArgumentExceptionThrown = false;
   try {
@@ -169,8 +159,7 @@ TEST(get_subsequence_InvalidArgumentException,
 TEST(get_subsequence_negative_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -184,8 +173,7 @@ TEST(get_subsequence_negative_index_IndexOutOfRangeException,
 TEST(get_subsequence_big_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -198,8 +186,7 @@ TEST(get_subsequence_big_index_IndexOutOfRangeException,
 
 TEST(get_length, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_length() == 10);
 
@@ -209,11 +196,9 @@ TEST(get_length, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(set, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
-  for (int i = 0; i < 10; ++i)
-    seq.set(i, 10 - i);
+  for (int i = 0; i < 10; ++i) seq.set(i, 10 - i);
 
   ASSERT(seq[0] == 10);
   ASSERT(seq[9] == 1);
@@ -225,8 +210,7 @@ TEST(set, smart_ptr_linked_list_sequence_test_suite) {
 TEST(set_negative_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -240,8 +224,7 @@ TEST(set_negative_index_IndexOutOfRangeException,
 TEST(set_big_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -254,8 +237,7 @@ TEST(set_big_index_IndexOutOfRangeException,
 
 TEST(append, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq.get_length() == 10);
   ASSERT(seq[0] == 1);
@@ -272,8 +254,7 @@ TEST(append, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(prepend, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.prepend(i + 1);
+  for (int i = 0; i < 10; ++i) seq.prepend(i + 1);
 
   ASSERT(seq.get_length() == 10);
   ASSERT(seq[0] == 10);
@@ -290,8 +271,7 @@ TEST(prepend, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(insert, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.insert(0, 0);
   ASSERT(seq[0] == 0);
@@ -308,8 +288,7 @@ TEST(insert, smart_ptr_linked_list_sequence_test_suite) {
 TEST(insert_negative_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -323,8 +302,7 @@ TEST(insert_negative_index_IndexOutOfRangeException,
 TEST(insert_big_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -356,8 +334,7 @@ TEST(concat, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(concat_empty_tail, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq1;
-  for (int i = 0; i < 10; ++i)
-    seq1.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq1.append(i + 1);
 
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> seq_empty =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
@@ -373,8 +350,7 @@ TEST(concat_empty_head, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> seq2 =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrLinkedListSequence<int>());
-  for (int i = 0; i < 10; ++i)
-    seq2->append(i + 11);
+  for (int i = 0; i < 10; ++i) seq2->append(i + 11);
 
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> seq_empty =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
@@ -389,8 +365,7 @@ TEST(concat_empty_head, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(clear, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.clear();
   ASSERT(seq.get_length() == 0);
@@ -405,8 +380,7 @@ TEST(clear_empty, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(remove, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(5);
   ASSERT(seq.get_length() == 9);
@@ -418,8 +392,7 @@ TEST(remove, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(remove_first, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(0);
   ASSERT(seq.get_length() == 9);
@@ -429,8 +402,7 @@ TEST(remove_first, smart_ptr_linked_list_sequence_test_suite) {
 
 TEST(remove_last, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   seq.remove(9);
   ASSERT(seq.get_length() == 9);
@@ -449,8 +421,7 @@ TEST(remove_single_item, smart_ptr_linked_list_sequence_test_suite) {
 TEST(remove_big_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -464,8 +435,7 @@ TEST(remove_big_index_IndexOutOfRangeException,
 TEST(remove_negative_index_IndexOutOfRangeException,
      smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   bool indexOutOfRangeExceptionThrown = false;
   try {
@@ -491,8 +461,7 @@ TEST(remove_empty_IndexOutOfRangeException,
 
 TEST(operator_square_brackets, smart_ptr_linked_list_sequence_test_suite) {
   kogan::SmartPtrLinkedListSequence<int> seq;
-  for (int i = 0; i < 10; ++i)
-    seq.append(i + 1);
+  for (int i = 0; i < 10; ++i) seq.append(i + 1);
 
   ASSERT(seq[0] == 1);
   ASSERT(seq[9] == 10);

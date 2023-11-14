@@ -42,13 +42,11 @@ public:
 template <class T> SmartPtrSequence<T>::~SmartPtrSequence() = default;
 
 template <class T> std::string SmartPtrSequence<T>::to_string() const {
-  if (get_length() == 0)
-    return "[]";
+  if (get_length() == 0) return "[]";
 
   std::ostringstream oss;
   oss << "[" << get_first();
-  for (int i = 1; i < get_length(); ++i)
-    oss << ", " << get(i);
+  for (int i = 1; i < get_length(); ++i) oss << ", " << get(i);
   oss << "]";
 
   return oss.str();

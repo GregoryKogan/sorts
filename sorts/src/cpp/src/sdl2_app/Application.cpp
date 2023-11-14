@@ -49,8 +49,7 @@ void Application::handle_window_events_() {
 }
 
 void Application::handle_messages_() {
-  if (!Messenger::instance().has_message())
-    return;
+  if (!Messenger::instance().has_message()) return;
 
   std::string message = Messenger::instance().get_message();
 
@@ -92,8 +91,7 @@ double Application::get_delta_time_() {
 
 void Application::sync_data_() {
   Uint64 current_time = SDL_GetTicks64();
-  if (current_time - last_data_sync_time_ < data_sync_period_)
-    return;
+  if (current_time - last_data_sync_time_ < data_sync_period_) return;
   last_data_sync_time_ = current_time;
 
   send_data_();
@@ -143,14 +141,11 @@ void Application::send_ready_() {
 }
 
 Uint64 Application::get_frame_rate() const noexcept {
-  if (!delta_time_records_.size())
-    return 0;
+  if (!delta_time_records_.size()) return 0;
 
   Uint64 sum = 0;
-  for (Uint64 delta_time : delta_time_records_)
-    sum += delta_time;
+  for (Uint64 delta_time : delta_time_records_) sum += delta_time;
   Uint64 average_delta_time = sum / delta_time_records_.size();
-  if (!average_delta_time)
-    return 0;
+  if (!average_delta_time) return 0;
   return 1000 / average_delta_time;
 }

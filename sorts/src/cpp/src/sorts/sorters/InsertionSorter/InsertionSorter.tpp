@@ -12,8 +12,7 @@ template <class T> inline void InsertionSorter<T>::sort_() {
       continue;
     }
 
-    if (!this->step_())
-      return;
+    if (!this->step_()) return;
 
     if (this->cmp_wrapper_(this->sequence_->get(j_),
                            this->sequence_->get(j_ - 1)) < 0) {

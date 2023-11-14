@@ -9,8 +9,7 @@ TEST(default_constructor, smart_ptr_linked_list_test_suite) {
 
 TEST(array_constructor, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   ASSERT(list.get_length() == 5);
   ASSERT(list[0] == 1);
@@ -22,8 +21,7 @@ TEST(array_constructor, smart_ptr_linked_list_test_suite) {
 
 TEST(copy_constructor, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list1(data, 5);
 
   kogan::SmartPtrLinkedList<int> list2(list1);
@@ -42,8 +40,7 @@ TEST(copy_constructor, smart_ptr_linked_list_test_suite) {
 
 TEST(get, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   ASSERT(list.get(0) == 1);
   ASSERT(list.get(1) == 2);
@@ -87,8 +84,7 @@ TEST(get_big_index, smart_ptr_linked_list_test_suite) {
 
 TEST(get_first, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   ASSERT(list.get_first() == 1);
 }
@@ -112,8 +108,7 @@ TEST(get_first_empty, smart_ptr_linked_list_test_suite) {
 
 TEST(get_last, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   ASSERT(list.get_last() == 5);
 }
@@ -244,8 +239,7 @@ TEST(prepend, smart_ptr_linked_list_test_suite) {
 
 TEST(insert, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   list.insert(0, 42);
   ASSERT(list.get_length() == 6);
@@ -318,8 +312,7 @@ TEST(insert_big_index, smart_ptr_linked_list_test_suite) {
 
 TEST(remove, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   list.remove(0);
   ASSERT(list.get_length() == 4);
@@ -405,8 +398,7 @@ TEST(clear_single, smart_ptr_linked_list_test_suite) {
 
 TEST(get_sublist, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
 
   auto sublist = list.get_sublist(0, 4);
@@ -488,8 +480,7 @@ TEST(get_sublist_big_end_index, smart_ptr_linked_list_test_suite) {
 TEST(get_sublist_end_index_less_than_start_index,
      smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
 
   bool invalidArgumentExceptionThrown = false;
@@ -503,12 +494,10 @@ TEST(get_sublist_end_index_less_than_start_index,
 
 TEST(concat, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list1(data, 5);
 
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 6;
+  for (int i = 0; i < 5; ++i) data[i] = i + 6;
   kogan::SmartPtrLinkedList<int> list2(data, 5);
 
   auto list3 = list1.concat(list2);
@@ -535,8 +524,7 @@ TEST(concat_empty, smart_ptr_linked_list_test_suite) {
 TEST(concat_empty_first, smart_ptr_linked_list_test_suite) {
   kogan::SmartPtrLinkedList<int> list1;
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list2(data, 5);
   auto list3 = list1.concat(list2);
   ASSERT(list3.get_length() == 5);
@@ -550,8 +538,7 @@ TEST(concat_empty_first, smart_ptr_linked_list_test_suite) {
 TEST(concat_empty_second, smart_ptr_linked_list_test_suite) {
   kogan::SmartPtrLinkedList<int> list1;
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list2(data, 5);
   auto list3 = list2.concat(list1);
   ASSERT(list3.get_length() == 5);
@@ -579,8 +566,7 @@ TEST(concat_single, smart_ptr_linked_list_test_suite) {
 
 TEST(operator_square_brackets, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
   ASSERT(list[0] == 1);
   ASSERT(list[1] == 2);
@@ -597,8 +583,7 @@ TEST(operator_square_brackets, smart_ptr_linked_list_test_suite) {
 
 TEST(copy_assignment, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
-  for (int i = 0; i < 5; ++i)
-    data[i] = i + 1;
+  for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list1(data, 5);
 
   auto list2 = list1;

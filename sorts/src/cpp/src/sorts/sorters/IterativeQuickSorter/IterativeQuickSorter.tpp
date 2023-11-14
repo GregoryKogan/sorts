@@ -65,16 +65,11 @@ template <class T> inline bool IterativeQuickSorter<T>::partition_() {
 
 template <class T>
 inline void IterativeQuickSorter<T>::set_interesting_indexes_() noexcept {
-  auto n = this->sequence_->get_length();
   this->interesting_indexes_->clear();
-  if (l_ >= 0 && l_ < n)
-    this->interesting_indexes_->append(l_);
-  if (h_ >= 0 && h_ < n)
-    this->interesting_indexes_->append(h_);
-  if (i_ >= 0 && i_ < n)
-    this->interesting_indexes_->append(i_);
-  if (j_ >= 0 && j_ < n)
-    this->interesting_indexes_->append(j_);
+  this->interesting_indexes_->append(l_);
+  this->interesting_indexes_->append(h_);
+  this->interesting_indexes_->append(i_);
+  this->interesting_indexes_->append(j_);
 }
 
 } // namespace kogan

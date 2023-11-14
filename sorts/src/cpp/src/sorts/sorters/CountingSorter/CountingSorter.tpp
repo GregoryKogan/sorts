@@ -64,8 +64,7 @@ inline void CountingSorter::sort_() {
 
 inline void CountingSorter::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->clear();
-  if (i_ >= 0 && i_ < this->sequence_->get_length())
-    this->interesting_indexes_->append(i_);
+  this->interesting_indexes_->append(i_);
 }
 
 } // namespace kogan

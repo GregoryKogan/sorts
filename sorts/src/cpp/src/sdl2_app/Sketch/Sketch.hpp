@@ -65,6 +65,7 @@ private:
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence_;
 
   kogan::UniquePtr<kogan::Sorter<int>> sorter_;
+  bool is_sorted_ = false;
 
   void generate_sequence_() noexcept;
 

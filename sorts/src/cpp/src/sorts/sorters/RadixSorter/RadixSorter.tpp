@@ -81,10 +81,7 @@ inline bool kogan::RadixSorter::count_sort_() {
 
 inline void RadixSorter::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->clear();
-
-  if (!max_val_found_ && max_val_search_index_ < this->sequence_->get_length())
-    this->interesting_indexes_->append(max_val_search_index_);
-
+  this->interesting_indexes_->append(max_val_search_index_);
   if (count_sorting_)
     this->interesting_indexes_->append(i_);
 }

@@ -102,11 +102,9 @@ QuickSorter<T>::generate_interesting_indexes_() const noexcept {
 
   if (!is_partitioning_)
     return interesting_indexes;
-  auto n = this->sequence_->get_length();
-  if (i_ >= 0 && i_ < n)
-    interesting_indexes.append(i_);
-  if (j_ >= 0 && j_ < n)
-    interesting_indexes.append(j_);
+
+  interesting_indexes.append(i_);
+  interesting_indexes.append(j_);
   return interesting_indexes;
 }
 

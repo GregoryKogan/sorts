@@ -24,8 +24,6 @@ template <class T> inline void InsertionSorter<T>::sort_() {
       j_ = i_;
     }
   }
-  i_ = 1;
-  j_ = 1;
 }
 
 template <class T>

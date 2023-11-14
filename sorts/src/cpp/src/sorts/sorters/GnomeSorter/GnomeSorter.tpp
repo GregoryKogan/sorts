@@ -22,8 +22,7 @@ template <class T> inline void GnomeSorter<T>::sort_() {
 template <class T>
 inline void GnomeSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->clear();
-  if (index_ >= 0 && index_ < this->sequence_->get_length())
-    this->interesting_indexes_->append(index_);
+  this->interesting_indexes_->append(index_);
 }
 
 } // namespace kogan

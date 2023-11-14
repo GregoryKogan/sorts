@@ -105,8 +105,7 @@ inline SmartPtrLinkedListSequence<std::size_t>
 Heapifier<T>::generate_interesting_indexes() const noexcept {
   SmartPtrLinkedListSequence<std::size_t> interesting_indexes;
 
-  if (0 <= index_ && index_ < sorter_->sequence_->get_length())
-    interesting_indexes.append(index_);
+  interesting_indexes.append(index_);
 
   if (child_heapifier_initialized_) {
     SmartPtrLinkedListSequence<std::size_t> child_interesting_indexes =
@@ -127,13 +126,10 @@ inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
     for (std::size_t i = 0; i < heapifier_interesting_indexes.get_length(); i++)
       this->interesting_indexes_->append(heapifier_interesting_indexes[i]);
   }
-  if (!extracting_started_) {
-    if (0 <= i_ && i_ < this->sequence_->get_length())
-      this->interesting_indexes_->append(i_);
-  } else {
-    if (0 <= j_ && j_ < this->sequence_->get_length())
-      this->interesting_indexes_->append(j_);
-  }
+  if (!extracting_started_)
+    this->interesting_indexes_->append(i_);
+  else
+    this->interesting_indexes_->append(j_);
 }
 
 } // namespace kogan

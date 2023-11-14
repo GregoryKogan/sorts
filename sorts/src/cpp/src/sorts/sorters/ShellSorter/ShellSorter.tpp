@@ -38,10 +38,8 @@ template <class T> inline void ShellSorter<T>::sort_() {
 template <class T>
 inline void ShellSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->clear();
-  if (i_ >= 0 && i_ < this->sequence_->get_length())
-    this->interesting_indexes_->append(i_);
-  if (j_ >= 0 && j_ < this->sequence_->get_length())
-    this->interesting_indexes_->append(j_);
+  this->interesting_indexes_->append(i_);
+  this->interesting_indexes_->append(j_);
 }
 
 } // namespace kogan

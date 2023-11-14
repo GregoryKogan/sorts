@@ -6,13 +6,14 @@ void Sketch::setup() {
   generate_sequence_();
   init_sorter_();
   sorter_->make_limited();
+  is_sorted_ = false;
   is_setup_ = true;
 }
 
 void Sketch::update(const double &delta_time) {
   if (!is_setup_)
     return;
-  if (sorter_->is_sorted())
+  if (is_sorted_)
     return;
 
   milliseconds_since_last_sort_ += delta_time;
@@ -23,7 +24,10 @@ void Sketch::update(const double &delta_time) {
 
   milliseconds_since_last_sort_ = 0;
   sorter_->add_available_steps(available_steps);
+  auto available_steps_before_sort = sorter_->get_available_steps();
   sorter_->sort();
+  if (available_steps_before_sort == sorter_->get_available_steps())
+    is_sorted_ = true;
 }
 
 void Sketch::draw() const noexcept {
@@ -35,11 +39,10 @@ void Sketch::draw() const noexcept {
     return;
   }
 
-  bool sorted = sorter_->is_sorted();
   for (std::size_t i = 0; i < sequence_->get_length(); ++i)
-    draw_value_(i, sorted);
+    draw_value_(i, is_sorted_);
 
-  if (!sorted) {
+  if (!is_sorted_) {
     auto interesting_indexes = sorter_->get_interesting_indexes();
     for (std::size_t i = 0; i < interesting_indexes->get_length(); ++i) {
       draw_value_(interesting_indexes->get(i), false, true);
@@ -139,6 +142,9 @@ void Sketch::generate_sequence_() noexcept {
 
 void Sketch::draw_value_(int index, bool sorted,
                          bool interesting) const noexcept {
+  if (index < 0 || index >= sequence_->get_length())
+    return;
+
   SDL_Rect rect;
   rect.x = index * horizontal_scale_;
   rect.y =

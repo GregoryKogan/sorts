@@ -24,6 +24,9 @@ inline void MergeSorter<T>::set_range_(std::size_t left,
 }
 
 template <class T> inline void MergeSorter<T>::sort_() {
+  if (merged_)
+    return;
+
   if (left_ == -1 && right_ == -1)
     set_range_(0, this->sequence_->get_length() - 1);
 
@@ -109,12 +112,10 @@ MergeSorter<T>::generate_interesting_indexes_() const noexcept {
   }
   if (!is_merging_)
     return interesting_indexes;
-  if (left_ >= 0 && left_ < this->sequence_->get_length())
-    interesting_indexes.append(left_);
-  if (right_ >= 0 && right_ < this->sequence_->get_length())
-    interesting_indexes.append(right_);
-  if (middle_ >= 0 && middle_ < this->sequence_->get_length())
-    interesting_indexes.append(middle_);
+
+  interesting_indexes.append(left_);
+  interesting_indexes.append(right_);
+  interesting_indexes.append(middle_);
   interesting_indexes.append(left_ + i_);
   interesting_indexes.append(middle_ + 1 + j_);
   return interesting_indexes;

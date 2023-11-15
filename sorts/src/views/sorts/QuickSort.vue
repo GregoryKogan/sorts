@@ -2,12 +2,14 @@
   <SortView
     name="Quick Sort"
     link="https://www.geeksforgeeks.org/quick-sort/"
+    algorithm="quick"
     timeComplexity="θ(n log(n))"
     spaceComplexity="O(n)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="quick"
+    :defaultSequenceLength="500"
+    :defaultStepsPerSecond="250"
   />
 </template>
 

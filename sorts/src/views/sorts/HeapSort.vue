@@ -2,12 +2,12 @@
   <SortView
     name="Heap Sort"
     link="https://www.geeksforgeeks.org/heap-sort/"
+    algorithm="heap"
     timeComplexity="O(n log(n))"
     spaceComplexity="O(n)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="heap"
   />
 </template>
 

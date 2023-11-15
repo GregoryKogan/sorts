@@ -2,12 +2,12 @@
   <SortView
     name="Counting Sort"
     link="https://www.geeksforgeeks.org/counting-sort/"
+    algorithm="count"
     timeComplexity="O(n + m)"
     spaceComplexity="O(n + m)"
     :showSwaps="false"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="count"
   />
 </template>
 

@@ -2,12 +2,14 @@
   <SortView
     name="Bubble Sort"
     link="https://www.geeksforgeeks.org/bubble-sort/"
+    algorithm="bubble"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="10000000"
-    algorithm="bubble"
+    :defaultSequenceLength="50"
+    :defaultStepsPerSecond="50"
   />
 </template>
 

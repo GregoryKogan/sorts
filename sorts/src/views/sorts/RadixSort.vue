@@ -2,12 +2,14 @@
   <SortView
     name="Radix Sort"
     link="https://www.geeksforgeeks.org/radix-sort/"
+    algorithm="radix"
     timeComplexity="O(d · (n + b))"
     spaceComplexity="O(n + b)"
     :showSwaps="false"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="radix"
+    :defaultSequenceLength="1000"
+    :defaultStepsPerSecond="500"
   />
 </template>
 

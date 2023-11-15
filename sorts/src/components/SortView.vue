@@ -60,6 +60,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    algorithm: {
+      type: String,
+      required: true,
+    },
     timeComplexity: {
       type: String,
       required: true,
@@ -83,9 +87,15 @@ export default defineComponent({
       required: false,
       default: 10000000,
     },
-    algorithm: {
-      type: String,
-      required: true,
+    defaultSequenceLength: {
+      type: Number,
+      required: false,
+      default: 100,
+    },
+    defaultStepsPerSecond: {
+      type: Number,
+      required: false,
+      default: 100,
     },
   },
   data: () => ({
@@ -102,8 +112,8 @@ export default defineComponent({
   methods: {
     setDefaults() {
       this.store.setSortAlgorithm(this.algorithm);
-      this.store.setSequenceLength(100);
-      this.store.setStepsPerSecond(100);
+      this.store.setSequenceLength(this.defaultSequenceLength);
+      this.store.setStepsPerSecond(this.defaultStepsPerSecond);
 
       this.sequenceLengthMappingParameter = this.reverseExponentialMap(
         3,

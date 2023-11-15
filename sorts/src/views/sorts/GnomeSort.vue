@@ -2,12 +2,12 @@
   <SortView
     name="Gnome Sort"
     link="https://www.geeksforgeeks.org/gnome-sort-a-stupid-one/"
+    algorithm="gnome"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="10000000"
-    algorithm="gnome"
   />
 </template>
 

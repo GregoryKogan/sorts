@@ -2,12 +2,12 @@
   <SortView
     name="Insertion Sort"
     link="https://www.geeksforgeeks.org/insertion-sort/"
+    algorithm="insertion"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="10000000"
-    algorithm="insertion"
   />
 </template>
 

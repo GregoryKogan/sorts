@@ -2,12 +2,14 @@
   <SortView
     name="Shell Sort"
     link="https://www.geeksforgeeks.org/shellsort/"
+    algorithm="shell"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="false"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="shell"
+    :defaultSequenceLength="250"
+    :defaultStepsPerSecond="100"
   />
 </template>
 

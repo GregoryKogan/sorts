@@ -2,12 +2,14 @@
   <SortView
     name="Cocktail Sort"
     link="https://www.geeksforgeeks.org/cocktail-sort/"
+    algorithm="cocktail"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="10000000"
-    algorithm="cocktail"
+    :defaultSequenceLength="50"
+    :defaultStepsPerSecond="50"
   />
 </template>
 

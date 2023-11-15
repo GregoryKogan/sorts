@@ -2,12 +2,14 @@
   <SortView
     name="Iterative Quick Sort"
     link="https://www.geeksforgeeks.org/iterative-quick-sort/"
+    algorithm="iter_quick"
     timeComplexity="θ(n log(n))"
     spaceComplexity="O(n)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="iter_quick"
+    :defaultSequenceLength="500"
+    :defaultStepsPerSecond="250"
   />
 </template>
 

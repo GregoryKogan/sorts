@@ -2,12 +2,14 @@
   <SortView
     name="Merge Sort"
     link="https://www.geeksforgeeks.org/merge-sort/"
+    algorithm="merge"
     timeComplexity="O(n log(n))"
     spaceComplexity="O(n)"
     :showSwaps="false"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="merge"
+    :defaultSequenceLength="500"
+    :defaultStepsPerSecond="250"
   />
 </template>
 

@@ -2,12 +2,14 @@
   <SortView
     name="Iterative Merge Sort"
     link="https://www.geeksforgeeks.org/iterative-merge-sort/"
+    algorithm="iter_merge"
     timeComplexity="O(n log(n))"
     spaceComplexity="O(n)"
     :showSwaps="false"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="30000"
-    algorithm="iter_merge"
+    :defaultSequenceLength="500"
+    :defaultStepsPerSecond="250"
   />
 </template>
 

@@ -2,12 +2,14 @@
   <SortView
     name="Selection Sort"
     link="https://www.geeksforgeeks.org/selection-sort/"
+    algorithm="selection"
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="10000"
     :maxStepsPerSecond="10000000"
-    algorithm="selection"
+    :defaultSequenceLength="50"
+    :defaultStepsPerSecond="50"
   />
 </template>
 

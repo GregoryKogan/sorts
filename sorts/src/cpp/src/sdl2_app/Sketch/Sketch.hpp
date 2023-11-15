@@ -58,7 +58,6 @@ private:
 
   u_int32_t steps_per_second_ = 0;
   u_int32_t milliseconds_since_last_sort_ = 0;
-  u_int32_t min_steps_to_sort_ = 0;
 
   std::size_t seq_len_ = 0;
   std::size_t max_value_ = 0;

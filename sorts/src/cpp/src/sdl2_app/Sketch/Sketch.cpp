@@ -17,7 +17,8 @@ void Sketch::update(const double &delta_time) {
   milliseconds_since_last_sort_ += delta_time;
   uint32_t available_steps =
       milliseconds_since_last_sort_ * steps_per_second_ / 1000;
-  if (available_steps < min_steps_to_sort_) return;
+
+  if (!available_steps) return;
 
   milliseconds_since_last_sort_ = 0;
   sorter_->add_available_steps(available_steps);
@@ -72,7 +73,6 @@ void Sketch::set_sort_algorithm(const std::string &algorithm) noexcept {
 
 void Sketch::set_steps_per_second(const u_int32_t &steps_per_second) noexcept {
   steps_per_second_ = steps_per_second;
-  min_steps_to_sort_ = std::max((u_int32_t)1, steps_per_second_ / 60);
 }
 
 void Sketch::set_sequence_length(const std::size_t &seq_len) noexcept {

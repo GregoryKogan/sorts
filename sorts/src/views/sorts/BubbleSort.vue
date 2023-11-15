@@ -6,8 +6,8 @@
     timeComplexity="O(n²)"
     spaceComplexity="O(1)"
     :showSwaps="true"
-    :maxSequenceLength="10000"
-    :maxStepsPerSecond="10000000"
+    :maxSequenceLength="1000"
+    :maxStepsPerSecond="50000"
     :defaultSequenceLength="50"
     :defaultStepsPerSecond="50"
   />

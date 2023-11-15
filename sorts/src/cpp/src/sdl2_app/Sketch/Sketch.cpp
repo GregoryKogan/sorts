@@ -131,14 +131,13 @@ void Sketch::init_sorter_() noexcept {
 
 void Sketch::calculate_scales_() noexcept {
   horizontal_scale_ = (float)window_width_ / (float)seq_len_;
-  vertical_scale_ =
-      (float)(window_height_ - bottom_offset_) / (float)max_value_;
+  vertical_scale_ = (float)(window_height_) / (float)max_value_;
 }
 
 void Sketch::generate_sequence_() noexcept {
   sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
       new kogan::SmartPtrArraySequence<int>());
-  for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_);
+  for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_ + 1);
 }
 
 void Sketch::draw_value_(int index, bool sorted,
@@ -147,10 +146,9 @@ void Sketch::draw_value_(int index, bool sorted,
 
   SDL_Rect rect;
   rect.x = index * horizontal_scale_;
-  rect.y =
-      window_height_ - sequence_->get(index) * vertical_scale_ - bottom_offset_;
+  rect.y = window_height_ - sequence_->get(index) * vertical_scale_;
   rect.w = std::ceil(horizontal_scale_);
-  rect.h = std::ceil(sequence_->get(index) * vertical_scale_) + bottom_offset_;
+  rect.h = std::ceil(sequence_->get(index) * vertical_scale_);
 
   if (sorted) {
     SDL_SetRenderDrawColor(renderer_, 158, 206, 106, 255);

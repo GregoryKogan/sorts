@@ -53,7 +53,6 @@ private:
 
   float vertical_scale_ = 0.0f;
   float horizontal_scale_ = 0.0f;
-  int bottom_offset_ = 5;
   void calculate_scales_() noexcept;
 
   u_int32_t steps_per_second_ = 0;

@@ -244,5 +244,7 @@ else()
         src/tests/OddEvenSorter_tests/OddEvenSorter_tests.cpp
         src/tests/CombSorter_tests/CombSorter_tests.hpp
         src/tests/CombSorter_tests/CombSorter_tests.cpp
+        src/tests/StoogeSorter_tests/StoogeSorter_tests.hpp
+        src/tests/StoogeSorter_tests/StoogeSorter_tests.cpp
     )
 endif()

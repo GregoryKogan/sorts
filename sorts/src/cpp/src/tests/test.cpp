@@ -22,6 +22,7 @@
 #include "RadixSorter_tests/RadixSorter_tests.hpp"
 #include "SelectionSorter_tests/SelectionSorter_tests.hpp"
 #include "ShellSorter_tests/ShellSorter_tests.hpp"
+#include "StoogeSorter_tests/StoogeSorter_tests.hpp"
 
 int main() {
   std::vector<kogan::TestSuite> suites = {
@@ -50,6 +51,7 @@ int main() {
       get_shell_sorter_test_suite(),
       get_odd_even_sorter_test_suite(),
       get_comb_sorter_test_suite(),
+      get_stooge_sorter_test_suite(),
   };
 
   kogan::Tester tester(suites);

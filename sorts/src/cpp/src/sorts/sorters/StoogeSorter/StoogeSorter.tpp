@@ -35,9 +35,12 @@ template <class T> inline void StoogeSorter<T>::sort_() {
     }
   }
 
-  this->comparisons_ +=
-      first_sorter_->get_comparisons() + second_sorter_->get_comparisons() + third_sorter_->get_comparisons();
-  this->swaps_ += first_sorter_->get_swaps() + second_sorter_->get_swaps() + third_sorter_->get_swaps();
+  if (r_ - l_ + 1 > 2) {
+    this->comparisons_ +=
+        first_sorter_->get_comparisons() + second_sorter_->get_comparisons() + third_sorter_->get_comparisons();
+    this->swaps_ += first_sorter_->get_swaps() + second_sorter_->get_swaps() + third_sorter_->get_swaps();
+  }
+
   finished_ = true;
 }
 
@@ -51,7 +54,6 @@ template <class T> inline void StoogeSorter<T>::set_range_(int l, int r) {
   }
 
   if (r_ - l_ + 1 > 2) {
-    int t = (r_ - l_ + 1) / 3;
     first_sorter_ = make_unique<StoogeSorter<T>>(this->cmp_, this->sequence_);
     second_sorter_ = make_unique<StoogeSorter<T>>(this->cmp_, this->sequence_);
     third_sorter_ = make_unique<StoogeSorter<T>>(this->cmp_, this->sequence_);
@@ -62,6 +64,7 @@ template <class T> inline void StoogeSorter<T>::set_range_(int l, int r) {
       third_sorter_->make_limited();
     }
 
+    int t = (r_ - l_ + 1) / 3;
     first_sorter_->set_range_(l_, r_ - t);
     second_sorter_->set_range_(l_ + t, r_);
     third_sorter_->set_range_(l_, r_ - t);

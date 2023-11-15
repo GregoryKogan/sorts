@@ -27,7 +27,6 @@ template <class T> inline void InsertionSorter<T>::sort_() {
 
 template <class T>
 inline void InsertionSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   this->interesting_indexes_->append(j_);
   this->interesting_indexes_->append(i_);
 }

@@ -109,7 +109,6 @@ QuickSorter<T>::generate_interesting_indexes_() const noexcept {
 
 template <class T>
 inline void QuickSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   auto indexes = generate_interesting_indexes_();
   for (std::size_t i = 0; i < indexes.get_length(); ++i)
     this->interesting_indexes_->append(indexes[i]);

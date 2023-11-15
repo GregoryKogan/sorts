@@ -67,7 +67,6 @@ template <class T> inline bool IterativeMergeSorter<T>::merge_() {
 
 template <class T>
 inline void IterativeMergeSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   this->interesting_indexes_->append(left_);
   this->interesting_indexes_->append(right_);
   this->interesting_indexes_->append(middle_);

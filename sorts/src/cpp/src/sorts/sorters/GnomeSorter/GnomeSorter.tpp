@@ -19,7 +19,6 @@ template <class T> inline void GnomeSorter<T>::sort_() {
 
 template <class T>
 inline void GnomeSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   this->interesting_indexes_->append(index_);
 }
 

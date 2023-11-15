@@ -114,7 +114,6 @@ Heapifier<T>::generate_interesting_indexes() const noexcept {
 
 template <class T>
 inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   if (started_) {
     auto heapifier_interesting_indexes =
         heapifier_->generate_interesting_indexes();

@@ -62,6 +62,7 @@ template <class T> inline void Sorter<T>::sort() {
   sort_();
   if (available_steps_before_sort == get_available_steps()) is_sorted_ = true;
 
+  this->interesting_indexes_->clear();
   set_interesting_indexes_();
 }
 

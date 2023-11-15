@@ -36,7 +36,6 @@ template <class T> inline void ShellSorter<T>::sort_() {
 
 template <class T>
 inline void ShellSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   this->interesting_indexes_->append(i_);
   this->interesting_indexes_->append(j_);
 }

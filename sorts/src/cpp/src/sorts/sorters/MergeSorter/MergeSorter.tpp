@@ -122,7 +122,6 @@ MergeSorter<T>::generate_interesting_indexes_() const noexcept {
 
 template <class T>
 inline void MergeSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   auto my_interesting_indexes = generate_interesting_indexes_();
   for (std::size_t i = 0; i < my_interesting_indexes.get_length(); ++i)
     this->interesting_indexes_->append(my_interesting_indexes[i]);

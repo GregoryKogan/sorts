@@ -58,7 +58,6 @@ inline void CountingSorter::sort_() {
 }
 
 inline void CountingSorter::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->clear();
   this->interesting_indexes_->append(i_);
 }
 

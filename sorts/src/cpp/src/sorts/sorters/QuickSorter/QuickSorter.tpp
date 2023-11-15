@@ -18,11 +18,14 @@ template <class T> inline void QuickSorter<T>::sort_() {
 
     left_sorter_ = make_unique<QuickSorter<T>>(this->cmp_, this->sequence_);
     left_sorter_->set_range_(l_, p_ - 1);
-    left_sorter_->make_limited();
 
     right_sorter_ = make_unique<QuickSorter<T>>(this->cmp_, this->sequence_);
     right_sorter_->set_range_(p_ + 1, h_);
-    right_sorter_->make_limited();
+
+    if (this->is_limited()) {
+      left_sorter_->make_limited();
+      right_sorter_->make_limited();
+    }
 
     child_sorters_initialized_ = true;
   }

@@ -41,6 +41,7 @@ export default defineComponent({
       { name: "shell sort", route: "ShellSort" },
       { name: "gnome sort", route: "GnomeSort" },
       { name: "odd-even sort", route: "OddEvenSort" },
+      { name: "comb sort", route: "CombSort" },
     ] as Sort[],
   }),
   mounted() {

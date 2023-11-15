@@ -125,6 +125,9 @@ void Sketch::init_sorter_() noexcept {
   } else if (sort_algorithm_ == "odd-even") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
         new kogan::OddEvenSorter<int>([](int a, int b) { return a - b; }, sequence_));
+  } else if (sort_algorithm_ == "comb") {
+    sorter_ =
+        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CombSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else { // default to bubble sort if algorithm is not found
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
         new kogan::BubbleSorter<int>([](int a, int b) { return a - b; }, sequence_));

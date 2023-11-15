@@ -80,6 +80,11 @@ const routes = [
         path: '/odd-even-sort',
         name: "OddEvenSort",
         component: () => import('@/views/sorts/OddEvenSort.vue'),
+      },
+      {
+        path: '/comb-sort',
+        name: "CombSort",
+        component: () => import('@/views/sorts/CombSort.vue'),
       }
     ],
   },

@@ -9,6 +9,7 @@
 #include "../../sorts/sorters/BaseSorter.hpp"
 #include "../../sorts/sorters/BubbleSorter/BubbleSorter.hpp"
 #include "../../sorts/sorters/CocktailSorter/CocktailSorter.hpp"
+#include "../../sorts/sorters/CombSorter/CombSorter.hpp"
 #include "../../sorts/sorters/CountingSorter/CountingSorter.hpp"
 #include "../../sorts/sorters/GnomeSorter/GnomeSorter.hpp"
 #include "../../sorts/sorters/HeapSorter/HeapSorter.hpp"

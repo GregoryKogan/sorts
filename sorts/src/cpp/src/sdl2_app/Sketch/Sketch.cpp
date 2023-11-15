@@ -3,25 +3,29 @@
 Sketch::Sketch(SDL_Renderer *renderer) : renderer_(renderer) {}
 
 void Sketch::setup() {
-  generate_sequence_();
-  init_sorter_();
-  sorter_->make_limited();
+  sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(new kogan::SmartPtrArraySequence<int>());
+  sequence_generation_index_ = 0;
   sorted_drawn_ = false;
   is_setup_ = true;
 }
 
 void Sketch::update(const double &delta_time) {
   if (!is_setup_) return;
-  if (sorter_->is_sorted()) return;
 
   milliseconds_since_last_sort_ += delta_time;
   uint32_t available_steps = milliseconds_since_last_sort_ * steps_per_second_ / 1000;
 
   if (!available_steps) return;
-
   milliseconds_since_last_sort_ = 0;
-  sorter_->add_available_steps(available_steps);
 
+  if (sequence_generation_index_ < seq_len_) {
+    generate_sequence_(available_steps);
+    return;
+  }
+
+  if (sorter_->is_sorted()) return;
+
+  sorter_->add_available_steps(available_steps);
   sorter_->sort();
 
   if (sorter_->is_sorted()) {
@@ -37,6 +41,13 @@ void Sketch::draw() const noexcept {
   SDL_RenderClear(renderer_);
 
   if (!is_setup_) {
+    SDL_RenderPresent(renderer_);
+    return;
+  }
+
+  if (sequence_generation_index_ < seq_len_) {
+    for (std::size_t i = 0; i < sequence_->get_length(); ++i) draw_value_(i);
+    draw_value_(sequence_->get_length() - 1, false, true);
     SDL_RenderPresent(renderer_);
     return;
   }
@@ -125,9 +136,15 @@ void Sketch::calculate_scales_() noexcept {
   vertical_scale_ = (float)(window_height_) / (float)max_value_;
 }
 
-void Sketch::generate_sequence_() noexcept {
-  sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(new kogan::SmartPtrArraySequence<int>());
-  for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_ + 1);
+void Sketch::generate_sequence_(uint32_t available_steps) noexcept {
+  for (int i = 0; i < available_steps && sequence_generation_index_ < seq_len_; ++i) {
+    sequence_->append(rand() % max_value_ + 1);
+    ++sequence_generation_index_;
+  }
+  if (sequence_generation_index_ == seq_len_) {
+    init_sorter_();
+    sorter_->make_limited();
+  }
 }
 
 void Sketch::draw_value_(int index, bool sorted, bool interesting) const noexcept {

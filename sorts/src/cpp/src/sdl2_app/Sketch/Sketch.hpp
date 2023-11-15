@@ -66,7 +66,8 @@ private:
   kogan::UniquePtr<kogan::Sorter<int>> sorter_;
   bool sorted_drawn_ = false;
 
-  void generate_sequence_() noexcept;
+  void generate_sequence_(uint32_t available_steps) noexcept;
+  int sequence_generation_index_ = 0;
 
   void draw_value_(int index, bool sorted = false, bool interesting = false) const noexcept;
 };

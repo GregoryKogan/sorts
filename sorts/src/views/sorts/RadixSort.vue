@@ -7,7 +7,7 @@
     spaceComplexity="O(n + b)"
     :showSwaps="false"
     :maxSequenceLength="10000"
-    :maxStepsPerSecond="5000"
+    :maxStepsPerSecond="10000"
     :defaultSequenceLength="1000"
     :defaultStepsPerSecond="500"
   />

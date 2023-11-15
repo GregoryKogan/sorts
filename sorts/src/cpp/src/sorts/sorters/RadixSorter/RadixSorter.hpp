@@ -14,6 +14,8 @@ private:
   bool count_sorting_ = false;
   int exp_ = 1;
   bool output_array_filled_ = false;
+  int counting_array_index_ = 0;
+  int output_array_index_ = -2;
   int i_ = 0;
   SmartPtrArraySequence<int> output_array_;
   SmartPtrArraySequence<int> counting_array_;

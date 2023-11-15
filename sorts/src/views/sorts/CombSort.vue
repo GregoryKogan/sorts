@@ -8,8 +8,8 @@
     :showSwaps="true"
     :maxSequenceLength="5000"
     :maxStepsPerSecond="10000"
-    :defaultSequenceLength="50"
-    :defaultStepsPerSecond="50"
+    :defaultSequenceLength="500"
+    :defaultStepsPerSecond="500"
   />
 </template>
 

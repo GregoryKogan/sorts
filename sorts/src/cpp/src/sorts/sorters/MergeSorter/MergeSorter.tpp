@@ -15,15 +15,15 @@ inline void MergeSorter<T>::set_range_(std::size_t left,
   }
 
   left_sorter_ = make_unique<MergeSorter<T>>(this->cmp_, this->sequence_);
-  left_sorter_->set_range_(left_, middle_);
-
   right_sorter_ = make_unique<MergeSorter<T>>(this->cmp_, this->sequence_);
-  right_sorter_->set_range_(middle_ + 1, right_);
 
   if (this->is_limited()) {
     left_sorter_->make_limited();
     right_sorter_->make_limited();
   }
+
+  left_sorter_->set_range_(left_, middle_);
+  right_sorter_->set_range_(middle_ + 1, right_);
 }
 
 template <class T> inline void MergeSorter<T>::sort_() {

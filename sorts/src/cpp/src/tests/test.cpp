@@ -9,6 +9,7 @@
 
 #include "BubbleSorter_tests/BubbleSorter_tests.hpp"
 #include "CocktailSorter_tests/CocktailSorter_tests.hpp"
+#include "CombSorter_tests/CombSorter_tests.hpp"
 #include "CountingSorter_tests/CountingSorter_tests.hpp"
 #include "GnomeSorter_tests/GnomeSorter_tests.hpp"
 #include "HeapSorter_tests/HeapSorter_tests.hpp"
@@ -48,6 +49,7 @@ int main() {
       get_selection_sorter_test_suite(),
       get_shell_sorter_test_suite(),
       get_odd_even_sorter_test_suite(),
+      get_comb_sorter_test_suite(),
   };
 
   kogan::Tester tester(suites);

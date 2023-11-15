@@ -193,6 +193,8 @@ else()
         src/sorts/sorters/GnomeSorter/GnomeSorter.tpp
         src/sorts/sorters/OddEvenSorter/OddEvenSorter.hpp
         src/sorts/sorters/OddEvenSorter/OddEvenSorter.tpp
+        src/sorts/sorters/CombSorter/CombSorter.hpp
+        src/sorts/sorters/CombSorter/CombSorter.tpp
 
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp
@@ -238,5 +240,7 @@ else()
         src/tests/ShellSorter_tests/ShellSorter_tests.cpp
         src/tests/OddEvenSorter_tests/OddEvenSorter_tests.hpp
         src/tests/OddEvenSorter_tests/OddEvenSorter_tests.cpp
+        src/tests/CombSorter_tests/CombSorter_tests.hpp
+        src/tests/CombSorter_tests/CombSorter_tests.cpp
     )
 endif()

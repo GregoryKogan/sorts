@@ -13,8 +13,7 @@ class AssertionFailedException : public BaseException {
   void build_message() const override;
 
 public:
-  AssertionFailedException(const std::string &expression, const char *file,
-                           const char *function_name, int line);
+  AssertionFailedException(const std::string &expression, const char *file, const char *function_name, int line);
 };
 
 } // namespace kogan

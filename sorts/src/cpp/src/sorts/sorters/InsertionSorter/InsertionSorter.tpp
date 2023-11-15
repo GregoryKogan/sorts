@@ -14,8 +14,7 @@ template <class T> inline void InsertionSorter<T>::sort_() {
 
     if (!this->step_()) return;
 
-    if (this->cmp_wrapper_(this->sequence_->get(j_),
-                           this->sequence_->get(j_ - 1)) < 0) {
+    if (this->cmp_wrapper_(this->sequence_->get(j_), this->sequence_->get(j_ - 1)) < 0) {
       this->swap_(j_, j_ - 1);
       --j_;
     } else {
@@ -25,8 +24,7 @@ template <class T> inline void InsertionSorter<T>::sort_() {
   }
 }
 
-template <class T>
-inline void InsertionSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void InsertionSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->append(j_);
   this->interesting_indexes_->append(i_);
 }

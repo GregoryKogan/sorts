@@ -42,11 +42,8 @@ template <class T> inline void QuickSorter<T>::sort_() {
     this->available_steps_ = right_sorter_->get_available_steps();
   }
 
-  this->comparisons_ = partition_comparisons_ +
-                       left_sorter_->get_comparisons() +
-                       right_sorter_->get_comparisons();
-  this->swaps_ =
-      partition_swaps_ + left_sorter_->get_swaps() + right_sorter_->get_swaps();
+  this->comparisons_ = partition_comparisons_ + left_sorter_->get_comparisons() + right_sorter_->get_comparisons();
+  this->swaps_ = partition_swaps_ + left_sorter_->get_swaps() + right_sorter_->get_swaps();
 
   if (left_sorter_->is_done_ && right_sorter_->is_done_) {
     is_done_ = true;
@@ -54,8 +51,7 @@ template <class T> inline void QuickSorter<T>::sort_() {
   }
 }
 
-template <class T>
-inline void QuickSorter<T>::set_range_(int l, int h) noexcept {
+template <class T> inline void QuickSorter<T>::set_range_(int l, int h) noexcept {
   l_ = l;
   h_ = h;
 }
@@ -87,17 +83,14 @@ template <class T> inline bool QuickSorter<T>::partition_() {
 }
 
 template <class T>
-inline SmartPtrLinkedListSequence<std::size_t>
-QuickSorter<T>::generate_interesting_indexes_() const noexcept {
+inline SmartPtrLinkedListSequence<std::size_t> QuickSorter<T>::generate_interesting_indexes_() const noexcept {
   SmartPtrLinkedListSequence<std::size_t> interesting_indexes;
 
   if (child_sorters_initialized_) {
     auto left_indexes = left_sorter_->generate_interesting_indexes_();
     auto right_indexes = right_sorter_->generate_interesting_indexes_();
-    for (std::size_t i = 0; i < left_indexes.get_length(); ++i)
-      interesting_indexes.append(left_indexes[i]);
-    for (std::size_t i = 0; i < right_indexes.get_length(); ++i)
-      interesting_indexes.append(right_indexes[i]);
+    for (std::size_t i = 0; i < left_indexes.get_length(); ++i) interesting_indexes.append(left_indexes[i]);
+    for (std::size_t i = 0; i < right_indexes.get_length(); ++i) interesting_indexes.append(right_indexes[i]);
   }
 
   if (!is_partitioning_) return interesting_indexes;
@@ -107,11 +100,9 @@ QuickSorter<T>::generate_interesting_indexes_() const noexcept {
   return interesting_indexes;
 }
 
-template <class T>
-inline void QuickSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void QuickSorter<T>::set_interesting_indexes_() noexcept {
   auto indexes = generate_interesting_indexes_();
-  for (std::size_t i = 0; i < indexes.get_length(); ++i)
-    this->interesting_indexes_->append(indexes[i]);
+  for (std::size_t i = 0; i < indexes.get_length(); ++i) this->interesting_indexes_->append(indexes[i]);
 }
 
 } // namespace kogan

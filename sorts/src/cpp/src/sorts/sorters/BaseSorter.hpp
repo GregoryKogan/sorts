@@ -32,8 +32,7 @@ public:
 
   // Observers
   [[nodiscard]] bool is_sorted() const noexcept;
-  [[nodiscard]] SharedPtr<SmartPtrLinkedListSequence<T>>
-  get_interesting_indexes() const noexcept;
+  [[nodiscard]] SharedPtr<SmartPtrLinkedListSequence<T>> get_interesting_indexes() const noexcept;
   [[nodiscard]] u_int32_t get_comparisons() const noexcept;
   [[nodiscard]] u_int32_t get_swaps() const noexcept;
   [[nodiscard]] u_int32_t get_available_steps() const noexcept;

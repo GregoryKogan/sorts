@@ -10,8 +10,7 @@ template <class T> class OddEvenSorter : public Sorter<T> {
   int index_ = 1;
 
 public:
-  OddEvenSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  OddEvenSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

@@ -16,8 +16,7 @@ template <class T> inline void ShellSorter<T>::sort_() {
         temp_ = this->sequence_->get(i_);
         temp_set_ = true;
       }
-      while (j_ >= gap_ &&
-             this->cmp_wrapper_(this->sequence_->get(j_ - gap_), temp_) > 0) {
+      while (j_ >= gap_ && this->cmp_wrapper_(this->sequence_->get(j_ - gap_), temp_) > 0) {
         if (!this->step_()) return;
 
         this->sequence_->set(j_, this->sequence_->get(j_ - gap_));
@@ -34,8 +33,7 @@ template <class T> inline void ShellSorter<T>::sort_() {
   }
 }
 
-template <class T>
-inline void ShellSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void ShellSorter<T>::set_interesting_indexes_() noexcept {
   if (!gap_ || this->sequence_->get_length() / gap_ > 128) {
     this->interesting_indexes_->append(i_);
     return;

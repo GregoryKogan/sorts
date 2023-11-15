@@ -15,16 +15,14 @@ public:
   virtual T get_first() const = 0;
   virtual T get_last() const = 0;
   virtual T get(int index) const = 0;
-  virtual UniquePtr<SmartPtrSequence<T>>
-  get_subsequence(int start_index, int end_index) const = 0;
+  virtual UniquePtr<SmartPtrSequence<T>> get_subsequence(int start_index, int end_index) const = 0;
   [[nodiscard]] virtual size_t get_length() const = 0;
 
   virtual void set(int index, T item) = 0;
   virtual void append(T item) = 0;
   virtual void prepend(T item) = 0;
   virtual void insert(int index, T item) = 0;
-  virtual UniquePtr<SmartPtrSequence<T>>
-  concat(SharedPtr<SmartPtrSequence<T>> sequence) const = 0;
+  virtual UniquePtr<SmartPtrSequence<T>> concat(SharedPtr<SmartPtrSequence<T>> sequence) const = 0;
   virtual void clear() = 0;
   virtual void remove(int index) = 0;
 
@@ -32,8 +30,7 @@ public:
 
   [[nodiscard]] std::string to_string() const;
 
-  friend std::ostream &operator<<(std::ostream &os,
-                                  const SmartPtrSequence<T> &seq) {
+  friend std::ostream &operator<<(std::ostream &os, const SmartPtrSequence<T> &seq) {
     os << seq.to_string();
     return os;
   }

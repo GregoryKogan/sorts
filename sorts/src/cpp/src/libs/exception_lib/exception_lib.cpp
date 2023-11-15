@@ -4,8 +4,7 @@ void exception_lib_is_working() {
   std::cout << "Test lib is working!" << std::endl;
 
   try {
-    throw kogan::AssertionFailedException("test", __FILE__, __FUNCTION__,
-                                          __LINE__);
+    throw kogan::AssertionFailedException("test", __FILE__, __FUNCTION__, __LINE__);
   } catch (const std::exception &e) {
     log_red("ERROR: ");
     log_red(e.what());

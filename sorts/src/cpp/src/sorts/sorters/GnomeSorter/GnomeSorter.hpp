@@ -9,8 +9,7 @@ private:
   int index_ = 0;
 
 public:
-  GnomeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  GnomeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

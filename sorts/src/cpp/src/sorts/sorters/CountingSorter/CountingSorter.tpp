@@ -9,8 +9,7 @@ inline void CountingSorter::sort_() {
     while (i_ < n) {
       if (!this->step_()) return;
 
-      if (this->cmp_wrapper_(this->sequence_->get(i_), max_value_) > 0)
-        max_value_ = this->sequence_->get(i_);
+      if (this->cmp_wrapper_(this->sequence_->get(i_), max_value_) > 0) max_value_ = this->sequence_->get(i_);
       ++i_;
     }
     max_value_found_ = true;
@@ -35,8 +34,7 @@ inline void CountingSorter::sort_() {
 
     counting_array_filled_ = true;
 
-    for (int i = 1; i <= max_value_; ++i)
-      counting_array_[i] += counting_array_[i - 1];
+    for (int i = 1; i <= max_value_; ++i) counting_array_[i] += counting_array_[i - 1];
 
     for (int i = n - 1; i >= 0; --i) {
       int value = this->sequence_->get(i);
@@ -57,8 +55,6 @@ inline void CountingSorter::sort_() {
   }
 }
 
-inline void CountingSorter::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->append(i_);
-}
+inline void CountingSorter::set_interesting_indexes_() noexcept { this->interesting_indexes_->append(i_); }
 
 } // namespace kogan

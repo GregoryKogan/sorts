@@ -7,8 +7,7 @@ template <class T> inline void HeapSorter<T>::sort_() {
     i_ = this->sequence_->get_length() / 2 - 1;
     j_ = this->sequence_->get_length() - 1;
 
-    heapifier_ =
-        make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
+    heapifier_ = make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
 
     started_ = true;
   }
@@ -18,8 +17,7 @@ template <class T> inline void HeapSorter<T>::sort_() {
       heapifier_->heapify();
       if (!heapifier_->is_done()) return;
       i_--;
-      heapifier_ =
-          make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
+      heapifier_ = make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
     }
     initial_heapify_done_ = true;
   }
@@ -57,9 +55,7 @@ template <class T> inline void Heapifier<T>::heapify() {
   if (!left_checked_) {
     if (l_ < heap_size_) {
       if (!this->sorter_->step_()) return;
-      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(l_),
-                                sorter_->sequence_->get(largest_)) > 0)
-        largest_ = l_;
+      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(l_), sorter_->sequence_->get(largest_)) > 0) largest_ = l_;
     }
 
     left_checked_ = true;
@@ -68,9 +64,7 @@ template <class T> inline void Heapifier<T>::heapify() {
   if (!right_checked_) {
     if (r_ < heap_size_) {
       if (!this->sorter_->step_()) return;
-      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(r_),
-                                sorter_->sequence_->get(largest_)) > 0)
-        largest_ = r_;
+      if (sorter_->cmp_wrapper_(sorter_->sequence_->get(r_), sorter_->sequence_->get(largest_)) > 0) largest_ = r_;
     }
 
     right_checked_ = true;
@@ -83,8 +77,7 @@ template <class T> inline void Heapifier<T>::heapify() {
     }
 
     if (!child_heapifier_initialized_) {
-      child_heapifier_ =
-          make_unique<Heapifier<T>>(sorter_, largest_, heap_size_);
+      child_heapifier_ = make_unique<Heapifier<T>>(sorter_, largest_, heap_size_);
       child_heapifier_initialized_ = true;
     }
 
@@ -96,8 +89,7 @@ template <class T> inline void Heapifier<T>::heapify() {
 }
 
 template <class T>
-inline SmartPtrLinkedListSequence<std::size_t>
-Heapifier<T>::generate_interesting_indexes() const noexcept {
+inline SmartPtrLinkedListSequence<std::size_t> Heapifier<T>::generate_interesting_indexes() const noexcept {
   SmartPtrLinkedListSequence<std::size_t> interesting_indexes;
 
   interesting_indexes.append(index_);
@@ -112,11 +104,9 @@ Heapifier<T>::generate_interesting_indexes() const noexcept {
   return interesting_indexes;
 }
 
-template <class T>
-inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
   if (started_) {
-    auto heapifier_interesting_indexes =
-        heapifier_->generate_interesting_indexes();
+    auto heapifier_interesting_indexes = heapifier_->generate_interesting_indexes();
     for (std::size_t i = 0; i < heapifier_interesting_indexes.get_length(); i++)
       this->interesting_indexes_->append(heapifier_interesting_indexes[i]);
   }

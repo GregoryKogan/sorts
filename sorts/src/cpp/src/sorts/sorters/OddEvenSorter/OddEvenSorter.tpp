@@ -9,8 +9,7 @@ template <class T> inline void OddEvenSorter<T>::sort_() {
     if (index_ % 2 == 1) {
       while (index_ <= this->sequence_->get_length() - 2) {
         if (!this->step_()) return;
-        if (this->cmp_wrapper_(this->sequence_->get(index_),
-                               this->sequence_->get(index_ + 1)) > 0) {
+        if (this->cmp_wrapper_(this->sequence_->get(index_), this->sequence_->get(index_ + 1)) > 0) {
           this->swap_(index_, index_ + 1);
           swapped_ = true;
         }
@@ -21,8 +20,7 @@ template <class T> inline void OddEvenSorter<T>::sort_() {
 
     while (index_ <= this->sequence_->get_length() - 2) {
       if (!this->step_()) return;
-      if (this->cmp_wrapper_(this->sequence_->get(index_),
-                             this->sequence_->get(index_ + 1)) > 0) {
+      if (this->cmp_wrapper_(this->sequence_->get(index_), this->sequence_->get(index_ + 1)) > 0) {
         this->swap_(index_, index_ + 1);
         swapped_ = true;
       }
@@ -38,8 +36,7 @@ template <class T> inline void OddEvenSorter<T>::sort_() {
   }
 }
 
-template <class T>
-inline void OddEvenSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void OddEvenSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->append(index_);
 }
 

@@ -14,8 +14,7 @@ private:
   int j_ = 0;
 
 public:
-  ShellSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  ShellSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

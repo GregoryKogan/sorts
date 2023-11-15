@@ -24,10 +24,9 @@ public:
 
   ~SharedPtr();
 
-  SharedPtr<T> &
-  operator=(const SharedPtr<T> &other) noexcept;          // copy assignment
-  SharedPtr<T> &operator=(SharedPtr<T> &&other) noexcept; // move assignment
-  SharedPtr<T> &operator=(std::nullptr_t) noexcept; // assignment from nullptr
+  SharedPtr<T> &operator=(const SharedPtr<T> &other) noexcept; // copy assignment
+  SharedPtr<T> &operator=(SharedPtr<T> &&other) noexcept;      // move assignment
+  SharedPtr<T> &operator=(std::nullptr_t) noexcept;            // assignment from nullptr
 
   void reset(T *ptr = nullptr) noexcept;   // replace the managed object
   void swap(SharedPtr<T> &other) noexcept; // swaps the managed objects
@@ -39,28 +38,14 @@ public:
   bool unique() const noexcept;            // check if unique
   explicit operator bool() const noexcept; // check if pointer is not null
 
-  friend bool operator==(const SharedPtr<T> &x, const SharedPtr<T> &y) {
-    return x.get() == y.get();
-  }
-  friend bool operator!=(const SharedPtr<T> &x, const SharedPtr<T> &y) {
-    return !(x == y);
-  }
-  friend bool operator==(const SharedPtr<T> &x, std::nullptr_t) noexcept {
-    return !x;
-  }
-  friend bool operator==(std::nullptr_t, const SharedPtr<T> &x) noexcept {
-    return !x;
-  }
-  friend bool operator!=(const SharedPtr<T> &x, std::nullptr_t) noexcept {
-    return (bool)x;
-  }
-  friend bool operator!=(std::nullptr_t, const SharedPtr<T> &x) noexcept {
-    return (bool)x;
-  }
+  friend bool operator==(const SharedPtr<T> &x, const SharedPtr<T> &y) { return x.get() == y.get(); }
+  friend bool operator!=(const SharedPtr<T> &x, const SharedPtr<T> &y) { return !(x == y); }
+  friend bool operator==(const SharedPtr<T> &x, std::nullptr_t) noexcept { return !x; }
+  friend bool operator==(std::nullptr_t, const SharedPtr<T> &x) noexcept { return !x; }
+  friend bool operator!=(const SharedPtr<T> &x, std::nullptr_t) noexcept { return (bool)x; }
+  friend bool operator!=(std::nullptr_t, const SharedPtr<T> &x) noexcept { return (bool)x; }
 
-  friend void swap(SharedPtr<T> &lhs, SharedPtr<T> &rhs) noexcept {
-    lhs.swap(rhs);
-  }
+  friend void swap(SharedPtr<T> &lhs, SharedPtr<T> &rhs) noexcept { lhs.swap(rhs); }
 };
 
 template <class T> class SharedPtr<T[]> { // specialization for arrays
@@ -92,28 +77,14 @@ public:
   bool unique() const noexcept;
   explicit operator bool() const noexcept;
 
-  friend bool operator==(const SharedPtr<T[]> &x, const SharedPtr<T[]> &y) {
-    return x.get() == y.get();
-  }
-  friend bool operator!=(const SharedPtr<T[]> &x, const SharedPtr<T[]> &y) {
-    return !(x == y);
-  }
-  friend bool operator==(const SharedPtr<T[]> &x, std::nullptr_t) noexcept {
-    return !x;
-  }
-  friend bool operator==(std::nullptr_t, const SharedPtr<T[]> &x) noexcept {
-    return !x;
-  }
-  friend bool operator!=(const SharedPtr<T[]> &x, std::nullptr_t) noexcept {
-    return (bool)x;
-  }
-  friend bool operator!=(std::nullptr_t, const SharedPtr<T[]> &x) noexcept {
-    return (bool)x;
-  }
+  friend bool operator==(const SharedPtr<T[]> &x, const SharedPtr<T[]> &y) { return x.get() == y.get(); }
+  friend bool operator!=(const SharedPtr<T[]> &x, const SharedPtr<T[]> &y) { return !(x == y); }
+  friend bool operator==(const SharedPtr<T[]> &x, std::nullptr_t) noexcept { return !x; }
+  friend bool operator==(std::nullptr_t, const SharedPtr<T[]> &x) noexcept { return !x; }
+  friend bool operator!=(const SharedPtr<T[]> &x, std::nullptr_t) noexcept { return (bool)x; }
+  friend bool operator!=(std::nullptr_t, const SharedPtr<T[]> &x) noexcept { return (bool)x; }
 
-  friend void swap(SharedPtr<T[]> &lhs, SharedPtr<T[]> &rhs) noexcept {
-    lhs.swap(rhs);
-  }
+  friend void swap(SharedPtr<T[]> &lhs, SharedPtr<T[]> &rhs) noexcept { lhs.swap(rhs); }
 };
 
 template <class T, class... Args>

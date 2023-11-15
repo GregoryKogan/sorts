@@ -3,9 +3,7 @@
 Application::Application() {
   int width, height;
   SDL_GetWindowSize(window_, &width, &height);
-  SDL_CreateWindowAndRenderer(width, height,
-                              SDL_WINDOW_RESIZABLE | SDL_RENDERER_ACCELERATED,
-                              &window_, &renderer_);
+  SDL_CreateWindowAndRenderer(width, height, SDL_WINDOW_RESIZABLE | SDL_RENDERER_ACCELERATED, &window_, &renderer_);
 
   if (!window_ || !renderer_) {
     std::cout << "Failed to create window and renderer\n";
@@ -39,8 +37,7 @@ void Application::handle_window_events_() {
     case SDL_WINDOWEVENT:
       switch (window_event_.window.event) {
       case SDL_WINDOWEVENT_RESIZED:
-        sketch_->set_window_size(window_event_.window.data1,
-                                 window_event_.window.data2);
+        sketch_->set_window_size(window_event_.window.data1, window_event_.window.data2);
         break;
       }
       break;
@@ -57,16 +54,13 @@ void Application::handle_messages_() {
   message_doc.Parse(message.c_str());
 
   if (message_doc.HasMember("action")) {
-    if (message_doc["action"].GetString() == std::string("quit"))
-      emscripten_cancel_main_loop();
+    if (message_doc["action"].GetString() == std::string("quit")) emscripten_cancel_main_loop();
 
     if (message_doc["action"].GetString() == std::string("sort")) {
-      if (!message_doc.HasMember("algorithm") ||
-          !message_doc.HasMember("seq_len") ||
+      if (!message_doc.HasMember("algorithm") || !message_doc.HasMember("seq_len") ||
           !message_doc.HasMember("steps_per_sec"))
         return;
-      if (!message_doc["algorithm"].IsString() ||
-          !message_doc["seq_len"].IsUint() ||
+      if (!message_doc["algorithm"].IsString() || !message_doc["seq_len"].IsUint() ||
           !message_doc["steps_per_sec"].IsUint())
         return;
 
@@ -84,8 +78,7 @@ double Application::get_delta_time_() {
   Uint64 delta_time = current_time - last_time_;
   last_time_ = current_time;
   delta_time_records_.push_back(delta_time);
-  if (delta_time_records_.size() > max_delta_time_records_)
-    delta_time_records_.pop_front();
+  if (delta_time_records_.size() > max_delta_time_records_) delta_time_records_.pop_front();
   return (double)delta_time;
 }
 
@@ -107,8 +100,7 @@ void Application::send_data_() {
     message_obj.SetObject();
     {
       message_obj.AddMember("frame_rate", get_frame_rate(), allocator);
-      message_obj.AddMember("comparisons", sketch_->get_comparisons(),
-                            allocator);
+      message_obj.AddMember("comparisons", sketch_->get_comparisons(), allocator);
       message_obj.AddMember("swaps", sketch_->get_swaps(), allocator);
     }
     message_doc.AddMember("message", message_obj, allocator);

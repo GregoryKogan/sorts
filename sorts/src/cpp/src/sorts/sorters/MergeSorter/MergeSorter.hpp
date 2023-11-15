@@ -22,12 +22,10 @@ private:
   void set_range_(std::size_t left, std::size_t right) noexcept;
   bool merge_();
 
-  SmartPtrLinkedListSequence<std::size_t>
-  generate_interesting_indexes_() const noexcept;
+  SmartPtrLinkedListSequence<std::size_t> generate_interesting_indexes_() const noexcept;
 
 public:
-  MergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  MergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
 

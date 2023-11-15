@@ -20,8 +20,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
       while (i_ < end_) {
         if (!this->step_()) return;
 
-        if (this->cmp_wrapper_(this->sequence_->get(i_),
-                               this->sequence_->get(i_ + 1)) > 0) {
+        if (this->cmp_wrapper_(this->sequence_->get(i_), this->sequence_->get(i_ + 1)) > 0) {
           this->swap_(i_, i_ + 1);
           swapped_ = true;
         }
@@ -39,8 +38,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
       while (j_ >= start_) {
         if (!this->step_()) return;
 
-        if (this->cmp_wrapper_(this->sequence_->get(j_),
-                               this->sequence_->get(j_ + 1)) > 0) {
+        if (this->cmp_wrapper_(this->sequence_->get(j_), this->sequence_->get(j_ + 1)) > 0) {
           this->swap_(j_, j_ + 1);
           swapped_ = true;
         }
@@ -61,8 +59,7 @@ template <class T> inline void CocktailSorter<T>::sort_() {
   }
 }
 
-template <class T>
-inline void CocktailSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void CocktailSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->append(start_);
   this->interesting_indexes_->append(end_);
   if (!forward_pass_done_) this->interesting_indexes_->append(i_);

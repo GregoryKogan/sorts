@@ -10,8 +10,7 @@ private:
   std::size_t j_ = 0;
 
 public:
-  BubbleSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  BubbleSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

@@ -20,9 +20,7 @@ private:
   bool merge_();
 
 public:
-  IterativeMergeSorter(int (*cmp)(T, T),
-                       SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  IterativeMergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
 

@@ -2,8 +2,7 @@
 
 namespace kogan {
 
-Test::Test(std::string name, void (*testFunction)())
-    : name(std::move(name)), testFunction(testFunction) {}
+Test::Test(std::string name, void (*testFunction)()) : name(std::move(name)), testFunction(testFunction) {}
 
 bool Test::run() const {
   try {

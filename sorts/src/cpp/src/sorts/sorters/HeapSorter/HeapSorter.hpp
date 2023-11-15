@@ -19,8 +19,7 @@ private:
   UniquePtr<Heapifier<T>> heapifier_;
 
 public:
-  HeapSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  HeapSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;
@@ -28,14 +27,12 @@ public:
 
 template <class T> class Heapifier {
 public:
-  Heapifier(HeapSorter<T> *sorter, int index, int heap_size)
-      : sorter_(sorter), index_(index), heap_size_(heap_size) {}
+  Heapifier(HeapSorter<T> *sorter, int index, int heap_size) : sorter_(sorter), index_(index), heap_size_(heap_size) {}
 
   void heapify();
 
   bool is_done() const noexcept { return is_done_; }
-  SmartPtrLinkedListSequence<std::size_t>
-  generate_interesting_indexes() const noexcept;
+  SmartPtrLinkedListSequence<std::size_t> generate_interesting_indexes() const noexcept;
 
 private:
   HeapSorter<T> *sorter_;

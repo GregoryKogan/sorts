@@ -24,12 +24,10 @@ private:
   u_int32_t partition_comparisons_ = 0;
   u_int32_t partition_swaps_ = 0;
 
-  SmartPtrLinkedListSequence<std::size_t>
-  generate_interesting_indexes_() const noexcept;
+  SmartPtrLinkedListSequence<std::size_t> generate_interesting_indexes_() const noexcept;
 
 public:
-  QuickSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  QuickSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
 

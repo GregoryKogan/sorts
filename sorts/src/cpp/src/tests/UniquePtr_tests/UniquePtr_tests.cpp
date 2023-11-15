@@ -201,15 +201,13 @@ TEST(make_unique, unique_ptr_test_suite) {
 }
 
 TEST(make_unique_with_custom_constructor, unique_ptr_test_suite) {
-  kogan::UniquePtr<std::string> ptr =
-      kogan::make_unique<std::string>("Hello World!");
+  kogan::UniquePtr<std::string> ptr = kogan::make_unique<std::string>("Hello World!");
   ASSERT(ptr->compare("Hello World!") == 0);
 }
 
 TEST(make_unique_with_multiple_arguments, unique_ptr_test_suite) {
   std::vector<int> expected = {1, 2, 3};
-  kogan::UniquePtr<std::vector<int>> ptr =
-      kogan::make_unique<std::vector<int>>(expected.begin(), expected.end());
+  kogan::UniquePtr<std::vector<int>> ptr = kogan::make_unique<std::vector<int>>(expected.begin(), expected.end());
   ASSERT(*ptr == expected);
 }
 

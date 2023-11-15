@@ -9,8 +9,7 @@ InvalidArgumentException::InvalidArgumentException(std::string argument_name) {
 }
 
 void InvalidArgumentException::build_message() const {
-  snprintf(message, MESSAGE_MAX_LENGTH,
-           "(InvalidArgument): value of the %s argument is invalid",
+  snprintf(message, MESSAGE_MAX_LENGTH, "(InvalidArgument): value of the %s argument is invalid",
            argument_name.c_str());
 }
 

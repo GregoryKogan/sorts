@@ -15,8 +15,7 @@ void Sketch::update(const double &delta_time) {
   if (sorter_->is_sorted()) return;
 
   milliseconds_since_last_sort_ += delta_time;
-  uint32_t available_steps =
-      milliseconds_since_last_sort_ * steps_per_second_ / 1000;
+  uint32_t available_steps = milliseconds_since_last_sort_ * steps_per_second_ / 1000;
 
   if (!available_steps) return;
 
@@ -42,8 +41,7 @@ void Sketch::draw() const noexcept {
     return;
   }
 
-  for (std::size_t i = 0; i < sequence_->get_length(); ++i)
-    draw_value_(i, sorter_->is_sorted());
+  for (std::size_t i = 0; i < sequence_->get_length(); ++i) draw_value_(i, sorter_->is_sorted());
 
   if (!sorter_->is_sorted()) {
     auto interesting_indexes = sorter_->get_interesting_indexes();
@@ -61,19 +59,13 @@ void Sketch::set_window_size(const int &width, const int &height) noexcept {
   calculate_scales_();
 }
 
-u_int32_t Sketch::get_comparisons() const noexcept {
-  return sorter_->get_comparisons();
-}
+u_int32_t Sketch::get_comparisons() const noexcept { return sorter_->get_comparisons(); }
 
 u_int32_t Sketch::get_swaps() const noexcept { return sorter_->get_swaps(); }
 
-void Sketch::set_sort_algorithm(const std::string &algorithm) noexcept {
-  sort_algorithm_ = algorithm;
-}
+void Sketch::set_sort_algorithm(const std::string &algorithm) noexcept { sort_algorithm_ = algorithm; }
 
-void Sketch::set_steps_per_second(const u_int32_t &steps_per_second) noexcept {
-  steps_per_second_ = steps_per_second;
-}
+void Sketch::set_steps_per_second(const u_int32_t &steps_per_second) noexcept { steps_per_second_ = steps_per_second; }
 
 void Sketch::set_sequence_length(const std::size_t &seq_len) noexcept {
   seq_len_ = seq_len;
@@ -83,56 +75,48 @@ void Sketch::set_sequence_length(const std::size_t &seq_len) noexcept {
 
 void Sketch::init_sorter_() noexcept {
   if (sort_algorithm_ == "bubble") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::BubbleSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::BubbleSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "selection") {
-    sorter_ =
-        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::SelectionSorter<int>(
-            [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::SelectionSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "insertion") {
-    sorter_ =
-        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::InsertionSorter<int>(
-            [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::InsertionSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "merge") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::MergeSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::MergeSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "iter_merge") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
-        new kogan::IterativeMergeSorter<int>([](int a, int b) { return a - b; },
-                                             sequence_));
+        new kogan::IterativeMergeSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "quick") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::QuickSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::QuickSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "iter_quick") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
-        new kogan::IterativeQuickSorter<int>([](int a, int b) { return a - b; },
-                                             sequence_));
+        new kogan::IterativeQuickSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "heap") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::HeapSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ =
+        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::HeapSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "count") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
-        new kogan::CountingSorter(sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CountingSorter(sequence_));
   } else if (sort_algorithm_ == "cocktail") {
-    sorter_ =
-        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CocktailSorter<int>(
-            [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::CocktailSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "radix") {
-    sorter_ =
-        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::RadixSorter(sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::RadixSorter(sequence_));
   } else if (sort_algorithm_ == "shell") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::ShellSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::ShellSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "gnome") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::GnomeSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::GnomeSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "odd-even") {
-    sorter_ =
-        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::OddEvenSorter<int>(
-            [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::OddEvenSorter<int>([](int a, int b) { return a - b; }, sequence_));
   } else { // default to bubble sort if algorithm is not found
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::BubbleSorter<int>(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::BubbleSorter<int>([](int a, int b) { return a - b; }, sequence_));
   }
 }
 
@@ -142,13 +126,11 @@ void Sketch::calculate_scales_() noexcept {
 }
 
 void Sketch::generate_sequence_() noexcept {
-  sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
-      new kogan::SmartPtrArraySequence<int>());
+  sequence_ = kogan::SharedPtr<kogan::SmartPtrSequence<int>>(new kogan::SmartPtrArraySequence<int>());
   for (int i = 0; i < seq_len_; ++i) sequence_->append(rand() % max_value_ + 1);
 }
 
-void Sketch::draw_value_(int index, bool sorted,
-                         bool interesting) const noexcept {
+void Sketch::draw_value_(int index, bool sorted, bool interesting) const noexcept {
   if (index < 0 || index >= sequence_->get_length()) return;
 
   SDL_Rect rect;

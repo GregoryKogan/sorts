@@ -16,44 +16,28 @@ public:
 
   ~UniquePtr();
 
-  UniquePtr<T> &
-  operator=(const UniquePtr<T> &) = delete; // copy assignment is deleted
+  UniquePtr<T> &operator=(const UniquePtr<T> &) = delete; // copy assignment is deleted
   UniquePtr<T> &operator=(UniquePtr<T> &&other) noexcept; // move assignment
-  UniquePtr<T> &operator=(std::nullptr_t) noexcept; // assignment from nullptr
+  UniquePtr<T> &operator=(std::nullptr_t) noexcept;       // assignment from nullptr
 
   T *release() noexcept;                   // release ownership
   void reset(T *ptr = nullptr) noexcept;   // delete old and set new pointer
   void swap(UniquePtr<T> &other) noexcept; // swaps the managed objects
 
-  T *get() const noexcept; // get pointer
-  explicit operator bool()
-      const noexcept; // checks if there is an associated managed object
+  T *get() const noexcept;                 // get pointer
+  explicit operator bool() const noexcept; // checks if there is an associated managed object
 
   T *operator->() const noexcept; // get pointer and use operator ->
   T &operator*() const noexcept;  // get reference
 
-  friend bool operator==(const UniquePtr<T> &x, const UniquePtr<T> &y) {
-    return x.get() == y.get();
-  }
-  friend bool operator!=(const UniquePtr<T> &x, const UniquePtr<T> &y) {
-    return !(x == y);
-  }
-  friend bool operator==(const UniquePtr<T> &x, std::nullptr_t) noexcept {
-    return !x;
-  }
-  friend bool operator==(std::nullptr_t, const UniquePtr<T> &x) noexcept {
-    return !x;
-  }
-  friend bool operator!=(const UniquePtr<T> &x, std::nullptr_t) noexcept {
-    return (bool)x;
-  }
-  friend bool operator!=(std::nullptr_t, const UniquePtr<T> &x) noexcept {
-    return (bool)x;
-  }
+  friend bool operator==(const UniquePtr<T> &x, const UniquePtr<T> &y) { return x.get() == y.get(); }
+  friend bool operator!=(const UniquePtr<T> &x, const UniquePtr<T> &y) { return !(x == y); }
+  friend bool operator==(const UniquePtr<T> &x, std::nullptr_t) noexcept { return !x; }
+  friend bool operator==(std::nullptr_t, const UniquePtr<T> &x) noexcept { return !x; }
+  friend bool operator!=(const UniquePtr<T> &x, std::nullptr_t) noexcept { return (bool)x; }
+  friend bool operator!=(std::nullptr_t, const UniquePtr<T> &x) noexcept { return (bool)x; }
 
-  friend void swap(UniquePtr<T> &lhs, UniquePtr<T> &rhs) noexcept {
-    lhs.swap(rhs);
-  }
+  friend void swap(UniquePtr<T> &lhs, UniquePtr<T> &rhs) noexcept { lhs.swap(rhs); }
 };
 
 template <class T> class UniquePtr<T[]> { // specialization for arrays
@@ -81,28 +65,14 @@ public:
 
   T &operator[](std::size_t index) const; // array subscript operator
 
-  friend bool operator==(const UniquePtr<T[]> &x, const UniquePtr<T[]> &y) {
-    return x.get() == y.get();
-  }
-  friend bool operator!=(const UniquePtr<T[]> &x, const UniquePtr<T[]> &y) {
-    return !(x == y);
-  }
-  friend bool operator==(const UniquePtr<T[]> &x, std::nullptr_t) noexcept {
-    return !x;
-  }
-  friend bool operator==(std::nullptr_t, const UniquePtr<T[]> &x) noexcept {
-    return !x;
-  }
-  friend bool operator!=(const UniquePtr<T[]> &x, std::nullptr_t) noexcept {
-    return (bool)x;
-  }
-  friend bool operator!=(std::nullptr_t, const UniquePtr<T[]> &x) noexcept {
-    return (bool)x;
-  }
+  friend bool operator==(const UniquePtr<T[]> &x, const UniquePtr<T[]> &y) { return x.get() == y.get(); }
+  friend bool operator!=(const UniquePtr<T[]> &x, const UniquePtr<T[]> &y) { return !(x == y); }
+  friend bool operator==(const UniquePtr<T[]> &x, std::nullptr_t) noexcept { return !x; }
+  friend bool operator==(std::nullptr_t, const UniquePtr<T[]> &x) noexcept { return !x; }
+  friend bool operator!=(const UniquePtr<T[]> &x, std::nullptr_t) noexcept { return (bool)x; }
+  friend bool operator!=(std::nullptr_t, const UniquePtr<T[]> &x) noexcept { return (bool)x; }
 
-  friend void swap(UniquePtr<T[]> &lhs, UniquePtr<T[]> &rhs) noexcept {
-    lhs.swap(rhs);
-  }
+  friend void swap(UniquePtr<T[]> &lhs, UniquePtr<T[]> &rhs) noexcept { lhs.swap(rhs); }
 };
 
 template <class T, class... Args>

@@ -60,8 +60,7 @@ template <class T> inline bool IterativeQuickSorter<T>::partition_() {
   return true;
 }
 
-template <class T>
-inline void IterativeQuickSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void IterativeQuickSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->append(l_);
   this->interesting_indexes_->append(h_);
   this->interesting_indexes_->append(i_);

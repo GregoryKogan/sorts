@@ -63,9 +63,7 @@ TEST(get_negative_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get(-1);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -76,9 +74,7 @@ TEST(get_big_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get(5);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -100,9 +96,7 @@ TEST(get_first_empty, smart_ptr_linked_list_test_suite) {
   bool emptyContainerExceptionThrown = false;
   try {
     list.get_first();
-  } catch (kogan::EmptyContainerException &e) {
-    emptyContainerExceptionThrown = true;
-  }
+  } catch (kogan::EmptyContainerException &e) { emptyContainerExceptionThrown = true; }
   ASSERT(emptyContainerExceptionThrown);
 }
 
@@ -124,9 +118,7 @@ TEST(get_last_empty, smart_ptr_linked_list_test_suite) {
   bool emptyContainerExceptionThrown = false;
   try {
     list.get_last();
-  } catch (kogan::EmptyContainerException &e) {
-    emptyContainerExceptionThrown = true;
-  }
+  } catch (kogan::EmptyContainerException &e) { emptyContainerExceptionThrown = true; }
   ASSERT(emptyContainerExceptionThrown);
 }
 
@@ -175,9 +167,7 @@ TEST(set_negative_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.set(-1, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -188,9 +178,7 @@ TEST(set_big_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.set(5, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -199,9 +187,7 @@ TEST(set_empty, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.set(0, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -293,9 +279,7 @@ TEST(insert_negative_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.insert(-1, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -304,9 +288,7 @@ TEST(insert_big_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.insert(1, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -348,9 +330,7 @@ TEST(remove_negative_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.remove(-1);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -359,9 +339,7 @@ TEST(remove_big_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.remove(0);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -370,9 +348,7 @@ TEST(remove_empty, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.remove(0);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -438,9 +414,7 @@ TEST(get_sublist_negative_start_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get_sublist(-1, 0);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -449,9 +423,7 @@ TEST(get_sublist_negative_end_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get_sublist(0, -1);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -460,9 +432,7 @@ TEST(get_sublist_big_start_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get_sublist(1, 0);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -471,14 +441,11 @@ TEST(get_sublist_big_end_index, smart_ptr_linked_list_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     list.get_sublist(0, 1);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
-TEST(get_sublist_end_index_less_than_start_index,
-     smart_ptr_linked_list_test_suite) {
+TEST(get_sublist_end_index_less_than_start_index, smart_ptr_linked_list_test_suite) {
   auto data = kogan::make_shared<int[]>(5);
   for (int i = 0; i < 5; ++i) data[i] = i + 1;
   kogan::SmartPtrLinkedList<int> list(data, 5);
@@ -486,9 +453,7 @@ TEST(get_sublist_end_index_less_than_start_index,
   bool invalidArgumentExceptionThrown = false;
   try {
     list.get_sublist(1, 0);
-  } catch (kogan::InvalidArgumentException &e) {
-    invalidArgumentExceptionThrown = true;
-  }
+  } catch (kogan::InvalidArgumentException &e) { invalidArgumentExceptionThrown = true; }
   ASSERT(invalidArgumentExceptionThrown);
 }
 
@@ -601,6 +566,4 @@ TEST(copy_assignment, smart_ptr_linked_list_test_suite) {
   ASSERT(list1.get_length() == 5);
 }
 
-kogan::TestSuite get_smart_ptr_linked_list_test_suite() {
-  return smart_ptr_linked_list_test_suite;
-}
+kogan::TestSuite get_smart_ptr_linked_list_test_suite() { return smart_ptr_linked_list_test_suite; }

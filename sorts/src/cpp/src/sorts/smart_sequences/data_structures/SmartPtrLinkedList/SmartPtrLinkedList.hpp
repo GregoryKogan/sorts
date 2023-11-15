@@ -41,8 +41,7 @@ public:
   void clear() noexcept;
 
   SmartPtrLinkedList<T> get_sublist(int start_index, int end_index) const;
-  SmartPtrLinkedList<T>
-  concat(const SmartPtrLinkedList<T> &other) const noexcept;
+  SmartPtrLinkedList<T> concat(const SmartPtrLinkedList<T> &other) const noexcept;
 
   T &operator[](int index);
 

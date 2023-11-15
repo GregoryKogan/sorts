@@ -18,9 +18,7 @@ private:
   int j_ = 0;
 
 public:
-  IterativeQuickSorter(int (*cmp)(T, T),
-                       SharedPtr<SmartPtrSequence<T>> sequence)
-      : Sorter<T>(cmp, sequence) {}
+  IterativeQuickSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
 
   void sort_() override;
 

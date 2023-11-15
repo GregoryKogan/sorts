@@ -68,6 +68,5 @@ private:
 
   void generate_sequence_() noexcept;
 
-  void draw_value_(int index, bool sorted = false,
-                   bool interesting = false) const noexcept;
+  void draw_value_(int index, bool sorted = false, bool interesting = false) const noexcept;
 };

@@ -27,10 +27,8 @@ template <class T> inline bool IterativeMergeSorter<T>::merge_() {
   if (!is_merging_) {
     left_part_.clear();
     right_part_.clear();
-    for (std::size_t i = 0; i < left_length; ++i)
-      left_part_.append(this->sequence_->get(left_ + i));
-    for (std::size_t i = 0; i < right_length; ++i)
-      right_part_.append(this->sequence_->get(middle_ + 1 + i));
+    for (std::size_t i = 0; i < left_length; ++i) left_part_.append(this->sequence_->get(left_ + i));
+    for (std::size_t i = 0; i < right_length; ++i) right_part_.append(this->sequence_->get(middle_ + 1 + i));
 
     i_ = 0;
     j_ = 0;
@@ -65,8 +63,7 @@ template <class T> inline bool IterativeMergeSorter<T>::merge_() {
   return true;
 }
 
-template <class T>
-inline void IterativeMergeSorter<T>::set_interesting_indexes_() noexcept {
+template <class T> inline void IterativeMergeSorter<T>::set_interesting_indexes_() noexcept {
   this->interesting_indexes_->append(left_);
   this->interesting_indexes_->append(right_);
   this->interesting_indexes_->append(middle_);

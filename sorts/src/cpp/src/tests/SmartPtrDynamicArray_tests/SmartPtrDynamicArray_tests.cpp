@@ -64,9 +64,7 @@ TEST(get_negative_index, smart_ptr_dynamic_array_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     arr.get(-1);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -76,9 +74,7 @@ TEST(get_big_index, smart_ptr_dynamic_array_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     arr.get(5);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -116,9 +112,7 @@ TEST(set_negative_index, smart_ptr_dynamic_array_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     arr.set(-1, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -128,9 +122,7 @@ TEST(set_big_index, smart_ptr_dynamic_array_test_suite) {
   bool indexOutOfRangeExceptionThrown = false;
   try {
     arr.set(5, 42);
-  } catch (kogan::IndexOutOfRangeException &e) {
-    indexOutOfRangeExceptionThrown = true;
-  }
+  } catch (kogan::IndexOutOfRangeException &e) { indexOutOfRangeExceptionThrown = true; }
   ASSERT(indexOutOfRangeExceptionThrown);
 }
 
@@ -173,9 +165,7 @@ TEST(resize_negative_length, smart_ptr_dynamic_array_test_suite) {
   bool InvalidArgumentExceptionThrown = false;
   try {
     arr.resize(-1);
-  } catch (kogan::InvalidArgumentException &e) {
-    InvalidArgumentExceptionThrown = true;
-  }
+  } catch (kogan::InvalidArgumentException &e) { InvalidArgumentExceptionThrown = true; }
   ASSERT(InvalidArgumentExceptionThrown);
 }
 
@@ -215,6 +205,4 @@ TEST(copy_assignment, smart_ptr_dynamic_array_test_suite) {
   ASSERT(arr1.get_length() == 5);
 }
 
-kogan::TestSuite get_smart_ptr_dynamic_array_test_suite() {
-  return smart_ptr_dynamic_array_test_suite;
-}
+kogan::TestSuite get_smart_ptr_dynamic_array_test_suite() { return smart_ptr_dynamic_array_test_suite; }

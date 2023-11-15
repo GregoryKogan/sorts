@@ -14,30 +14,25 @@ private:
   friend class SharedPtr<T>; // to access control_block_
 
 public:
-  WeakPtr() noexcept;                     // default constructor
-  WeakPtr(const WeakPtr &other) noexcept; // copy constructor
-  explicit WeakPtr(
-      const SharedPtr<T> &other) noexcept; // constructor from SharedPtr
-  WeakPtr(WeakPtr &&other) noexcept;       // move constructor
+  WeakPtr() noexcept;                                   // default constructor
+  WeakPtr(const WeakPtr &other) noexcept;               // copy constructor
+  explicit WeakPtr(const SharedPtr<T> &other) noexcept; // constructor from SharedPtr
+  WeakPtr(WeakPtr &&other) noexcept;                    // move constructor
 
   ~WeakPtr();
 
-  WeakPtr<T> &operator=(const WeakPtr<T> &other) noexcept; // copy assignment
-  WeakPtr<T> &
-  operator=(const SharedPtr<T> &other) noexcept; // assignment from SharedPtr
-  WeakPtr<T> &operator=(WeakPtr<T> &&other) noexcept; // move assignment
-  WeakPtr<T> &operator=(std::nullptr_t) noexcept;     // assignment from nullptr
+  WeakPtr<T> &operator=(const WeakPtr<T> &other) noexcept;   // copy assignment
+  WeakPtr<T> &operator=(const SharedPtr<T> &other) noexcept; // assignment from SharedPtr
+  WeakPtr<T> &operator=(WeakPtr<T> &&other) noexcept;        // move assignment
+  WeakPtr<T> &operator=(std::nullptr_t) noexcept;            // assignment from nullptr
 
-  void reset() noexcept; // release the reference to the managed object
+  void reset() noexcept;                 // release the reference to the managed object
   void swap(WeakPtr<T> &other) noexcept; // swaps the managed objects
 
-  [[nodiscard]] unsigned int
-  use_count() const noexcept; // returns the number of SharedPtr objects that
-                              // manage the object
-  [[nodiscard]] bool expired() const
-      noexcept; // checks whether the referenced object was already deleted
-  SharedPtr<T>
-  lock() const noexcept; // returns a SharedPtr of the managed object
+  [[nodiscard]] unsigned int use_count() const noexcept; // returns the number of SharedPtr objects that
+                                                         // manage the object
+  [[nodiscard]] bool expired() const noexcept;           // checks whether the referenced object was already deleted
+  SharedPtr<T> lock() const noexcept;                    // returns a SharedPtr of the managed object
 
   friend void swap(WeakPtr<T> &lhs, WeakPtr<T> &rhs) noexcept { lhs.swap(rhs); }
 };
@@ -69,9 +64,7 @@ public:
   [[nodiscard]] bool expired() const noexcept;
   SharedPtr<T[]> lock() const noexcept;
 
-  friend void swap(WeakPtr<T[]> &lhs, WeakPtr<T[]> &rhs) noexcept {
-    lhs.swap(rhs);
-  }
+  friend void swap(WeakPtr<T[]> &lhs, WeakPtr<T[]> &rhs) noexcept { lhs.swap(rhs); }
 };
 
 } // namespace kogan

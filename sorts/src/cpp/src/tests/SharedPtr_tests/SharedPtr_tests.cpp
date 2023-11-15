@@ -535,16 +535,14 @@ TEST(make_shared, shared_ptr_test_suite) {
 }
 
 TEST(make_shared_with_custom_constructor, shared_ptr_test_suite) {
-  kogan::SharedPtr<std::string> ptr =
-      kogan::make_shared<std::string>("Hello World!");
+  kogan::SharedPtr<std::string> ptr = kogan::make_shared<std::string>("Hello World!");
   ASSERT(ptr->compare("Hello World!") == 0);
   ASSERT(ptr.use_count() == 1);
 }
 
 TEST(make_shared_with_multiple_arguments, shared_ptr_test_suite) {
   std::vector<int> expected = {1, 2, 3};
-  kogan::SharedPtr<std::vector<int>> ptr =
-      kogan::make_shared<std::vector<int>>(expected.begin(), expected.end());
+  kogan::SharedPtr<std::vector<int>> ptr = kogan::make_shared<std::vector<int>>(expected.begin(), expected.end());
   ASSERT(*ptr == expected);
   ASSERT(ptr.use_count() == 1);
   ASSERT(ptr->size() == 3);

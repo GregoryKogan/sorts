@@ -85,6 +85,11 @@ const routes = [
         path: '/comb-sort',
         name: "CombSort",
         component: () => import('@/views/sorts/CombSort.vue'),
+      },
+      {
+        path: '/stooge-sort',
+        name: "StoogeSort",
+        component: () => import('@/views/sorts/StoogeSort.vue'),
       }
     ],
   },

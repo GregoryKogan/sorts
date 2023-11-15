@@ -90,6 +90,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/OddEvenSorter/OddEvenSorter.tpp
         src/sorts/sorters/CombSorter/CombSorter.hpp
         src/sorts/sorters/CombSorter/CombSorter.tpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.hpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.tpp
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

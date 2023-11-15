@@ -22,6 +22,7 @@
 #include "../../sorts/sorters/RadixSorter/RadixSorter.hpp"
 #include "../../sorts/sorters/SelectionSorter/SelectionSorter.hpp"
 #include "../../sorts/sorters/ShellSorter/ShellSorter.hpp"
+#include "../../sorts/sorters/StoogeSorter/StoogeSorter.hpp"
 
 class Sketch {
 public:

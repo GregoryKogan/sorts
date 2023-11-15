@@ -20,18 +20,18 @@ export default defineComponent({
   mounted() {
     let scriptText;
 
-    let oldScript = document.getElementById("attach-wasm-to-canvas");
+    let oldScript = document.querySelector("#attach-wasm-to-canvas");
     if (oldScript) {
       scriptText = `
         Main({
-          canvas: (() => document.getElementById("_sdl-canvas"))(),
+          canvas: (() => document.querySelector("#_sdl-canvas"))(),
         }).then((m) => { Module = m; m.callMain(); });`;
       oldScript.remove();
     } else {
       scriptText = `
         let Module;
         Main({
-          canvas: (() => document.getElementById("_sdl-canvas"))(),
+          canvas: (() => document.querySelector("#_sdl-canvas"))(),
         }).then((m) => { Module = m; m.callMain(); });`;
     }
 

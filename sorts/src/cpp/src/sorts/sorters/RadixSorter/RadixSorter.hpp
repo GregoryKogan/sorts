@@ -22,8 +22,8 @@ private:
   bool count_sort_();
 
 public:
-  RadixSorter(int (*cmp)(int, int), SharedPtr<SmartPtrSequence<int>> sequence)
-      : Sorter<int>(cmp, sequence) {}
+  RadixSorter(SharedPtr<SmartPtrSequence<int>> sequence)
+      : Sorter<int>([](int a, int b) { return a - b; }, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

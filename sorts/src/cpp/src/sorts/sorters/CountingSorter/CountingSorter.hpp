@@ -16,9 +16,8 @@ private:
   int i_ = 0;
 
 public:
-  CountingSorter(int (*cmp)(int, int),
-                 SharedPtr<SmartPtrSequence<int>> sequence)
-      : Sorter<int>(cmp, sequence) {}
+  CountingSorter(SharedPtr<SmartPtrSequence<int>> sequence)
+      : Sorter<int>([](int a, int b) { return a - b; }, sequence) {}
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

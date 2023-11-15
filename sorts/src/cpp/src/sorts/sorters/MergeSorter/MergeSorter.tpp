@@ -56,14 +56,31 @@ template <class T> inline bool MergeSorter<T>::merge_() {
   if (!is_merging_) {
     left_part_.clear();
     right_part_.clear();
-    for (std::size_t i = 0; i < left_length; ++i) left_part_.append(this->sequence_->get(left_ + i));
-    for (std::size_t i = 0; i < right_length; ++i) right_part_.append(this->sequence_->get(middle_ + 1 + i));
 
     i_ = 0;
     j_ = 0;
     k_ = left_;
   }
   is_merging_ = true;
+
+  if (!buffers_filled_) {
+    while (i_ < left_length) {
+      if (!this->step_()) return false;
+
+      left_part_.append(this->sequence_->get(left_ + i_));
+      ++i_;
+    }
+    while (j_ < right_length) {
+      if (!this->step_()) return false;
+
+      right_part_.append(this->sequence_->get(middle_ + 1 + j_));
+      ++j_;
+    }
+
+    i_ = 0;
+    j_ = 0;
+    buffers_filled_ = true;
+  }
 
   while (i_ < left_length && j_ < right_length) {
     if (!this->step_()) return false;
@@ -79,16 +96,19 @@ template <class T> inline bool MergeSorter<T>::merge_() {
   }
 
   while (i_ < left_length) {
+    if (!this->step_()) return false;
     this->sequence_->set(k_, left_part_[i_]);
     ++i_;
     ++k_;
   }
   while (j_ < right_length) {
+    if (!this->step_()) return false;
     this->sequence_->set(k_, right_part_[j_]);
     ++j_;
     ++k_;
   }
 
+  buffers_filled_ = false;
   return true;
 }
 

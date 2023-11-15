@@ -18,6 +18,7 @@ private:
   std::size_t k_ = 0;
   SmartPtrArraySequence<int> left_part_;
   SmartPtrArraySequence<int> right_part_;
+  bool buffers_filled_ = false;
   bool is_merging_ = false;
 
   void set_range_(std::size_t left, std::size_t right) noexcept;

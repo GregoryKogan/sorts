@@ -1,14 +1,14 @@
-#include "BubbleSorter_tests.hpp"
+#include "HeapSorter_tests.hpp"
 
-kogan::TestSuite bubble_sorter_test_suite("BubbleSorter");
+kogan::TestSuite heap_sorter_test_suite("HeapSorter");
 
-TEST(random, bubble_sorter_test_suite) {
+TEST(random, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   for (int i = 0; i < 10; ++i) { sequence->append(rand() % 100); }
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
@@ -16,13 +16,13 @@ TEST(random, bubble_sorter_test_suite) {
     ASSERT(sequence->get(i) <= sequence->get(i + 1));
 }
 
-TEST(sorted, bubble_sorter_test_suite) {
+TEST(sorted, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   for (int i = 0; i < 10; ++i) { sequence->append(i); }
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
@@ -30,13 +30,13 @@ TEST(sorted, bubble_sorter_test_suite) {
     ASSERT(sequence->get(i) <= sequence->get(i + 1));
 }
 
-TEST(reversed, bubble_sorter_test_suite) {
+TEST(reversed, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   for (int i = 10; i > 0; --i) { sequence->append(i); }
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
@@ -44,13 +44,13 @@ TEST(reversed, bubble_sorter_test_suite) {
     ASSERT(sequence->get(i) <= sequence->get(i + 1));
 }
 
-TEST(same, bubble_sorter_test_suite) {
+TEST(same, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   for (int i = 0; i < 10; ++i) { sequence->append(1); }
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
@@ -58,39 +58,39 @@ TEST(same, bubble_sorter_test_suite) {
     ASSERT(sequence->get(i) <= sequence->get(i + 1));
 }
 
-TEST(empty, bubble_sorter_test_suite) {
+TEST(empty, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
   ASSERT(sequence->get_length() == 0);
 }
 
-TEST(one, bubble_sorter_test_suite) {
+TEST(one, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   sequence->append(1);
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
   ASSERT(sequence->get_length() == 1);
 }
 
-TEST(two, bubble_sorter_test_suite) {
+TEST(two, heap_sorter_test_suite) {
   kogan::SharedPtr<kogan::SmartPtrSequence<int>> sequence =
       kogan::SharedPtr<kogan::SmartPtrSequence<int>>(
           new kogan::SmartPtrArraySequence<int>());
   sequence->append(2);
   sequence->append(1);
 
-  kogan::BubbleSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
+  kogan::HeapSorter<int> sorter([](int a, int b) { return a - b; }, sequence);
 
   sorter.sort();
 
@@ -98,6 +98,4 @@ TEST(two, bubble_sorter_test_suite) {
   ASSERT(sequence->get(0) <= sequence->get(1));
 }
 
-kogan::TestSuite get_bubble_sorter_test_suite() {
-  return bubble_sorter_test_suite;
-}
+kogan::TestSuite get_heap_sorter_test_suite() { return heap_sorter_test_suite; }

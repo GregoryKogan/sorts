@@ -174,7 +174,29 @@ else()
         src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
         src/sorts/sorters/BubbleSorter/BubbleSorter.tpp
         src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
-        src/sorts/sorters/SelectionSorter/SelectionSorter.tpp
+        src/sorts/sorters/SelectionSorter/SelectionSorter.tpp   
+        src/sorts/sorters/InsertionSorter/InsertionSorter.hpp
+        src/sorts/sorters/InsertionSorter/InsertionSorter.tpp
+        src/sorts/sorters/MergeSorter/MergeSorter.hpp
+        src/sorts/sorters/MergeSorter/MergeSorter.tpp
+        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp
+        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.tpp
+        src/sorts/sorters/QuickSorter/QuickSorter.hpp
+        src/sorts/sorters/QuickSorter/QuickSorter.tpp
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.tpp
+        src/sorts/sorters/HeapSorter/HeapSorter.hpp
+        src/sorts/sorters/HeapSorter/HeapSorter.tpp
+        src/sorts/sorters/CountingSorter/CountingSorter.hpp
+        src/sorts/sorters/CountingSorter/CountingSorter.tpp
+        src/sorts/sorters/CocktailSorter/CocktailSorter.hpp
+        src/sorts/sorters/CocktailSorter/CocktailSorter.tpp
+        src/sorts/sorters/RadixSorter/RadixSorter.hpp
+        src/sorts/sorters/RadixSorter/RadixSorter.tpp
+        src/sorts/sorters/ShellSorter/ShellSorter.hpp
+        src/sorts/sorters/ShellSorter/ShellSorter.tpp
+        src/sorts/sorters/GnomeSorter/GnomeSorter.hpp
+        src/sorts/sorters/GnomeSorter/GnomeSorter.tpp
 
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp
@@ -194,8 +216,30 @@ else()
 
         src/tests/BubbleSorter_tests/BubbleSorter_tests.hpp
         src/tests/BubbleSorter_tests/BubbleSorter_tests.cpp
+        src/tests/CocktailSorter_tests/CocktailSorter_tests.hpp
+        src/tests/CocktailSorter_tests/CocktailSorter_tests.cpp
+        src/tests/CountingSorter_tests/CountingSorter_tests.hpp
+        src/tests/CountingSorter_tests/CountingSorter_tests.cpp
+        src/tests/GnomeSorter_tests/GnomeSorter_tests.hpp
+        src/tests/GnomeSorter_tests/GnomeSorter_tests.cpp
+        src/tests/HeapSorter_tests/HeapSorter_tests.hpp
+        src/tests/HeapSorter_tests/HeapSorter_tests.cpp
+        src/tests/InsertionSorter_tests/InsertionSorter_tests.hpp
+        src/tests/InsertionSorter_tests/InsertionSorter_tests.cpp
+        src/tests/IterativeMergeSorter_tests/IterativeMergeSorter_tests.hpp
+        src/tests/IterativeMergeSorter_tests/IterativeMergeSorter_tests.cpp
+        src/tests/IterativeQuickSorter_tests/IterativeQuickSorter_tests.hpp
+        src/tests/IterativeQuickSorter_tests/IterativeQuickSorter_tests.cpp
+        src/tests/MergeSorter_tests/MergeSorter_tests.hpp
+        src/tests/MergeSorter_tests/MergeSorter_tests.cpp
+        src/tests/QuickSorter_tests/QuickSorter_tests.hpp
+        src/tests/QuickSorter_tests/QuickSorter_tests.cpp
+        src/tests/RadixSorter_tests/RadixSorter_tests.hpp
+        src/tests/RadixSorter_tests/RadixSorter_tests.cpp
         src/tests/SelectionSorter_tests/SelectionSorter_tests.hpp
         src/tests/SelectionSorter_tests/SelectionSorter_tests.cpp
+        src/tests/ShellSorter_tests/ShellSorter_tests.hpp
+        src/tests/ShellSorter_tests/ShellSorter_tests.cpp
     )
 
     set(extra_flags "")

@@ -111,15 +111,15 @@ void Sketch::init_sorter_() noexcept {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::HeapSorter<int>(
         [](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "count") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CountingSorter(
-        [](int a, int b) { return a - b; }, sequence_));
+    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
+        new kogan::CountingSorter(sequence_));
   } else if (sort_algorithm_ == "cocktail") {
     sorter_ =
         kogan::UniquePtr<kogan::Sorter<int>>(new kogan::CocktailSorter<int>(
             [](int a, int b) { return a - b; }, sequence_));
   } else if (sort_algorithm_ == "radix") {
-    sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
-        new kogan::RadixSorter([](int a, int b) { return a - b; }, sequence_));
+    sorter_ =
+        kogan::UniquePtr<kogan::Sorter<int>>(new kogan::RadixSorter(sequence_));
   } else if (sort_algorithm_ == "shell") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(new kogan::ShellSorter<int>(
         [](int a, int b) { return a - b; }, sequence_));

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../../smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp"
 #include "../BaseSorter.hpp"
 
 namespace kogan {
@@ -15,8 +16,8 @@ private:
   std::size_t i_ = 0;
   std::size_t j_ = 0;
   std::size_t k_ = 0;
-  SmartPtrLinkedListSequence<int> left_part_;
-  SmartPtrLinkedListSequence<int> right_part_;
+  SmartPtrArraySequence<int> left_part_;
+  SmartPtrArraySequence<int> right_part_;
   bool is_merging_ = false;
 
   void set_range_(std::size_t left, std::size_t right) noexcept;

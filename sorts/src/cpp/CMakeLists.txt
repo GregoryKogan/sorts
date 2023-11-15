@@ -4,12 +4,6 @@ project(sorts)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-if (WIN32)
-    # Forcing MSVC to use utf-8 encoding
-    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-endif(WIN32)
-
 if (DEFINED EMSCRIPTEN)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../../public)
 
@@ -95,10 +89,6 @@ if (DEFINED EMSCRIPTEN)
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-
-    if (NOT MSVC)
-        target_compile_options(${PROJECT_NAME} PUBLIC "-O2")
-    endif()
 
     #set(CMAKE_EXECUTABLE_SUFFIX ".html")
     add_compile_definitions("__EMSCRIPTEN__")
@@ -241,13 +231,4 @@ else()
         src/tests/ShellSorter_tests/ShellSorter_tests.hpp
         src/tests/ShellSorter_tests/ShellSorter_tests.cpp
     )
-
-    set(extra_flags "")
-    if (NOT MSVC)
-        set(extra_flags "-mconsole")
-    endif()
-
-    find_package(SDL2 REQUIRED)
-    include_directories(${SDL2_INCLUDE_DIRS})
-    target_link_libraries(test ${SDL2_LIBRARIES})
 endif()

@@ -16,6 +16,7 @@
 #include "../../sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp"
 #include "../../sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp"
 #include "../../sorts/sorters/MergeSorter/MergeSorter.hpp"
+#include "../../sorts/sorters/OddEvenSorter/OddEvenSorter.hpp"
 #include "../../sorts/sorters/QuickSorter/QuickSorter.hpp"
 #include "../../sorts/sorters/RadixSorter/RadixSorter.hpp"
 #include "../../sorts/sorters/SelectionSorter/SelectionSorter.hpp"

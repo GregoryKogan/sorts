@@ -76,6 +76,11 @@ const routes = [
         name: "GnomeSort",
         component: () => import('@/views/sorts/GnomeSort.vue'),
       },
+      {
+        path: '/odd-even-sort',
+        name: "OddEvenSort",
+        component: () => import('@/views/sorts/OddEvenSort.vue'),
+      }
     ],
   },
 ];

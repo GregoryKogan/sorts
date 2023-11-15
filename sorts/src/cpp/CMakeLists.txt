@@ -86,6 +86,8 @@ if (DEFINED EMSCRIPTEN)
         src/sorts/sorters/ShellSorter/ShellSorter.tpp
         src/sorts/sorters/GnomeSorter/GnomeSorter.hpp
         src/sorts/sorters/GnomeSorter/GnomeSorter.tpp
+        src/sorts/sorters/OddEvenSorter/OddEvenSorter.hpp
+        src/sorts/sorters/OddEvenSorter/OddEvenSorter.tpp
     )
 
     target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)

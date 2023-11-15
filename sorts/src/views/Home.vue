@@ -40,6 +40,7 @@ export default defineComponent({
       { name: "radix sort", route: "RadixSort" },
       { name: "shell sort", route: "ShellSort" },
       { name: "gnome sort", route: "GnomeSort" },
+      { name: "odd-even sort", route: "OddEvenSort" },
     ] as Sort[],
   }),
   mounted() {

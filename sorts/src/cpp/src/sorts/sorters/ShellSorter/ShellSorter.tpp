@@ -36,8 +36,16 @@ template <class T> inline void ShellSorter<T>::sort_() {
 
 template <class T>
 inline void ShellSorter<T>::set_interesting_indexes_() noexcept {
-  this->interesting_indexes_->append(i_);
-  this->interesting_indexes_->append(j_);
+  if (!gap_ || this->sequence_->get_length() / gap_ > 128) {
+    this->interesting_indexes_->append(i_);
+    return;
+  }
+
+  int ind = i_;
+  while (ind >= 0) {
+    this->interesting_indexes_->append(ind);
+    ind -= gap_;
+  }
 }
 
 } // namespace kogan

@@ -15,6 +15,7 @@ private:
   std::size_t i_ = 0;
   std::size_t j_ = 0;
   std::size_t k_ = 0;
+  bool buffers_filled_ = false;
   SmartPtrArraySequence<int> left_part_;
   SmartPtrArraySequence<int> right_part_;
 

@@ -16,6 +16,7 @@
 #include "IterativeMergeSorter_tests/IterativeMergeSorter_tests.hpp"
 #include "IterativeQuickSorter_tests/IterativeQuickSorter_tests.hpp"
 #include "MergeSorter_tests/MergeSorter_tests.hpp"
+#include "OddEvenSorter_tests/OddEvenSorter_tests.hpp"
 #include "QuickSorter_tests/QuickSorter_tests.hpp"
 #include "RadixSorter_tests/RadixSorter_tests.hpp"
 #include "SelectionSorter_tests/SelectionSorter_tests.hpp"
@@ -46,6 +47,7 @@ int main() {
       get_radix_sorter_test_suite(),
       get_selection_sorter_test_suite(),
       get_shell_sorter_test_suite(),
+      get_odd_even_sorter_test_suite(),
   };
 
   kogan::Tester tester(suites);

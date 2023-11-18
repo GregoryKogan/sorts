@@ -5,6 +5,7 @@ export const useAppStore = defineStore('app', {
   state: () => ({
     frameRate: 0 as number,
     sortAlgorithm: "" as string,
+    reverseInput: false as boolean,
     comparisons: 0 as number,
     swaps: 0 as number,
     sequenceLength: 0 as number,
@@ -16,6 +17,9 @@ export const useAppStore = defineStore('app', {
     },
     setSortAlgorithm(sortAlgorithm: string) {
       this.sortAlgorithm = sortAlgorithm;
+    },
+    setReverseInput(reverseInput: boolean) {
+      this.reverseInput = reverseInput;
     },
     setComparisons(comparisons: number) {
       this.comparisons = comparisons;

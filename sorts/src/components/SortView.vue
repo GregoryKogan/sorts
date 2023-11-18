@@ -29,6 +29,18 @@
         max="1"
         color="secondary"
       ></v-slider>
+      <v-switch
+        v-model="store.reverseInput"
+        inset
+        density="compact"
+        color="secondary"
+      >
+        <template v-slot:label>
+          <p class="text-high-emphasis">
+            {{ store.reverseInput ? "Reversed input" : "Random input" }}
+          </p>
+        </template>
+      </v-switch>
     </v-col>
   </v-container>
 </template>
@@ -97,6 +109,11 @@ export default defineComponent({
       required: false,
       default: 100,
     },
+    defaultReverseInput: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data: () => ({
     sequenceLengthMappingParameter: 0,
@@ -114,6 +131,7 @@ export default defineComponent({
       this.store.setSortAlgorithm(this.algorithm);
       this.store.setSequenceLength(this.defaultSequenceLength);
       this.store.setStepsPerSecond(this.defaultStepsPerSecond);
+      this.store.setReverseInput(this.defaultReverseInput);
 
       this.sequenceLengthMappingParameter = this.reverseExponentialMap(
         3,

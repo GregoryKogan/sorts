@@ -84,6 +84,8 @@ void Sketch::set_sequence_length(const std::size_t &seq_len) noexcept {
   calculate_scales_();
 }
 
+void Sketch::set_reverse_input(const bool &reverse_input) noexcept { reverse_input_ = reverse_input; }
+
 void Sketch::init_sorter_() noexcept {
   if (sort_algorithm_ == "bubble") {
     sorter_ = kogan::UniquePtr<kogan::Sorter<int>>(
@@ -144,7 +146,8 @@ void Sketch::calculate_scales_() noexcept {
 
 void Sketch::generate_sequence_(uint32_t available_steps) noexcept {
   for (int i = 0; i < available_steps && sequence_generation_index_ < seq_len_; ++i) {
-    sequence_->append(rand() % max_value_ + 1);
+    if (reverse_input_) sequence_->append(seq_len_ - sequence_generation_index_);
+    else sequence_->append(rand() % max_value_ + 1);
     ++sequence_generation_index_;
   }
   if (sequence_generation_index_ == seq_len_) {

@@ -35,6 +35,7 @@ export default defineComponent({
               algorithm: this.store.sortAlgorithm,
               seq_len: this.store.sequenceLength,
               steps_per_sec: this.store.stepsPerSecond,
+              reverse_input: this.store.reverseInput,
             },
           }),
           "*"
@@ -53,10 +54,5 @@ export default defineComponent({
 <style>
 body {
   background-color: rgb(var(--v-theme-background));
-}
-* {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
 }
 </style>

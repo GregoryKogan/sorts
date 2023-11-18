@@ -10,6 +10,7 @@
     :maxStepsPerSecond="10000"
     :defaultSequenceLength="1000"
     :defaultStepsPerSecond="500"
+    :defaultReverseInput="true"
   />
 </template>
 

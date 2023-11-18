@@ -24,6 +24,7 @@ export default defineComponent({
             algorithm: this.store.sortAlgorithm,
             seq_len: this.store.sequenceLength,
             steps_per_sec: this.store.stepsPerSecond,
+            reverse_input: this.store.reverseInput,
           },
         }),
         "*"

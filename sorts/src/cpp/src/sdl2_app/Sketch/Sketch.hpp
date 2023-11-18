@@ -43,6 +43,7 @@ public:
   void set_sort_algorithm(const std::string &algorithm) noexcept;
   void set_steps_per_second(const u_int32_t &steps_per_second) noexcept;
   void set_sequence_length(const std::size_t &seq_len) noexcept;
+  void set_reverse_input(const bool &reverse_input) noexcept;
 
 private:
   SDL_Renderer *renderer_;
@@ -68,6 +69,7 @@ private:
   kogan::UniquePtr<kogan::Sorter<int>> sorter_;
   bool sorted_drawn_ = false;
 
+  bool reverse_input_ = false;
   void generate_sequence_(uint32_t available_steps) noexcept;
   int sequence_generation_index_ = 0;
 

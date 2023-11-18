@@ -2,10 +2,6 @@
 
 #include <optional>
 
-// #include
-// "../../libs/exception_lib/exceptions/OutOfComparisonsException/OutOfComparisonsException.hpp"
-// #include
-// "../../libs/exception_lib/exceptions/OutOfSwapsException/OutOfSwapsException.hpp"
 #include "../smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp"
 
 namespace kogan {

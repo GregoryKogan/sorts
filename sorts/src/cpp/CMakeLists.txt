@@ -199,6 +199,10 @@ else()
         src/sorts/sorters/OddEvenSorter/OddEvenSorter.tpp
         src/sorts/sorters/CombSorter/CombSorter.hpp
         src/sorts/sorters/CombSorter/CombSorter.tpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.hpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.tpp
+        src/sorts/sorters/CycleSorter/CycleSorter.hpp
+        src/sorts/sorters/CycleSorter/CycleSorter.tpp
 
         src/tests/SharedPtr_tests/SharedPtr_tests.hpp
         src/tests/SharedPtr_tests/SharedPtr_tests.cpp
@@ -248,5 +252,7 @@ else()
         src/tests/CombSorter_tests/CombSorter_tests.cpp
         src/tests/StoogeSorter_tests/StoogeSorter_tests.hpp
         src/tests/StoogeSorter_tests/StoogeSorter_tests.cpp
+        src/tests/CycleSorter_tests/CycleSorter_tests.hpp
+        src/tests/CycleSorter_tests/CycleSorter_tests.cpp
     )
 endif()

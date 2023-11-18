@@ -11,6 +11,7 @@
 #include "CocktailSorter_tests/CocktailSorter_tests.hpp"
 #include "CombSorter_tests/CombSorter_tests.hpp"
 #include "CountingSorter_tests/CountingSorter_tests.hpp"
+#include "CycleSorter_tests/CycleSorter_tests.hpp"
 #include "GnomeSorter_tests/GnomeSorter_tests.hpp"
 #include "HeapSorter_tests/HeapSorter_tests.hpp"
 #include "InsertionSorter_tests/InsertionSorter_tests.hpp"
@@ -52,6 +53,7 @@ int main() {
       get_odd_even_sorter_test_suite(),
       get_comb_sorter_test_suite(),
       get_stooge_sorter_test_suite(),
+      get_cycle_sorter_test_suite(),
   };
 
   kogan::Tester tester(suites);

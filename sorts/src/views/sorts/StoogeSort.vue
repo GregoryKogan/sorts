@@ -7,7 +7,7 @@
     spaceComplexity="O(1)"
     :showSwaps="true"
     :maxSequenceLength="250"
-    :maxStepsPerSecond="500000"
+    :maxStepsPerSecond="100000"
     :defaultSequenceLength="50"
     :defaultStepsPerSecond="1000"
   />

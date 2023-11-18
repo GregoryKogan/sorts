@@ -43,6 +43,7 @@ export default defineComponent({
       { name: "odd-even sort", route: "OddEvenSort" },
       { name: "comb sort", route: "CombSort" },
       { name: "stooge sort", route: "StoogeSort" },
+      { name: "cycle sort", route: "CycleSort" },
     ] as Sort[],
   }),
   mounted() {

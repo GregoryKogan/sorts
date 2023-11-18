@@ -90,6 +90,11 @@ const routes = [
         path: '/stooge-sort',
         name: "StoogeSort",
         component: () => import('@/views/sorts/StoogeSort.vue'),
+      },
+      {
+        path: '/cycle-sort',
+        name: "CycleSort",
+        component: () => import('@/views/sorts/CycleSort.vue'),
       }
     ],
   },

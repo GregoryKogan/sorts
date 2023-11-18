@@ -254,4 +254,90 @@ else()
         src/tests/CycleSorter_tests/CycleSorter_tests.hpp
         src/tests/CycleSorter_tests/CycleSorter_tests.cpp
     )
+
+    add_executable(
+        benchmark
+        src/benchmark/benchmark.cpp
+
+        src/libs/exception_lib/exception_lib.hpp
+        src/libs/exception_lib/exception_lib.cpp
+        src/libs/exception_lib/IO/colored_logs.hpp
+        src/libs/exception_lib/IO/colored_logs.cpp
+        src/libs/exception_lib/exceptions/BaseException.hpp
+        src/libs/exception_lib/exceptions/BaseException.cpp
+        src/libs/exception_lib/exceptions/AssertionFailedException/AssertionFailedException.hpp
+        src/libs/exception_lib/exceptions/AssertionFailedException/AssertionFailedException.cpp
+        src/libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.hpp
+        src/libs/exception_lib/exceptions/EmptyContainerException/EmptyContainerException.cpp
+        src/libs/exception_lib/exceptions/EmptyPointerException/EmptyPointerException.hpp
+        src/libs/exception_lib/exceptions/EmptyPointerException/EmptyPointerException.cpp
+        src/libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.hpp
+        src/libs/exception_lib/exceptions/IndexOutOfRangeException/IndexOutOfRangeException.cpp
+        src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.hpp
+        src/libs/exception_lib/exceptions/InvalidArgumentException/InvalidArgumentException.cpp
+        src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.hpp
+        src/libs/exception_lib/exceptions/ZeroReferenceDecrementException/ZeroReferenceDecrementException.cpp
+
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.hpp
+        src/sorts/smart_sequences/smart_pointers/ControlBlock/ControlBlock.tpp
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.hpp
+        src/sorts/smart_sequences/smart_pointers/SharedPtr/SharedPtr.tpp
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.hpp
+        src/sorts/smart_sequences/smart_pointers/UniquePtr/UniquePtr.tpp
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.hpp
+        src/sorts/smart_sequences/smart_pointers/WeakPtr/WeakPtr.tpp
+
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.hpp
+        src/sorts/smart_sequences/data_structures/SmartPtrDynamicArray/SmartPtrDynamicArray.tpp
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.hpp
+        src/sorts/smart_sequences/data_structures/SmartPtrLinkedList/SmartPtrLinkedList.tpp
+
+        src/sorts/smart_sequences/sequences/SmartPtrSequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.tpp
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.hpp
+        src/sorts/smart_sequences/sequences/SmartPtrLinkedListSequence/SmartPtrLinkedListSequence.tpp
+
+        src/sorts/sorters/BaseSorter.hpp
+        src/sorts/sorters/BaseSorter.tpp
+        src/sorts/sorters/BubbleSorter/BubbleSorter.hpp
+        src/sorts/sorters/BubbleSorter/BubbleSorter.tpp
+        src/sorts/sorters/SelectionSorter/SelectionSorter.hpp
+        src/sorts/sorters/SelectionSorter/SelectionSorter.tpp   
+        src/sorts/sorters/InsertionSorter/InsertionSorter.hpp
+        src/sorts/sorters/InsertionSorter/InsertionSorter.tpp
+        src/sorts/sorters/MergeSorter/MergeSorter.hpp
+        src/sorts/sorters/MergeSorter/MergeSorter.tpp
+        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.hpp
+        src/sorts/sorters/IterativeMergeSorter/IterativeMergeSorter.tpp
+        src/sorts/sorters/QuickSorter/QuickSorter.hpp
+        src/sorts/sorters/QuickSorter/QuickSorter.tpp
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.hpp
+        src/sorts/sorters/IterativeQuickSorter/IterativeQuickSorter.tpp
+        src/sorts/sorters/HeapSorter/HeapSorter.hpp
+        src/sorts/sorters/HeapSorter/HeapSorter.tpp
+        src/sorts/sorters/CountingSorter/CountingSorter.hpp
+        src/sorts/sorters/CountingSorter/CountingSorter.tpp
+        src/sorts/sorters/CocktailSorter/CocktailSorter.hpp
+        src/sorts/sorters/CocktailSorter/CocktailSorter.tpp
+        src/sorts/sorters/RadixSorter/RadixSorter.hpp
+        src/sorts/sorters/RadixSorter/RadixSorter.tpp
+        src/sorts/sorters/ShellSorter/ShellSorter.hpp
+        src/sorts/sorters/ShellSorter/ShellSorter.tpp
+        src/sorts/sorters/GnomeSorter/GnomeSorter.hpp
+        src/sorts/sorters/GnomeSorter/GnomeSorter.tpp
+        src/sorts/sorters/OddEvenSorter/OddEvenSorter.hpp
+        src/sorts/sorters/OddEvenSorter/OddEvenSorter.tpp
+        src/sorts/sorters/CombSorter/CombSorter.hpp
+        src/sorts/sorters/CombSorter/CombSorter.tpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.hpp
+        src/sorts/sorters/StoogeSorter/StoogeSorter.tpp
+        src/sorts/sorters/CycleSorter/CycleSorter.hpp
+        src/sorts/sorters/CycleSorter/CycleSorter.tpp
+    )
+
+    target_compile_options(
+        benchmark PRIVATE
+        -O3
+    )
 endif()

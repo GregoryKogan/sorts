@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class CombSorter : public Sorter<T> {
-private:
   int gap_;
   int i_;
   bool swapped_;

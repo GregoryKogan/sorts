@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class IterativeQuickSorter : public Sorter<T> {
-private:
   bool partition_();
   bool is_partitioning_;
 
@@ -29,7 +28,6 @@ public:
   }
 
   void sort_() override;
-
   void set_interesting_indexes_() noexcept override;
 };
 

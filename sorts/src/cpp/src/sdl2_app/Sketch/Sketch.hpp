@@ -26,27 +26,6 @@
 #include "../../sorts/sorters/StoogeSorter/StoogeSorter.hpp"
 
 class Sketch {
-public:
-  Sketch(SDL_Renderer *renderer);
-
-  // Lifecycle
-  void setup();
-  void update(const double &delta_time);
-  void draw() const noexcept;
-
-  void set_window_size(const int &width, const int &height) noexcept;
-
-  // Observers
-  u_int32_t get_comparisons() const noexcept;
-  u_int32_t get_swaps() const noexcept;
-
-  // Modifiers
-  void set_sort_algorithm(const std::string &algorithm) noexcept;
-  void set_steps_per_second(const u_int32_t &steps_per_second) noexcept;
-  void set_sequence_length(const std::size_t &seq_len) noexcept;
-  void set_reverse_input(const bool &reverse_input) noexcept;
-
-private:
   SDL_Renderer *renderer_;
   int window_width_ = 0;
   int window_height_ = 0;
@@ -75,4 +54,24 @@ private:
   int sequence_generation_index_ = 0;
 
   void draw_value_(int index, bool sorted = false, bool interesting = false) const noexcept;
+
+public:
+  Sketch(SDL_Renderer *renderer);
+
+  // Lifecycle
+  void setup();
+  void update(const double &delta_time);
+  void draw() const noexcept;
+
+  void set_window_size(const int &width, const int &height) noexcept;
+
+  // Observers
+  u_int32_t get_comparisons() const noexcept;
+  u_int32_t get_swaps() const noexcept;
+
+  // Modifiers
+  void set_sort_algorithm(const std::string &algorithm) noexcept;
+  void set_steps_per_second(const u_int32_t &steps_per_second) noexcept;
+  void set_sequence_length(const std::size_t &seq_len) noexcept;
+  void set_reverse_input(const bool &reverse_input) noexcept;
 };

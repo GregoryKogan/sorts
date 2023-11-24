@@ -5,7 +5,6 @@
 namespace kogan {
 
 class CountingSorter : public Sorter<int> {
-private:
   int max_value_;
   SmartPtrArraySequence<int> counting_array_;
   SmartPtrArraySequence<int> output_array_;

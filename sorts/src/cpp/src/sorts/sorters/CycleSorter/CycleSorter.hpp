@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class CycleSorter : public Sorter<T> {
-private:
   int cycle_start_;
   bool position_found_;
   int position_;

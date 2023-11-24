@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class ShellSorter : public Sorter<T> {
-private:
   int gap_;
   T temp_;
   bool temp_set_;

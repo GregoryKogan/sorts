@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class QuickSorter : public Sorter<T> {
-private:
   void set_range_(int l, int h) noexcept;
   bool partition_();
 
@@ -39,7 +38,6 @@ public:
   }
 
   void sort_() override;
-
   void set_interesting_indexes_() noexcept override;
 };
 

@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class GnomeSorter : public Sorter<T> {
-private:
   int index_;
 
 public:

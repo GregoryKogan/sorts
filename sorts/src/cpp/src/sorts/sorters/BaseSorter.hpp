@@ -21,6 +21,14 @@ protected:
 
   bool is_sorted_ = false;
 
+  virtual void sort_() = 0;
+  virtual void set_interesting_indexes_() noexcept = 0;
+
+  bool step_() noexcept;
+
+  int cmp_wrapper_(T a, T b);
+  void swap_(int i, int j);
+
 public:
   Sorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence);
 
@@ -40,15 +48,6 @@ public:
   void make_unlimited() noexcept;
 
   void sort();
-
-protected:
-  virtual void sort_() = 0;
-  virtual void set_interesting_indexes_() noexcept = 0;
-
-  bool step_() noexcept;
-
-  int cmp_wrapper_(T a, T b);
-  void swap_(int i, int j);
 };
 
 } // namespace kogan

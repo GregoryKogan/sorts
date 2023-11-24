@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class StoogeSorter : public Sorter<T> {
-private:
   int l_;
   int r_;
   bool ends_checked_;

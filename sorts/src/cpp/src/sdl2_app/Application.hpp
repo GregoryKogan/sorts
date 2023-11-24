@@ -7,15 +7,6 @@
 #include "messaging/messaging.hpp"
 
 class Application {
-public:
-  Application();
-  ~Application();
-
-  void loop();
-
-  Uint64 get_frame_rate() const noexcept;
-
-private:
   std::unique_ptr<Sketch> sketch_;
 
   SDL_Window *window_;
@@ -38,4 +29,12 @@ private:
   void send_data_();
 
   void send_ready_();
+
+public:
+  Application();
+  ~Application();
+
+  void loop();
+
+  Uint64 get_frame_rate() const noexcept;
 };

@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class CocktailSorter : public Sorter<T> {
-private:
   bool forward_pass_done_;
   bool backward_pass_done_;
   bool swapped_;

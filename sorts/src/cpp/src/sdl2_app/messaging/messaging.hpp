@@ -10,7 +10,6 @@
 #include <string>
 
 class Messenger {
-private:
   Messenger() {}
   Messenger(const Messenger &) = delete;
   Messenger &operator=(const Messenger &) = delete;

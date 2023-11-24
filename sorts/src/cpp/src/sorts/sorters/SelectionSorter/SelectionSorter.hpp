@@ -5,7 +5,6 @@
 namespace kogan {
 
 template <class T> class SelectionSorter : public Sorter<T> {
-private:
   int i_;
   int j_;
   int min_index_;

@@ -6,7 +6,6 @@
 namespace kogan {
 
 template <class T> class MergeSorter : public Sorter<T> {
-private:
   int left_;
   int right_;
   int middle_;
@@ -40,7 +39,6 @@ public:
   }
 
   void sort_() override;
-
   void set_interesting_indexes_() noexcept override;
 };
 

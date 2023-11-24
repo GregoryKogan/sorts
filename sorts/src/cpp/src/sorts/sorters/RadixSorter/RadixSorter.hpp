@@ -5,7 +5,6 @@
 namespace kogan {
 
 class RadixSorter : public Sorter<int> {
-private:
   bool max_val_found_;
   int max_val_;
   int max_val_search_index_;

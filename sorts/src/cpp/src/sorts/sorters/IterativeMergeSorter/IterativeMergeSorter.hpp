@@ -6,7 +6,6 @@
 namespace kogan {
 
 template <class T> class IterativeMergeSorter : public Sorter<T> {
-private:
   int curr_size_;
   bool is_merging_;
   int left_;
@@ -35,7 +34,6 @@ public:
   }
 
   void sort_() override;
-
   void set_interesting_indexes_() noexcept override;
 };
 

@@ -6,7 +6,6 @@ namespace kogan {
 
 template <class T> class ShellSorter : public Sorter<T> {
 private:
-  bool started_;
   int gap_;
   T temp_;
   bool temp_set_;
@@ -15,11 +14,10 @@ private:
 
 public:
   ShellSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {
-    started_ = false;
-    gap_ = 0;
+    gap_ = sequence->get_length() / 2;
     temp_set_ = false;
-    i_ = 0;
-    j_ = 0;
+    i_ = gap_;
+    j_ = i_;
   }
 
   void sort_() override;

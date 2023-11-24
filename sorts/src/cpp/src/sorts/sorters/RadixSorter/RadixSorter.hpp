@@ -6,7 +6,6 @@ namespace kogan {
 
 class RadixSorter : public Sorter<int> {
 private:
-  bool started_;
   bool max_val_found_;
   int max_val_;
   int max_val_search_index_;
@@ -25,16 +24,17 @@ private:
 
 public:
   RadixSorter(SharedPtr<SmartPtrSequence<int>> sequence) : Sorter<int>([](int a, int b) { return a - b; }, sequence) {
-    started_ = false;
     max_val_found_ = false;
     max_val_ = sequence->get(0);
-    max_val_search_index_ = 0;
+    max_val_search_index_ = 1;
     count_sorting_ = false;
     exp_ = 1;
     output_array_filled_ = false;
     counting_array_index_ = 0;
     output_array_index_ = -2;
     i_ = 0;
+    output_array_.clear();
+    output_array_.append(0);
   }
 
   void sort_() override;

@@ -3,13 +3,6 @@
 namespace kogan {
 
 template <class T> inline void ShellSorter<T>::sort_() {
-  if (!started_) {
-    gap_ = this->sequence_->get_length() / 2;
-    i_ = gap_;
-    j_ = i_;
-    started_ = true;
-  }
-
   while (gap_ > 0) {
     while (i_ < this->sequence_->get_length()) {
       if (!temp_set_) {

@@ -3,14 +3,6 @@
 namespace kogan {
 
 inline void RadixSorter::sort_() {
-  if (!started_) {
-    max_val_ = this->sequence_->get(0);
-    max_val_search_index_ = 1;
-    output_array_.clear();
-    output_array_.append(0);
-    started_ = true;
-  }
-
   if (!max_val_found_) {
     if (!find_max_value_()) return;
     max_val_found_ = true;

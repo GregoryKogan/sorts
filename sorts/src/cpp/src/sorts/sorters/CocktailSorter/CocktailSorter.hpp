@@ -6,7 +6,6 @@ namespace kogan {
 
 template <class T> class CocktailSorter : public Sorter<T> {
 private:
-  bool started_;
   bool forward_pass_done_;
   bool backward_pass_done_;
   bool swapped_;
@@ -17,14 +16,13 @@ private:
 
 public:
   CocktailSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {
-    started_ = false;
     forward_pass_done_ = false;
     backward_pass_done_ = false;
     swapped_ = false;
     start_ = 0;
-    end_ = 0;
-    i_ = 0;
-    j_ = 0;
+    end_ = sequence->get_length() - 1;
+    i_ = start_;
+    j_ = end_ - 1;
   }
 
   void sort_() override;

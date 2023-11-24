@@ -3,15 +3,6 @@
 namespace kogan {
 
 template <class T> inline void HeapSorter<T>::sort_() {
-  if (!started_) {
-    i_ = this->sequence_->get_length() / 2 - 1;
-    j_ = this->sequence_->get_length() - 1;
-
-    heapifier_ = make_unique<Heapifier<T>>(this, i_, this->sequence_->get_length());
-
-    started_ = true;
-  }
-
   if (!initial_heapify_done_) {
     while (i_ >= 0) {
       heapifier_->heapify();
@@ -44,14 +35,6 @@ template <class T> inline void HeapSorter<T>::sort_() {
 }
 
 template <class T> inline void Heapifier<T>::heapify() {
-  if (!started_) {
-    largest_ = index_;
-    l_ = 2 * index_ + 1;
-    r_ = 2 * index_ + 2;
-
-    started_ = true;
-  }
-
   if (!left_checked_) {
     if (l_ < heap_size_) {
       if (!this->sorter_->step_()) return;
@@ -105,11 +88,10 @@ inline SmartPtrLinkedListSequence<std::size_t> Heapifier<T>::generate_interestin
 }
 
 template <class T> inline void HeapSorter<T>::set_interesting_indexes_() noexcept {
-  if (started_) {
-    auto heapifier_interesting_indexes = heapifier_->generate_interesting_indexes();
-    for (std::size_t i = 0; i < heapifier_interesting_indexes.get_length(); i++)
-      this->interesting_indexes_->append(heapifier_interesting_indexes[i]);
-  }
+  auto heapifier_interesting_indexes = heapifier_->generate_interesting_indexes();
+  for (std::size_t i = 0; i < heapifier_interesting_indexes.get_length(); i++)
+    this->interesting_indexes_->append(heapifier_interesting_indexes[i]);
+
   if (!extracting_started_) this->interesting_indexes_->append(i_);
   else this->interesting_indexes_->append(j_);
 }

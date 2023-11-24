@@ -3,18 +3,6 @@
 namespace kogan {
 
 template <class T> inline void CocktailSorter<T>::sort_() {
-  std::size_t n = this->sequence_->get_length();
-
-  if (!started_) {
-    start_ = 0;
-    end_ = n - 1;
-    i_ = start_;
-    j_ = end_ - 1;
-    swapped_ = false;
-
-    started_ = true;
-  }
-
   while (true) {
     if (!forward_pass_done_) {
       while (i_ < end_) {

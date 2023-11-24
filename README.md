@@ -1,5 +1,7 @@
 # sorts
 
+![Lines of code](https://tokei.rs/b1/github/GregoryKogan/sorts?style=for-the-badge)
+
 ## Description
 
 This is a sorting algorithm visualizer. It is written in C++ and uses SDL2 for graphics. It is compiled to WASM using Emscripten and embedded in a Vue.js app.

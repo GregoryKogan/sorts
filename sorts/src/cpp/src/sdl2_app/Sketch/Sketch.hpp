@@ -7,6 +7,7 @@
 
 #include "../../sorts/smart_sequences/sequences/SmartPtrArraySequence/SmartPtrArraySequence.hpp"
 #include "../../sorts/sorters/BaseSorter.hpp"
+#include "../../sorts/sorters/BogoSorter/BogoSorter.hpp"
 #include "../../sorts/sorters/BubbleSorter/BubbleSorter.hpp"
 #include "../../sorts/sorters/CocktailSorter/CocktailSorter.hpp"
 #include "../../sorts/sorters/CombSorter/CombSorter.hpp"

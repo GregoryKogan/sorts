@@ -95,6 +95,11 @@ const routes = [
         path: '/cycle-sort',
         name: "CycleSort",
         component: () => import('@/views/sorts/CycleSort.vue'),
+      },
+      {
+        path: '/bogo-sort',
+        name: "BogoSort",
+        component: () => import('@/views/sorts/BogoSort.vue'),
       }
     ],
   },

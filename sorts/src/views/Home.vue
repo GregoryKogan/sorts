@@ -42,8 +42,9 @@ export default defineComponent({
       { name: "gnome sort", route: "GnomeSort" },
       { name: "odd-even sort", route: "OddEvenSort" },
       { name: "comb sort", route: "CombSort" },
-      { name: "stooge sort", route: "StoogeSort" },
       { name: "cycle sort", route: "CycleSort" },
+      { name: "bogo sort", route: "BogoSort" },
+      { name: "stooge sort", route: "StoogeSort" },
     ] as Sort[],
   }),
   mounted() {

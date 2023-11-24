@@ -3,7 +3,7 @@
 namespace kogan {
 
 template <class T> inline void IterativeMergeSorter<T>::sort_() {
-  std::size_t n = this->sequence_->get_length();
+  int n = (int)this->sequence_->get_length();
 
   while (curr_size_ <= n - 1) {
     while (left_ < n - 1) {
@@ -21,8 +21,8 @@ template <class T> inline void IterativeMergeSorter<T>::sort_() {
 }
 
 template <class T> inline bool IterativeMergeSorter<T>::merge_() {
-  std::size_t left_length = middle_ - left_ + 1;
-  std::size_t right_length = right_ - middle_;
+  int left_length = middle_ - left_ + 1;
+  int right_length = right_ - middle_;
 
   if (!is_merging_) {
     left_part_.clear();

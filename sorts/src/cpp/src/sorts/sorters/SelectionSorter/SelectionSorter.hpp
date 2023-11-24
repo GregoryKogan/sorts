@@ -6,9 +6,9 @@ namespace kogan {
 
 template <class T> class SelectionSorter : public Sorter<T> {
 private:
-  std::size_t i_;
-  std::size_t j_;
-  std::size_t min_index_;
+  int i_;
+  int j_;
+  int min_index_;
 
 public:
   SelectionSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {

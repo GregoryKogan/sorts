@@ -10,16 +10,23 @@ template <class T> class HeapSorter : public Sorter<T> {
   friend class Heapifier<T>;
 
 private:
-  bool started_ = false;
-  bool initial_heapify_done_ = false;
-  bool extracting_started_ = false;
-  bool extracting_swap_done_ = false;
-  int i_ = 0;
-  int j_ = 0;
+  bool started_;
+  bool initial_heapify_done_;
+  bool extracting_started_;
+  bool extracting_swap_done_;
+  int i_;
+  int j_;
   UniquePtr<Heapifier<T>> heapifier_;
 
 public:
-  HeapSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
+  HeapSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {
+    started_ = false;
+    initial_heapify_done_ = false;
+    extracting_started_ = false;
+    extracting_swap_done_ = false;
+    i_ = 0;
+    j_ = 0;
+  }
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

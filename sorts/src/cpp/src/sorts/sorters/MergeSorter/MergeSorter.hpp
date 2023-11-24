@@ -7,15 +7,15 @@ namespace kogan {
 
 template <class T> class MergeSorter : public Sorter<T> {
 private:
-  std::size_t left_ = -1;
-  std::size_t right_ = -1;
-  std::size_t middle_ = 0;
+  int left_;
+  int right_;
+  int middle_;
   UniquePtr<MergeSorter<T>> left_sorter_;
   UniquePtr<MergeSorter<T>> right_sorter_;
-  bool merged_ = false;
-  std::size_t i_ = 0;
-  std::size_t j_ = 0;
-  std::size_t k_ = 0;
+  bool merged_;
+  int i_;
+  int j_;
+  int k_;
   SmartPtrArraySequence<int> left_part_;
   SmartPtrArraySequence<int> right_part_;
   bool buffers_filled_ = false;
@@ -27,7 +27,17 @@ private:
   SmartPtrLinkedListSequence<std::size_t> generate_interesting_indexes_() const noexcept;
 
 public:
-  MergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
+  MergeSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {
+    left_ = -1;
+    right_ = -1;
+    middle_ = 0;
+    merged_ = false;
+    i_ = 0;
+    j_ = 0;
+    k_ = 0;
+    buffers_filled_ = false;
+    is_merging_ = false;
+  }
 
   void sort_() override;
 

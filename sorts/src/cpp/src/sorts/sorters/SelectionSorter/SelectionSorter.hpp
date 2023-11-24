@@ -6,12 +6,16 @@ namespace kogan {
 
 template <class T> class SelectionSorter : public Sorter<T> {
 private:
-  std::size_t i_ = 0;
-  std::size_t j_ = i_ + 1;
-  std::size_t min_index_ = 0;
+  std::size_t i_;
+  std::size_t j_;
+  std::size_t min_index_;
 
 public:
-  SelectionSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {}
+  SelectionSorter(int (*cmp)(T, T), SharedPtr<SmartPtrSequence<T>> sequence) : Sorter<T>(cmp, sequence) {
+    i_ = 0;
+    j_ = i_ + 1;
+    min_index_ = 0;
+  }
 
   void sort_() override;
   void set_interesting_indexes_() noexcept override;

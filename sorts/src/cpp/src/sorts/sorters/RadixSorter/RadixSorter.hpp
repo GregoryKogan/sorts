@@ -24,7 +24,8 @@ class RadixSorter : public Sorter<int> {
 public:
   RadixSorter(SharedPtr<SmartPtrSequence<int>> sequence) : Sorter<int>([](int a, int b) { return a - b; }, sequence) {
     max_val_found_ = false;
-    max_val_ = sequence->get(0);
+    if (sequence->get_length() > 0) max_val_ = sequence->get(0);
+    else max_val_ = 0;
     max_val_search_index_ = 1;
     count_sorting_ = false;
     exp_ = 1;

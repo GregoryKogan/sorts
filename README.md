@@ -1,6 +1,6 @@
 # sorts
 
-![Lines of code](https://tokei.rs/b1/github/GregoryKogan/sorts?style=for-the-badge)
+![Lines of code](https://tokei.ekzhang.com/b1/github/GregoryKogan/sorts)
 
 ## Description
 

@@ -1,9 +1,12 @@
 # sorts
 
-![Lines of code](https://tokei.ekzhang.com/b1/github/GregoryKogan/sorts)
+<p align="center">
+    <img src=https://github.com/GregoryKogan/sorts/assets/60318411/3edb4110-8152-4b57-b107-fddfb72b5936>
+</p>
 
 ## Description
 
+![](https://tokei.ekzhang.com/b1/github/GregoryKogan/sorts)  
 This is a sorting algorithm visualizer. It is written in C++ and uses SDL2 for graphics. It is compiled to WASM using Emscripten and embedded in a Vue.js app.
 You can see it in action [here](https://gregorykogan.github.io/sorts/).
 

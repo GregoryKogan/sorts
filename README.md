@@ -6,7 +6,8 @@
 
 ## Description
 
-![](https://tokei.ekzhang.com/b1/github/GregoryKogan/sorts)  
+[![Hits-of-Code](https://hitsofcode.com/github/GregoryKogan/sorts?branch=main)](https://hitsofcode.com/github/GregoryKogan/sorts/view?branch=main)
+
 This is a sorting algorithm visualizer. It is written in C++ and uses SDL2 for graphics. It is compiled to WASM using Emscripten and embedded in a Vue.js app.
 You can see it in action [here](https://gregorykogan.github.io/sorts/).
 

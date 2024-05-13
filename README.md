@@ -13,7 +13,7 @@ You can see it in action [here](https://gregorykogan.github.io/sorts/).
 
 ## Benchmarks
 
-Execution time of sorting algorithms on random sequences of integers. All times are in microseconds.
+Averaged execution time of sorting algorithms on random sequences of integers. Time is measured in microseconds.
 
 | Sequence length | Bubble Sort | Selection Sort | Insertion Sort | Merge Sort | Iterative Merge Sort | Quick Sort | Iterative Quick Sort | Heap Sort | Counting Sort | Cocktail Sort | Radix Sort | Shell Sort | Gnome Sort | Odd Even Sort | Comb Sort | Cycle Sort |
 | --------------- | ----------- | -------------- | -------------- | ---------- | -------------------- | ---------- | -------------------- | --------- | ------------- | ------------- | ---------- | ---------- | ---------- | ------------- | --------- | ---------- |
